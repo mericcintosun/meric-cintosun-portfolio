@@ -26,7 +26,7 @@ const StarParticles = () => {
       events: {
         onClick: {
           enable: true,
-          mode: "repulse",
+          mode: "push",
         },
         onHover: {
           enable: true,
@@ -44,7 +44,7 @@ const StarParticles = () => {
           opacity: 0.5,
           size: 4,
         },
-        repulse: {
+        push: {
           distance: 400,
           duration: 0.4,
         },

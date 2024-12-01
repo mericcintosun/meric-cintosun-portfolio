@@ -80,7 +80,6 @@ function NavListMenu() {
         </Menu>
       </div>
 
-      {/* Mobile Version
       <div className="block lg:hidden">
         <ListItem
           className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900 cursor-pointer"
@@ -123,7 +122,7 @@ function NavListMenu() {
             </ul>
           </Collapse>
         </motion.div>
-      </div> */}
+      </div>
     </>
   );
 }
@@ -178,9 +177,8 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <header className="mt-4">
-      <Navbar className="w-[90%] mx-auto sm:w-[90%] sm:mx-auto px-4 py-2 lg:max-w-screen-2xl lg:mx-auto">
-
+    <header className="mt-4 mb-6 ">
+      <Navbar className="w-[90%] mx-auto sm:w-[90%] sm:mx-auto px-4 py-2 lg:max-w-screen-2xl lg:mx-auto ">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
