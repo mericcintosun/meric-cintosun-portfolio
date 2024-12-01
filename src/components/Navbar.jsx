@@ -80,7 +80,7 @@ function NavListMenu() {
         </Menu>
       </div>
 
-      {/* Mobile Version */}
+      {/* Mobile Version
       <div className="block lg:hidden">
         <ListItem
           className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900 cursor-pointer"
@@ -123,7 +123,7 @@ function NavListMenu() {
             </ul>
           </Collapse>
         </motion.div>
-      </div>
+      </div> */}
     </>
   );
 }
@@ -137,7 +137,7 @@ function NavList() {
         </ListItem>
       </Link>
       <Link href="/about">
-        <ListItem className="flex items-center w-[97px] gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  transition-colors duration-300">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  transition-colors duration-300">
           About Me
         </ListItem>
       </Link>
@@ -179,7 +179,7 @@ export function NavbarWithMegaMenu() {
 
   return (
     <header className="mt-4">
-      <Navbar className="mx-auto max-w-screen-2xl px-4 py-2">
+      <Navbar className="lg:mx-auto lg:max-w-screen-2xl lg:px-4 lg:py-2 xs:w-[90%] xs:mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -237,13 +237,15 @@ export function NavbarWithMegaMenu() {
           </IconButton>
         </motion.div>
         <Collapse open={openNav}>
-          <NavList />
-          <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden text-[#1E263A]">
-            <Link href="/contact">
-              <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  rounded-md transition-colors duration-300">
-                Contact
-              </ListItem>
-            </Link>
+          <div className="flex flex-col mx-2">
+            <NavList />
+            <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden text-[#1E263A]">
+              <Link href="/contact">
+                <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  rounded-md transition-colors duration-300">
+                  Contact
+                </ListItem>
+              </Link>
+            </div>
           </div>
         </Collapse>
       </Navbar>
