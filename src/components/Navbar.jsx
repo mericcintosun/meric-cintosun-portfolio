@@ -179,7 +179,8 @@ export function NavbarWithMegaMenu() {
 
   return (
     <header className="mt-4">
-      <Navbar className="lg:mx-auto lg:max-w-screen-2xl lg:px-4 lg:py-2 xs:w-[90%] xs:mx-auto">
+      <Navbar className="w-[90%] mx-auto sm:w-[90%] sm:mx-auto px-4 py-2 lg:max-w-screen-2xl lg:mx-auto">
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
