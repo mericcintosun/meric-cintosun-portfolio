@@ -10,7 +10,7 @@ export default function HomePage() {
         <main className="flex flex-col items-center justify-center px-5 text-center">
           <div
             id="hero_section"
-            className="flex flex-col justify-center items-center"
+            className="flex flex-col justify-center items-center xl:grid xl:grid-cols-[30%_70%]"
           >
             <div id="hero_img">
               <Image
@@ -18,6 +18,7 @@ export default function HomePage() {
                 alt="hero-img"
                 width={300}
                 height={300}
+                className="rounded-full transform transition duration-300 ease-in-out hover:rotate-3 animate-float"
               />
             </div>
             <div id="hero_desc">
@@ -41,71 +42,70 @@ export default function HomePage() {
                 future together!
               </div>
 
-              <div
+              
+            </div>
+            <div
                 id="buttons"
-                className="flex flex-col my-6 gap-6 max-w-full justify-center items-center px-4"
+                className="col-span-full flex flex-col justify-center mx-auto max-w-screen-2xl items-center my-4 gap-6 md:gap-12 md:my-12 md:justify-around md:flex-col md:items-center xl:flex-row xl:items-center xl:justify-around xl:mx-auto"
               >
-                {/* Contact Buttons */}
                 <div
                   id="contact_buttons"
-                  className="flex flex-col sm:flex-row gap-4 sm:gap-12 w-full max-w-md justify-center items-center"
+                  className=" flex flex-col sm:flex-row gap-6  md:gap-12 justify-center items-center xl:items-center xl:justify-around"
                 >
-                  {/* Contact Me! Butonu */}
                   <Link
                     href="/contact"
-                    className="w-full sm:w-auto bg-gradient-to-r from-[#1E0A4D] via-[#2D0F6A] to-[#3A127F] text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-700 transition-opacity duration-200"
+                    className=" w-[11rem] md:w-[15rem] md:text-2xl  sm:w-auto bg-gradient-to-r from-[#1E0A4D] via-[#2D0F6A] to-[#3A127F] text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-700 transition-opacity duration-200"
                   >
                     Contact Me!
                   </Link>
 
-                  {/* Download CV! Butonu */}
-                  <a
-                    href="/cv.pdf"
+                  <Link
+                    href="/mericcintosun-cv.pdf"
                     download
-                    className="w-full sm:w-auto bg-gradient-to-r from-[#1E0A4D] via-[#2D0F6A] to-[#3A127F] text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-700 transition-opacity duration-200"
+                    className="w-[11rem] md:w-[15rem] md:text-2xl  sm:w-auto bg-gradient-to-r from-[#1E0A4D] via-[#2D0F6A] to-[#3A127F] text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-700 transition-opacity duration-200"
                   >
                     Download CV!
-                  </a>
+                  </Link>
                 </div>
 
-                {/* Icon Buttons */}
                 <div
                   id="icon_buttons"
-                  className="flex flex-col sm:flex-row gap-4 sm:gap-12 w-full max-w-md justify-center items-center mt-4"
+                  className="flex flex-col sm:flex-row gap-6 justify-center items-center xl:items-center  xl:justify-around"
                 >
-                  <a
+                  <Link
                     href="https://github.com/mericcintosun"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto bg-gradient-to-r from-[#0a0b1a] via-[#13162f] to-[#1a1a3f] text-white font-semibold py-3 px-4 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-700 transition-opacity duration-200 flex items-center justify-center"
+                    className="w-[11rem] md:w-[15rem] md:text-2xl sm:w-auto bg-gradient-to-r from-[#0a0b1a] via-[#13162f] to-[#1a1a3f] text-white font-semibold py-3 px-4 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-700 transition-opacity duration-200 flex items-center justify-center"
                   >
-                    <img
+                    <Image
                       src="/github.svg"
                       alt="GitHub"
                       width={30}
                       height={30}
-                      className="filter invert hover:invert-0 transition-transform duration-200"
+                      className="filter invert hover:invert-0 transition-transform
+                    duration-200"
                     />
                     <span className="ml-2">GitHub</span>
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     href="https://www.linkedin.com/in/meric-cintosun"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto bg-gradient-to-r from-[#0a0b1a] via-[#13162f] to-[#1a1a3f] text-white font-semibold py-3 px-4 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-700 transition-opacity duration-200 flex items-center justify-center"
+                    className="w-[11rem] md:w-[15rem] md:text-2xl sm:w-auto bg-gradient-to-r from-[#0a0b1a] via-[#13162f] to-[#1a1a3f] text-white font-semibold py-3 px-4 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-700 transition-opacity duration-200 flex items-center justify-center"
                   >
-                    <img
+                    <Image
                       src="/linkedin.svg"
                       alt="LinkedIn"
                       width={30}
                       height={30}
-                      className="filter invert hover:invert-0 transition-transform duration-200"
+                      className="filter invert hover:invert-0 transition-transform
+                    duration-200"
                     />
                     <span className="ml-2">LinkedIn</span>
-                  </a>
+                  </Link>
                 </div>
-              </div>
             </div>
           </div>
         </main>

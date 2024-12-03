@@ -11,9 +11,28 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      fontFamily: {
+        iceland: ["Iceland", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        montserratItalic: ["Montserrat Italic", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        rotate: {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(5deg)" },
+        },
+      },
+      animation: {
+        float: "float 6s ease-in-out infinite",
+        rotate: "rotate 3s ease-in-out infinite",
       },
     },
   },

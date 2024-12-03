@@ -1,253 +1,106 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   Navbar,
   Collapse,
+  Typography,
   IconButton,
-  List,
-  ListItem,
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
 } from "@material-tailwind/react";
-import {
-  ChevronDownIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-
-function NavListMenu() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-
-  return (
-    <>
-      {/* Desktop Version */}
-      <div className="hidden lg:block">
-        <Menu
-          open={isMenuOpen}
-          handler={setIsMenuOpen}
-          offset={{ mainAxis: 20 }}
-          placement="bottom"
-          allowHover={true}
-        >
-          <MenuHandler>
-            <ListItem
-              className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900 cursor-pointer"
-              selected={isMenuOpen}
-            >
-              Skills
-              <ChevronDownIcon
-                strokeWidth={2.5}
-                className={`h-3 w-3 transition-transform ${
-                  isMenuOpen ? "rotate-180" : ""
-                }`}
-              />
-            </ListItem>
-          </MenuHandler>
-          <MenuList className="max-w-screen-xl rounded-xl">
-            <motion.ul
-              className="flex justify-center items-center w-[20rem] outline-none outline-0"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <li>
-                <div className="flex justify-center gap-6 items-center w-80">
-                  <MenuItem>
-                    <Link href="/soft-skills">
-                      <div className="flex justify-center items-center text-sm text-blue-gray-700 transition-colors duration-300">
-                        Soft Skills
-                      </div>
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href="/hard-skills">
-                      <div className="flex justify-center items-center text-sm text-blue-gray-700 transition-colors duration-300">
-                        Hard Skills
-                      </div>
-                    </Link>
-                  </MenuItem>
-                </div>
-              </li>
-            </motion.ul>
-          </MenuList>
-        </Menu>
-      </div>
-
-      <div className="block lg:hidden">
-        <ListItem
-          className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900 cursor-pointer"
-          selected={isMobileMenuOpen}
-          onClick={() => setIsMobileMenuOpen((cur) => !cur)}
-        >
-          Skills
-          <ChevronDownIcon
-            strokeWidth={2.5}
-            className={`h-3 w-3 transition-transform ${
-              isMobileMenuOpen ? "rotate-180" : ""
-            }`}
-          />
-        </ListItem>
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{
-            height: isMobileMenuOpen ? "auto" : 0,
-            opacity: isMobileMenuOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="overflow-hidden"
-        >
-          <Collapse open={isMobileMenuOpen}>
-            <ul className="pl-6">
-              <MenuItem className="py-1">
-                <Link href="/soft-skills">
-                  <div className="font-normal text-blue-gray-700 transition-colors duration-300">
-                    Soft Skills
-                  </div>
-                </Link>
-              </MenuItem>
-              <MenuItem className="py-1">
-                <Link href="/hard-skills">
-                  <div className="font-normal text-blue-gray-700 transition-colors duration-300">
-                    Hard Skills
-                  </div>
-                </Link>
-              </MenuItem>
-            </ul>
-          </Collapse>
-        </motion.div>
-      </div>
-    </>
-  );
-}
 
 function NavList() {
+  const navItems = [
+    { text: "Home", href: "/" },
+    { text: "About Me", href: "/about" },
+    { text: "Projects", href: "/projects" },
+    { text: "Skills", href: "/skills" },
+    { text: "Experience", href: "/experience" },
+    { text: "Education", href: "/education" },
+    { text: "Blog", href: "/blog" },
+  ];
+
   return (
-    <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
-      <Link href="/">
-        <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  transition-colors duration-300">
-          Home
-        </ListItem>
-      </Link>
-      <Link href="/about">
-        <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  transition-colors duration-300">
-          About Me
-        </ListItem>
-      </Link>
-      <Link href="/projects">
-        <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  transition-colors duration-300">
-          Projects
-        </ListItem>
-      </Link>
-      <NavListMenu />
-      <Link href="/experience">
-        <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  transition-colors duration-300">
-          Experience
-        </ListItem>
-      </Link>
-      <Link href="/education">
-        <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  transition-colors duration-300">
-          Education
-        </ListItem>
-      </Link>
-      <Link href="/blog">
-        <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  transition-colors duration-300">
-          Blog
-        </ListItem>
-      </Link>
-    </List>
+    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+      {navItems.map((item) => (
+        <Typography
+          color="blue-gray"
+          className="p-1 font-medium font-montserrat text-blue-gray-100 hover:text-white"
+          key={item.text} // It's better to use a unique identifier
+        >
+          <Link
+            href={item.href}
+            className="flex items-center text-blue-gray-100 hover:text-white transition-colors"
+          >
+            {item.text}
+          </Link>
+        </Typography>
+      ))}
+    </ul>
   );
 }
 
-export function NavbarWithMegaMenu() {
+export function NavbarSimple() {
   const [openNav, setOpenNav] = React.useState(false);
 
+  const handleWindowResize = () =>
+    window.innerWidth >= 960 && setOpenNav(false);
+
   React.useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 960) setOpenNav(false);
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
     };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <header className="mt-4 mb-6 ">
-      <Navbar className="w-[90%] mx-auto sm:w-[90%] sm:mx-auto px-4 py-2 lg:max-w-screen-2xl lg:mx-auto ">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="flex items-center justify-between text-blue-gray-900"
-        >
+    <Navbar
+      color="transparent"
+      variant="transparent"
+      className="mb-12 font-montserrat lg:w-[95%] lg:mx-auto px-6 py-3  shadow-md bg-[#0f172a] bg-opacity-50 lg:bg-transparent lg:shadow-none lg:bg-opacity-0 lg:border-none"
+    >
+      <div className="flex items-center justify-between text-blue-gray-100">
+        <div className="flex gap-2 items-center justify-center">
           <Link href="/">
-            <div className="mr-4 cursor-pointer py-1.5 lg:ml-2 transition-colors duration-300">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="flex gap-2 justify-center items-center"
-              >
-                <Image
-                  src="/main-image.jpg"
-                  alt="logo"
-                  width={50}
-                  height={50}
-                  className="rounded-full hover:scale-110 transition-transform duration-300"
-                />
-                <div className="transition-colors duration-300 font-semibold text-blue-gray-900">
-                  Meriç Cintosun
-                </div>
-              </motion.div>
-            </div>
+            <Image
+              className="rounded-full transform transition duration-300 ease-in-out hover:rotate-3"
+              src="/main-image.jpg"
+              alt="logo"
+              width={60}
+              height={60}
+            />
           </Link>
 
-          <div className="hidden lg:block">
-            <NavList />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="hidden gap-2 lg:flex"
-          >
-            <Link href="/contact">
-              <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  rounded-md transition-colors duration-300">
-                Contact
-              </ListItem>
-            </Link>
-          </motion.div>
-          <IconButton
-            variant="text"
-            color="blue-gray"
-            className="lg:hidden hover:bg-blue-100 transition-colors duration-300"
-            onClick={() => setOpenNav(!openNav)}
-          >
-            {openNav ? (
-              <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-            ) : (
-              <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-            )}
-          </IconButton>
-        </motion.div>
-        <Collapse open={openNav}>
-          <div className="flex flex-col mx-2">
-            <NavList />
-            <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden text-[#1E263A]">
-              <Link href="/contact">
-                <ListItem className="flex items-center gap-2 py-2 pr-4 font-medium text-blue-gray-900 cursor-pointer  rounded-md transition-colors duration-300">
-                  Contact
-                </ListItem>
-              </Link>
-            </div>
-          </div>
-        </Collapse>
-      </Navbar>
-    </header>
+          <Link href="/">
+            <Typography className=" text-2xl text-blue-gray-100 tracking-tighter md:text-3xl mr-4 cursor-pointer py-1.5 hover:text-white transition-colors font-iceland">
+              Meriç <span className="font-medium">Cintosun</span>
+            </Typography>
+          </Link>
+        </div>
+        <div className="hidden lg:block">
+          <NavList />
+        </div>
+        <IconButton
+          variant="text"
+          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          ripple={false}
+          onClick={() => setOpenNav(!openNav)}
+        >
+          {openNav ? (
+            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+          ) : (
+            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+          )}
+        </IconButton>
+      </div>
+      <Collapse open={openNav}>
+        <div className="border border-[#a4b8e9] border-opacity-45 my-4  p-4 bg-[#0f172a] rounded-sm bg-opacity-50">
+          <NavList />
+        </div>
+      </Collapse>
+    </Navbar>
   );
 }

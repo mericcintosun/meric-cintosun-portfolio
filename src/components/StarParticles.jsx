@@ -20,7 +20,7 @@ const StarParticles = () => {
       zIndex: 0,
     },
     detectRetina: true,
-    fpsLimit: 120,
+    fpsLimit: 144,
     interactivity: {
       detectsOn: "window",
       events: {
@@ -39,10 +39,10 @@ const StarParticles = () => {
       },
       modes: {
         bubble: {
-          distance: 250,
-          duration: 2,
-          opacity: 0.5,
-          size: 4,
+          distance: 1500,
+          duration: 200,
+          opacity: 0.8,
+          size: 200,
         },
         push: {
           distance: 400,
@@ -52,11 +52,11 @@ const StarParticles = () => {
     },
     particles: {
       number: {
-        value: 400,
+        value: 600,
         density: {
           enable: true,
-          width: 1920,
-          height: 1080,
+          width: 2560,
+          height: 1440,
         },
       },
       color: {
