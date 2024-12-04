@@ -1,6 +1,7 @@
 import StarParticles from "@/components/StarParticles";
 import "./globals.css";
 import { NavbarSimple } from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Meriç | Portfolio",
@@ -14,7 +15,8 @@ export default function RootLayout({ children }) {
       <body>
         <StarParticles />
         <NavbarSimple/>
-        <main className="font-montserrat mx-auto max-w-screen-2xl">{children}</main>
+        <main className="font-montserrat mx-auto max-w-screen-2xl min-h-[23rem] px-6">{children}</main>
+        <Footer/>
       </body>
     </html>
   );
