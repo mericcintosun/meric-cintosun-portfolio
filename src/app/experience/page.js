@@ -52,10 +52,11 @@ export default function Experience() {
         "At Flalingo, a California-based company, I focus on delivering seamless user experiences for English language learning platforms. I develop scalable, high-performance web and mobile applications using React.js, Next.js, React Native, and Expo. With a focus on UX design, responsive interfaces, and efficient coding practices, I create innovative solutions for both web and mobile projects.",
     },
     {
-      title: "Extra Certificates",
+      title: "Extra",
       subtitle: "Other Details in My LinkedIn Profile",
       date: "N/A",
-      description: "- HSD Figma Workshop\n- Blockchain Academy Rise In",
+      description:
+        "- HSD Figma Workshop\n- Blockchain Academy Rise In\n- ITU Blockchain Community\n- My enthusiasm for the future of Web3 and blockchain technology :)",
     },
   ];
 

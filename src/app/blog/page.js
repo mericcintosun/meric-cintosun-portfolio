@@ -5,7 +5,7 @@ export default function Blog() {
   const { blogs } = data;
 
   return (
-    <section className="container mx-auto px-4 bg-[#0f172a] bg-opacity-70">
+    <section className="container mx-auto px-4 bg-[#0f172a] rounded-xl bg-opacity-70 mb-6 pb-6">
       <h1 className=" py-8 text-center text-[#6B46C1] text-4xl font-bold">
         Blog
       </h1>
