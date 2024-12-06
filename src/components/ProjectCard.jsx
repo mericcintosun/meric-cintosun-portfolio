@@ -18,7 +18,7 @@ export default function ProjectCard({
         floated={false}
         className="m-0 w-full md:w-2/5 shrink-0 rounded-b md:rounded-r-none rounded-t md:rounded-t-none bg-[#0f172a] bg-opacity-50 overflow-hidden"
       >
-        <div className="relative w-full h-0 pb-[100%] md:pb-0 md:h-full">
+        <div className="relative w-full h-0 pb-[100%] md:pb-0 md:h-full border-r-2">
           <Image
             src={imageSrc}
             alt={altText}
@@ -42,7 +42,7 @@ export default function ProjectCard({
         </div>
         <Link href={link} target="_blank">
           <Button className="flex text-white bg-opacity-0 items-center gap-2 m-0 p-0">
-            Learn More
+            Project Details
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

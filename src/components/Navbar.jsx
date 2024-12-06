@@ -17,9 +17,9 @@ function NavList() {
     { text: "About Me", href: "/about" },
     { text: "Projects", href: "/projects" },
     { text: "Skills", href: "/skills" },
-    { text: "Experience", href: "/experience" },
-    { text: "Education", href: "/education" },
+    { text: "My Experience", href: "/experience" },
     { text: "Blog", href: "/blog" },
+    { text: "Contact Me", href: "/contact" },
   ];
 
   return (

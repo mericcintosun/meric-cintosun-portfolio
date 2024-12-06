@@ -13,12 +13,12 @@ export default function Footer() {
               </span>
               . All rights reserved.
             </p>
-            <p className="text-2xl font-medium text-center">
+            <a href="https://github.com/mericcintosun/meric-cintosun-portfolio" target="_blank" className="text-2xl font-medium text-center">
               Open{" "}
               <span className="font-bold bg-gradient-to-r from-[#bdb4ff] via-[#3e276c] to-[#ffffff] text-transparent bg-clip-text">
-                 Source 💜💜
+                Source 💜💜
               </span>
-            </p>
+            </a>
             <p className="text-sm text-center max-w-2xl">
               Built with{" "}
               <span className="font-medium text-gray-100">React</span>,{" "}
@@ -63,19 +63,20 @@ export default function Footer() {
                 href="/experience"
                 className="hover:text-gray-100 transition-colors duration-200"
               >
-                Experience
+                My Experience
               </Link>
-              <Link
-                href="/education"
-                className="hover:text-gray-100 transition-colors duration-200"
-              >
-                Education
-              </Link>
+
               <Link
                 href="/blog"
                 className="hover:text-gray-100 transition-colors duration-200"
               >
                 Blog
+              </Link>
+              <Link
+                href="/contact"
+                className="hover:text-gray-100 transition-colors duration-200"
+              >
+                Contact
               </Link>
             </nav>
           </div>

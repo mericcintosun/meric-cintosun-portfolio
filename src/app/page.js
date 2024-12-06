@@ -59,13 +59,13 @@ export default function HomePage() {
                     Contact Me!
                   </Link>
 
-                  <Link
+                  <a
                     href="/mericcintosun-cv.pdf"
                     download
                     className="w-[11rem] md:w-[15rem] md:text-2xl  sm:w-auto bg-gradient-to-r from-[#1E0A4D] via-[#2D0F6A] to-[#3A127F] text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-700 transition-opacity duration-200"
                   >
                     Download CV!
-                  </Link>
+                  </a>
                 </div>
 
                 <div
