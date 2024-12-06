@@ -1,0 +1,43 @@
+{
+  "blogs": [
+    {
+      "title": "Web 2.0 and Web 3.0: Understanding the Evolution of the Internet",
+      "first_paragraph": "Have you ever wondered how this vast world we call the internet has reached its current state? It has made our lives easier, but at the same time, it has captivated us with its ever-changing narrative. There was a time when we had Web 1.0 — a static and passive internet where we were just readers. Then came Web 2.0, encouraging us to talk, write, and share. We began to create our own worlds. But this freedom came at a cost: our data.",
+      "read_more_url": "https://medium.com/@mericcintosun/web-2-0-and-web-3-0-understanding-the-evolution-of-the-internet-en-373e79ca42b6",
+      "date": "2024-12-02",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*MZ8o7flh0kS2NC6gowLNiQ.jpeg",
+      "tags": ["web2", "web3", "internet", "technology"]
+    },
+    {
+      "title": "Blockchain ile Hayal Etmek: Geleceğin Teknolojisine İlk Adım (TR)",
+      "first_paragraph": "Imagine a world where everything is built on a system that is fair, transparent, and reliable. Trust between people is not dependent on intermediaries but on the system itself. From money transfers to health records, you have full control over everything. This is precisely the kind of world blockchain aims to make a reality.",
+      "read_more_url": "https://medium.com/@mericcintosun/imagine-blockchain-the-first-step-to-tomorrows-technology-en-744fbe0233e0",
+      "date": "2024-12-04",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*pCvO6FrzMOTA2dFoCOZ1jA.jpeg",
+      "tags": ["blockchain", "web3", "technology", "future"]
+    },
+    {
+      "title": "Why Should You Learn Programming? Tips for Beginners",
+      "first_paragraph": "Learning programming, in my opinion, is like gaining a superpower in today’s world. From the apps you use daily to AI-powered systems, almost everything is powered by software. With technology being such a central part of our lives, learning programming can open up incredible opportunities for you.",
+      "read_more_url": "https://medium.com/@mericcintosun/why-should-you-learn-programming-tips-for-beginners-en-ca1542b796a4",
+      "date": "2024-12-06",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*jo_l8JqhRE50lSZ6fRBKWA.jpeg",
+      "tags": ["programming", "technology", "beginners" , "tips" , "learning"] 
+    }
+  ]
+}
