@@ -40,7 +40,7 @@ const SocialButtons = () => {
         >
           <Image
             src="/github.svg"
-            alt="GitHub profilimi ziyaret et"
+            alt="git"
             width={30}
             height={30}
             className="filter invert hover:invert-0 transition-transform duration-200"
@@ -56,7 +56,7 @@ const SocialButtons = () => {
         >
           <Image
             src="/linkedin.svg"
-            alt="LinkedIn profilimi ziyaret et"
+            alt="Linked"
             width={30}
             height={30}
             className="filter invert hover:invert-0 transition-transform duration-200"
