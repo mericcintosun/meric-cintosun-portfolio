@@ -18,6 +18,10 @@ export default function HomePage() {
                 alt="hero-img"
                 width={300}
                 height={300}
+                priority
+                loading="eager"
+                decoding="async"
+                quality={90}
                 className="rounded-full transform transition duration-300 ease-in-out hover:rotate-3 animate-float"
               />
             </div>
