@@ -80,6 +80,7 @@ export default function HomePage() {
                   >
                     <Image
                       src="/github.svg"
+                      alt="github"
                       width={30}
                       height={30}
                       className="filter invert hover:invert-0 transition-transform
@@ -96,6 +97,7 @@ export default function HomePage() {
                   >
                     <Image
                       src="/linkedin.svg"
+                      alt="linkedin"
                       width={30}
                       height={30}
                       className="filter invert hover:invert-0 transition-transform
