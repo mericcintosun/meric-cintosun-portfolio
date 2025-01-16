@@ -13,6 +13,7 @@
     "@material-tailwind/react": "^2.1.10",
     "@react-three/drei": "^9.117.2",
     "@react-three/fiber": "^8.17.10",
+    "critters": "^0.0.25",
     "motion": "^11.11.17",
     "next": "15.0.3",
     "nodemailer": "^6.9.16",
