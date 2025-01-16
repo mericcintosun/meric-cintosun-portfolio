@@ -1,7 +1,28 @@
-import StarParticles from "@/components/StarParticles";
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import "./globals.css";
-import { NavbarSimple } from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Montserrat } from 'next/font/google'
+import Script from 'next/script'
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const StarParticles = dynamic(() => import("@/components/StarParticles"), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-screen w-screen" />,
+  suspense: true
+})
+
+const NavbarSimple = dynamic(() => import("@/components/Navbar").then(mod => mod.NavbarSimple), {
+  loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
+  suspense: true
+})
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
+  suspense: true
+})
 
 export const metadata = {
   title: "Meriç | Portfolio",
@@ -10,12 +31,42 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={montserrat.className}>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/montserrat.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body suppressHydrationWarning={true}>
-        <StarParticles />
-        <NavbarSimple/>
-        <main className="font-montserrat mx-auto max-w-screen-2xl min-h-[23rem] px-6">{children}</main>
-        <Footer/>
+        <Suspense fallback={<div className="animate-pulse bg-gray-200 h-screen w-screen" />}>
+          <StarParticles />
+        </Suspense>
+        <Suspense fallback={<div className="h-16 bg-gray-100 animate-pulse" />}>
+          <NavbarSimple/>
+        </Suspense>
+        <main className="font-montserrat mx-auto max-w-screen-2xl min-h-[23rem] px-6">
+          <Suspense fallback={
+            <div className="animate-pulse">
+              <div className="h-48 bg-gray-200 rounded-lg mb-4"></div>
+              <div className="h-24 bg-gray-200 rounded-lg"></div>
+            </div>
+          }>
+            {children}
+          </Suspense>
+        </main>
+        <Suspense fallback={<div className="h-16 bg-gray-100 animate-pulse" />}>
+          <Footer />
+        </Suspense>
+        
+        {/* Analytics veya diğer 3. parti scriptler */}
+        <Script
+          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=YOUR-ID"
+        />
       </body>
     </html>
   );
