@@ -1,23 +1,35 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import Particles from "react-tsparticles";
+import dynamic from 'next/dynamic';
 import { loadFull } from "tsparticles";
+
+// Particles'ı dinamik olarak import et
+const Particles = dynamic(() => import("react-tsparticles"), {
+  ssr: false,
+  loading: () => null,
+  suspense: true
+});
 
 const StarParticles = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    // Cleanup function
+    return () => setMounted(false);
   }, []);
 
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
+    try {
+      await loadFull(engine);
+    } catch (error) {
+      console.error('Particles init error:', error);
+    }
   }, []);
 
-  if (!mounted) return null;
-
-  const particlesOptions = {
+  // Particle options dışarı çıkarıldı - her render'da yeniden oluşturulmaması için
+  const particlesOptions = React.useMemo(() => ({
     background: {
       color: {
         value: "transparent",
@@ -38,7 +50,7 @@ const StarParticles = () => {
         },
         onHover: {
           enable: true,
-          mode: " bubble ",
+          mode: "bubble",
         },
         resize: {
           enable: true,
@@ -47,14 +59,14 @@ const StarParticles = () => {
       },
       modes: {
         bubble: {
-          distance: 1500,
-          duration: 200,
-          opacity: 0.8,
-          size: 200,
+          distance: 40,
+          duration: 2,
+          opacity: 1,
+          size: 4,
         },
         push: {
-          distance: 400,
-          duration: 0.4,
+          quantity: 8,
+          size: 1,
         },
       },
     },
@@ -63,9 +75,8 @@ const StarParticles = () => {
         value: 600,
         density: {
           enable: true,
-          width: 2560,
-          height: 1440,
-        },
+          value_area: 800
+        }
       },
       color: {
         value: [
@@ -82,6 +93,7 @@ const StarParticles = () => {
       },
       opacity: {
         value: { min: 0.1, max: 1 },
+        random: true,
         animation: {
           enable: true,
           speed: 1,
@@ -91,7 +103,8 @@ const StarParticles = () => {
         },
       },
       size: {
-        value: { min: 1, max: 1.1 },
+        value: { min: 1, max: 1.5 },
+        random: true,
         animation: {
           enable: false,
         },
@@ -100,29 +113,35 @@ const StarParticles = () => {
         enable: true,
         speed: { min: 0.1, max: 1 },
         direction: "none",
+        random: true,
+        straight: false,
         outModes: {
           default: "out",
-        },
-        random: false,
-        straight: false,
-        trail: {
-          enable: false,
+          bottom: "out",
+          left: "out",
+          right: "out",
+          top: "out"
         },
       },
       links: {
         enable: false,
       },
     },
-  };
+  }), []); // Empty dependency array since options are static
+
+  // Client-side only rendering
+  if (!mounted) return null;
 
   return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={particlesOptions}
-      className="fixed inset-0 w-full h-full -z-10"
-    />
+    <div className="fixed inset-0 w-full h-full -z-10" suppressHydrationWarning>
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={particlesOptions}
+        className="w-full h-full"
+      />
+    </div>
   );
 };
 
-export default StarParticles;
+export default React.memo(StarParticles);
