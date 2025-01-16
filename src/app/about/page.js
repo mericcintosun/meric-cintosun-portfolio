@@ -19,7 +19,6 @@ export default function About() {
               alt="hero-img"
               width={200}
               height={200}
-              layout="responsive"
               className="rounded-full aspect-square object-cover transform transition duration-300 ease-in-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#bdb4ff] via-[#3e276c] to-[#0f172a] opacity-10 group-hover:opacity-20 transition duration-300"></div>

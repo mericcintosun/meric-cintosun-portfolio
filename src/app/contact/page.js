@@ -61,7 +61,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mt-[-8rem]">
+      <div className="w-full max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mt-[-8rem] z-[1]">
         <div className="space-y-4 text-center max-w-2xl mx-auto mb-16">
           <h1 className="text-3xl font-semibold md:text-5xl">
             Contact

@@ -22,7 +22,8 @@ export default function ProjectCard({
           <Image
             src={imageSrc}
             alt={altText}
-            layout="fill"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="absolute object-cover rounded-lg"
           />
         </div>
