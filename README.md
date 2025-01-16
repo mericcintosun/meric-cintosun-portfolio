@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio Website
 
-## Getting Started
+A modern and interactive portfolio website built with Next.js and React, featuring a beautiful UI, 3D elements, and various interactive components.
 
-First, run the development server:
+## 🚀 Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Frontend Framework:** Next.js 15.0
+- **UI Library:** React 18
+- **Styling:** 
+  - Tailwind CSS
+  - Material Tailwind
+- **3D Graphics:**
+  - Three.js
+  - React Three Fiber
+  - React Three Drei
+- **Animations & Effects:**
+  - Motion
+  - TSParticles
+  - React Vertical Timeline
+- **Email & Contact:**
+  - Nodemailer
+  - Resend
+  - React Phone Input 2
+- **Icons:**
+  - Hero Icons
+  - React Icons
+
+## ✨ Features
+
+- Modern and responsive design
+- Interactive 3D elements and animations
+- Particle effects for enhanced visual appeal
+- Blog section with dynamic content
+- Project showcase with detailed cards
+- Skills and experience timeline
+- Contact form with email functionality
+- About section with personal information
+- Smooth page transitions and animations
+
+## 🛠️ Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone [repository-url]
+   cd portfolio-website
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Environment Setup**
+   - Create a `.env.local` file in the root directory
+   - Add necessary environment variables:
+     ```env
+     # Add your environment variables here
+     # Example:
+     # RESEND_API_KEY=your_resend_api_key
+     ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. **Build for production**
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+
+## 🌐 Project Structure
+
+```
+portfolio-website/
+├── src/
+│   ├── app/                 # Next.js app directory
+│   │   ├── about/          # About page
+│   │   ├── blog/           # Blog page
+│   │   ├── contact/        # Contact page
+│   │   ├── experience/     # Experience page
+│   │   ├── projects/       # Projects page
+│   │   ├── skills/        # Skills page
+│   │   └── page.js        # Home page
+│   └── components/         # Reusable components
+├── public/                 # Static assets
+└── ...config files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Configuration
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The project uses several configuration files:
+- `next.config.mjs` - Next.js configuration
+- `tailwind.config.js` - Tailwind CSS configuration
+- `postcss.config.js` - PostCSS configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌟 Extra Features
 
-## Learn More
+- Turbopack integration for faster development
+- SEO optimization
+- Responsive design for all devices
+- Interactive UI elements
+- Dynamic content loading
+- Smooth page transitions
+- Contact form validation
+- Custom 3D elements
+- Particle effects background
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👤 Developer Information
 
-## Deploy on Vercel
+Meriç Cintosun
+- Portfolio: [https://mericcintosun.com](https://mericcintosun.com)
+- GitHub: [https://github.com/mericcintosun](https://github.com/mericcintosun)
+- LinkedIn: [https://www.linkedin.com/in/meric-cintosun](https://www.linkedin.com/in/meric-cintosun)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+## 📫 Contact
+
+For any questions or concerns, please contact:
+- Email: contact@mericcintosun.com
+- GitHub: [@mericcintosun](https://github.com/mericcintosun)
+- Portfolio: [mericcintosun.com](https://mericcintosun.com)
