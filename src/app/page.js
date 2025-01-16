@@ -12,17 +12,17 @@ export default function HomePage() {
             id="hero_section"
             className="flex flex-col justify-center items-center xl:grid xl:grid-cols-[30%_70%]"
           >
-            <div id="hero_img">
+            <div id="hero_img" className="relative w-[300px] h-[300px]">
               <Image
                 src="/home-astronaut.webp"
                 alt="hero-img"
-                width={300}
-                height={300}
+                fill
+                sizes="(max-width: 768px) 100vw, 300px"
                 priority
-                loading="eager"
-                decoding="async"
-                quality={90}
-                className="rounded-full transform transition duration-300 ease-in-out hover:rotate-3 animate-float"
+                placeholder="blur"
+                blurDataURL="data:image/webp;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+                quality={75}
+                className="object-cover rounded-full transform transition duration-300 ease-in-out hover:rotate-3 animate-float"
               />
             </div>
             <div id="hero_desc">
