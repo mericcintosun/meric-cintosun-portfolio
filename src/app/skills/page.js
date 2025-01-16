@@ -67,11 +67,11 @@ export default function Skills() {
         <div id="soft-skills" className="flex flex-col ">
           <h1 className="text-center text-5xl font-bold ">Soft Skills</h1>
           <a
-            href="https://r.resimlink.com/zPmOhl-bJWqS.png"
-            download
-            className="text-center text-md text-[#b6c0ea] mb-6"
+            href="/yetgen-certificate.webp"
+            target="_blank"
+            className="text-center text-md text-[#b6c0ea] mb-6 hover:text-white transition-colors"
           >
-            Proven with YetGen certification.
+            Click to view YetGen Leadership Program Certificate
           </a>
           <div className="software-skills-box flex flex-wrap items-center justify-center w-[80%] mx-auto">
             {softSkills.map((skill, index) => (

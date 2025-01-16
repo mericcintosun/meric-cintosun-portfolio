@@ -14,7 +14,7 @@ export default function HomePage() {
           >
             <div id="hero_img">
               <Image
-                src="/home-astronaut.png"
+                src="/home-astronaut.webp"
                 alt="hero-img"
                 width={300}
                 height={300}

@@ -15,7 +15,7 @@ export default function About() {
         >
           <div className="relative group  rounded-full overflow-hidden">
             <Image
-              src="/about-img.jpg"
+              src="/about-img.webp"
               alt="hero-img"
               width={200}
               height={200}

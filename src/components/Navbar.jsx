@@ -67,7 +67,7 @@ export function NavbarSimple() {
           <Link href="/">
             <Image
               className="rounded-full transform transition duration-300 ease-in-out hover:rotate-3"
-              src="/main-image.jpg"
+              src="/main-image.webp"
               alt="logo"
               width={60}
               height={60}

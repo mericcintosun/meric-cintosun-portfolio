@@ -28,7 +28,7 @@ export default function Experience() {
       subtitle: "Participant",
       date: "April - July 2023",
       description:
-        "YetGen is a 12-week 21st-century skills training program. I took courses such as Effective Presentation Techniques, Teamwork, Career Planning, Excel, Information/Media/Financial Literacy, Social Innovation, and the GirişGen Entrepreneurship Module. Through this experience, I learned how to establish a startup focused on the UN Sustainable Development Goals.\n\nSkills: Entrepreneurship, Sustainability, Career Management, Information Literacy, Teamwork, Presentation Skills, Microsoft Excel",
+        "YetGen is a 12-week 21st-century skills training program. I took courses such as Effective Presentation Techniques, Teamwork, Career Planning, Excel, Information, Media, Financial Literacy, Social Innovation, and the GirişGen Entrepreneurship Module. Through this experience, I learned how to establish a startup focused on the UN Sustainable Development Goals.\n\nSkills: Entrepreneurship, Sustainability, Career Management, Information Literacy, Teamwork, Presentation Skills, Microsoft Excel",
     },
     {
       title: "Viviency Digital Media Agency",

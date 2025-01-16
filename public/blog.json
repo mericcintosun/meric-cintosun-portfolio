@@ -10,11 +10,11 @@
         "photo": "/main-image.jpg"
       },
       "language": "en",
-      "main_image": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*MZ8o7flh0kS2NC6gowLNiQ.jpeg",
+      "main_image": "/blogImages/blog-1.webp",
       "tags": ["web2", "web3", "internet", "technology"]
     },
     {
-      "title": "Blockchain ile Hayal Etmek: Geleceğin Teknolojisine İlk Adım (TR)",
+      "title": "Imagine Blockchain: The First Step to Tomorrow’s Technology",
       "first_paragraph": "Imagine a world where everything is built on a system that is fair, transparent, and reliable. Trust between people is not dependent on intermediaries but on the system itself. From money transfers to health records, you have full control over everything. This is precisely the kind of world blockchain aims to make a reality.",
       "read_more_url": "https://medium.com/@mericcintosun/imagine-blockchain-the-first-step-to-tomorrows-technology-en-744fbe0233e0",
       "date": "2024-12-04",
@@ -23,12 +23,12 @@
         "photo": "/main-image.jpg"
       },
       "language": "en",
-      "main_image": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*pCvO6FrzMOTA2dFoCOZ1jA.jpeg",
+      "main_image": "/blogImages/blog-2.webp",
       "tags": ["blockchain", "web3", "technology", "future"]
     },
     {
       "title": "Why Should You Learn Programming? Tips for Beginners",
-      "first_paragraph": "Learning programming, in my opinion, is like gaining a superpower in today’s world. From the apps you use daily to AI-powered systems, almost everything is powered by software. With technology being such a central part of our lives, learning programming can open up incredible opportunities for you.",
+      "first_paragraph": "Learning programming, in my opinion, is like gaining a superpower in today's world. From the apps you use daily to AI-powered systems, almost everything is powered by software. With technology being such a central part of our lives, learning programming can open up incredible opportunities for you.",
       "read_more_url": "https://medium.com/@mericcintosun/why-should-you-learn-programming-tips-for-beginners-en-ca1542b796a4",
       "date": "2024-12-06",
       "author": {
@@ -36,8 +36,125 @@
         "photo": "/main-image.jpg"
       },
       "language": "en",
-      "main_image": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*jo_l8JqhRE50lSZ6fRBKWA.jpeg",
-      "tags": ["programming", "technology", "beginners" , "tips" , "learning"] 
+      "main_image": "/blogImages/blog-3.webp",
+      "tags": ["programming", "technology", "beginners", "tips", "learning"]
+    },
+    {
+      "title": "Bitcoin and Blockchain: A Greater Innovation than the Internet",
+      "first_paragraph": "When Satoshi Nakamoto introduced Bitcoin in 2008, few people could have predicted its revolutionary impact. Today, we're witnessing how this technology is reshaping our understanding of money, trust, and digital interactions. But what makes Bitcoin and blockchain technology so groundbreaking?",
+      "read_more_url": "https://medium.com/@mericcintosun/bitcoin-and-blockchain-a-greater-innovation-than-the-internet-en-894ebda79b7a",
+      "date": "2024-12-10",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "/blogImages/blog-4.webp",
+      "tags": ["bitcoin", "blockchain", "technology", "innovation"]
+    },
+    {
+      "title": "Why Do I Blog as a Developer?",
+      "first_paragraph": "As a developer, writing code is just one part of our journey. Sharing knowledge, experiences, and insights through blogging has become an integral part of my professional growth. But why exactly do developers blog, and what value does it bring to both the writer and the reader?",
+      "read_more_url": "https://medium.com/@mericcintosun/why-do-i-blog-as-a-developer-en-5c5383946f5d",
+      "date": "2024-12-12",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "/blogImages/blog-5.webp",
+      "tags": ["blogging", "development", "writing", "career"]
+    },
+    {
+      "title": "What Will ChatGPT Pro Change? Would You Give $200 to an Artificial Intelligence?",
+      "first_paragraph": "The launch of ChatGPT Pro has sparked intense discussions about the value of AI services. As artificial intelligence continues to evolve and offer more sophisticated capabilities, we're faced with important questions about pricing, accessibility, and the future of AI-powered tools.",
+      "read_more_url": "https://medium.com/@mericcintosun/what-will-chatgpt-pro-change-would-you-give-200-to-an-artificial-intelligence-en-4f55d82219dd",
+      "date": "2024-12-14",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "/blogImages/blog-6.webp",
+      "tags": ["AI", "ChatGPT", "technology", "future"]
+    },
+    {
+      "title": "What Has Ethereum Changed? Smart Contracts and Solidity",
+      "first_paragraph": "Ethereum has revolutionized the blockchain landscape by introducing smart contracts and the Solidity programming language. This innovation has opened up countless possibilities for decentralized applications and automated trust systems.",
+      "read_more_url": "https://medium.com/@mericcintosun/what-has-ethereum-changed-smart-contracts-and-solidity-en-4e8d1c74d21e",
+      "date": "2024-12-16",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "/blogImages/blog-7.webp",
+      "tags": ["ethereum", "blockchain", "smart-contracts", "solidity"]
+    },
+    {
+      "title": "AI Tools That Simplify Coding",
+      "first_paragraph": "Artificial Intelligence is transforming the way we write code. From intelligent code completion to automated testing, AI-powered development tools are making programmers more productive and efficient than ever before.",
+      "read_more_url": "https://medium.com/@mericcintosun/ai-tools-that-simplify-coding-en-efc023329205",
+      "date": "2024-12-18",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "/blogImages/blog-8.webp",
+      "tags": ["AI", "coding", "development", "tools"]
+    },
+    {
+      "title": "Redefining Creativity with Generative AI",
+      "first_paragraph": "Generative AI is pushing the boundaries of what we consider creative work. From art and music to code and design, these tools are not just assisting humans but introducing entirely new ways of thinking about creativity.",
+      "read_more_url": "https://medium.com/@mericcintosun/redefining-creativity-with-generative-ai-tr-a95a54f05b11",
+      "date": "2024-12-20",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "tr",
+      "main_image": "/blogImages/blog-9.webp",
+      "tags": ["AI", "creativity", "generative-ai", "technology"]
+    },
+    {
+      "title": "Where Do Token Economies Stand in the Blockchain Universe?",
+      "first_paragraph": "Token economies have become a fundamental part of the blockchain ecosystem, creating new models for value exchange and economic incentives. But how do these systems work, and what impact are they having on the future of digital economies?",
+      "read_more_url": "https://medium.com/@mericcintosun/where-do-token-economies-stand-in-the-blockchain-universe-en-6b8f9b0aeb09",
+      "date": "2024-12-23",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "/blogImages/blog-10.webp",
+      "tags": ["blockchain", "token-economy", "cryptocurrency", "web3"]
+    },
+    {
+      "title": "Professions You Can Pursue in Blockchain",
+      "first_paragraph": "The blockchain industry has created numerous career opportunities beyond just development. From smart contract auditing to tokenomics design, the field offers diverse paths for professionals looking to enter this revolutionary technology sector.",
+      "read_more_url": "https://medium.com/@mericcintosun/professions-you-can-pursue-in-blockchain-en-3f411133075a",
+      "date": "2024-12-25",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "/blogImages/blog-11.webp",
+      "tags": ["blockchain", "careers", "technology", "professional-development"]
+    },
+    {
+      "title": "How I Became a Software Developer as a Journalism Graduate",
+      "first_paragraph": "My journey from journalism to software development is a testament to the fact that career transitions are possible with dedication and the right mindset. This is my story of how I navigated this significant career change and the lessons I learned along the way.",
+      "read_more_url": "https://medium.com/@mericcintosun/how-i-became-a-software-developer-as-a-journalism-graduate-en-4f350e0f7ee8",
+      "date": "2024-12-28",
+      "author": {
+        "name": "Meriç Cintosun",
+        "photo": "/main-image.jpg"
+      },
+      "language": "en",
+      "main_image": "/blogImages/blog-12.webp",
+      "tags": ["career-change", "software-development", "personal-story", "learning"]
     }
   ]
 }

@@ -2,32 +2,43 @@
 import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function BlogCard({ blog }) {
+  const [showParagraph, setShowParagraph] = useState(false);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+  };
+
   return (
-    <Card className="mb-6 w-full max-w-[48rem] flex flex-col bg-[#0f172a] bg-opacity-50 border text-white hover:bg-opacity-90 transition-all h-full">
+    <Card className="mb-8 w-full max-w-[48rem] bg-[#0f172a] bg-opacity-50 border border-gray-700 text-white hover:bg-opacity-90 transition-all">
       <CardHeader
         shadow={false}
         floated={false}
-        className="m-0 w-full shrink-0 rounded-none bg-[#0f172a] bg-opacity-50 overflow-hidden"
+        className="relative h-64 md:h-72 m-0 rounded-t-lg overflow-hidden"
       >
-        <div className="relative w-full h-0 pb-[60%]">
-          <Image
-            src={blog.main_image}
-            alt={blog.title}
-            fill
-            className="absolute object-cover rounded-t-lg"
-          />
-        </div>
+        <Image
+          src={blog.main_image}
+          alt={blog.title}
+          fill
+          className="object-cover"
+          priority
+        />
       </CardHeader>
-      <CardBody className="w-full flex flex-col p-6 justify-between h-full">
-        <div className="flex-1 flex flex-col gap-4">
-          <h2 className="text-xl font-semibold">{blog.title}</h2>
-          <p className="text-gray-300">{blog.first_paragraph}</p>
+      
+      <CardBody className="p-8">
+        <div className="grid gap-6">
+          <h2 className="text-2xl font-semibold">{blog.title}</h2>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 border-b border-gray-700/50 pb-6">
             {blog.author.photo && (
-              <div className="relative w-12 h-12 rounded-full overflow-hidden">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-purple-500/30">
                 <Image
                   src={blog.author.photo}
                   alt={blog.author.name}
@@ -36,40 +47,67 @@ export default function BlogCard({ blog }) {
                 />
               </div>
             )}
-            <p>
-              <strong>Author:</strong> {blog.author.name}
-            </p>
-          </div>
-
-          <p>
-            <strong>Date:</strong> {blog.date}
-          </p>
-
-          {blog.language && (
-            <p>
-              <strong>Language:</strong> {blog.language}
-            </p>
-          )}
-
-          <div>
-            <strong>Tags:</strong>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {blog.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="bg-[#3e276c] bg-opacity-100 text-gray-300 px-3 py-1 rounded-md text-sm"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="space-y-1.5">
+              <p className="text-sm">
+                <span className="font-semibold text-purple-300">Author:</span> {blog.author.name}
+              </p>
+              <p className="text-sm">
+                <span className="font-semibold text-purple-300">Date:</span> {formatDate(blog.date)}
+              </p>
             </div>
           </div>
-        </div>
 
-        <div className="mt-4">
-          <Link href={blog.read_more_url} target="_blank" rel="noopener noreferrer">
-            <Button variant="text" className="flex text-white bg-opacity-0 items-center gap-2 m-0 p-0">
-              Read More
+          <div className="flex flex-wrap gap-2">
+            {blog.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="bg-[#3e276c] px-4 py-1.5 rounded-md text-sm text-gray-200 hover:bg-[#4e377c] transition-colors"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="space-y-4">
+            <Button 
+              variant="text" 
+              className="text-white hover:text-purple-300 p-0 flex items-center gap-2 transition-colors"
+              onClick={() => setShowParagraph(!showParagraph)}
+            >
+              {showParagraph ? "Hide Preview" : "Show Preview"}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                className={`h-4 w-4 transition-transform ${showParagraph ? 'rotate-180' : ''}`}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </Button>
+            
+            <hr className="border-gray-700" />
+
+            {showParagraph && (
+              <p className="text-gray-300 animate-fadeIn leading-relaxed">
+                {blog.first_paragraph}
+              </p>
+            )}
+          </div>
+
+          <Link 
+            href={blog.read_more_url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Button variant="text" className="flex text-white hover:text-purple-300 items-center gap-2 p-0 transition-colors">
+              Read on Medium
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
