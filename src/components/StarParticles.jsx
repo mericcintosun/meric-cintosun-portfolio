@@ -1,13 +1,21 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 const StarParticles = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
+
+  if (!mounted) return null;
 
   const particlesOptions = {
     background: {

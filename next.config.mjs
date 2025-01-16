@@ -12,6 +12,9 @@ const nextConfig = {
         removeConsole: process.env.NODE_ENV === 'production',
     },
     poweredByHeader: false,
+    compress: true,
+    productionBrowserSourceMaps: false,
+    optimizeFonts: true,
 };
 
 export default nextConfig;
