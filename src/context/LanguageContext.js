@@ -59,7 +59,24 @@ const translations = {
     
     gencFlamingoTitle: "Genç Flamingolar",
     gencFlamingoDesc: "I can't share the details of the project because it is a private project within the company, but the project is generally a chrome extension that facilitates the work of the company's support team. You can reach the technologies I use.",
-    projectDetails: "Project Details"
+    projectDetails: "Project Details",
+    softwareSkills: "Software Skills",
+    softSkills: "Soft Skills",
+    softSkillsCertificate: "Soft skills are proven with YetGen certificate.",
+    // Soft Skills
+    communication: "Communication",
+    problemSolving: "Problem-solving",
+    leadership: "Leadership",
+    timeManagement: "Time management",
+    empathy: "Empathy",
+    emotionalIntelligence: "Emotional intelligence",
+    selfAwareness: "Self-awareness",
+    mentorship: "Mentorship",
+    teamwork: "Teamwork",
+    creativity: "Creativity",
+    adaptability: "Adaptability",
+    selfMotivation: "Self-motivation",
+    conflictManagement: "Conflict management"
   },
   tr: {
     home: "Ana Sayfa",
@@ -115,7 +132,24 @@ const translations = {
     
     gencFlamingoTitle: "Genç Flamingolar",
     gencFlamingoDesc: "Şirket içinde özel bir proje olduğu için projenin detaylarını paylaşamıyorum, ancak proje genel olarak şirketin destek ekibinin işini kolaylaştıran bir chrome uzantısıdır. Kullandığım teknolojilere ulaşabilirsiniz.",
-    projectDetails: "Proje Detayları"
+    projectDetails: "Proje Detayları",
+    softwareSkills: "Yazılım Becerileri",
+    softSkills: "Kişisel Beceriler",
+    softSkillsCertificate: "Kişisel beceriler YetGen sertifikası ile kanıtlanmıştır.",
+    // Soft Skills
+    communication: "İletişim",
+    problemSolving: "Problem çözme",
+    leadership: "Liderlik",
+    timeManagement: "Zaman yönetimi",
+    empathy: "Empati",
+    emotionalIntelligence: "Duygusal zeka",
+    selfAwareness: "Öz farkındalık",
+    mentorship: "Mentorluk",
+    teamwork: "Takım çalışması",
+    creativity: "Yaratıcılık",
+    adaptability: "Uyum sağlama",
+    selfMotivation: "Öz motivasyon",
+    conflictManagement: "Çatışma yönetimi"
   }
 };
 
