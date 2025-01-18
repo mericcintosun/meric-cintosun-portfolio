@@ -4,16 +4,20 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
 
 function NavList() {
+  const { t } = useLanguage();
+  
   const navItems = [
-    { text: "Home", href: "/" },
-    { text: "About Me", href: "/about" },
-    { text: "Projects", href: "/projects" },
-    { text: "Skills", href: "/skills" },
-    { text: "My Experience", href: "/experience" },
-    { text: "Blog", href: "/blog" },
-    { text: "Contact Me", href: "/contact" },
+    { text: t('home'), href: "/" },
+    { text: t('aboutMe'), href: "/about" },
+    { text: t('projects'), href: "/projects" },
+    { text: t('skills'), href: "/skills" },
+    { text: t('experience'), href: "/experience" },
+    { text: t('blog'), href: "/blog" },
+    { text: t('contactMe'), href: "/contact" },
   ];
 
   return (
@@ -69,8 +73,9 @@ export function NavbarSimple() {
             </Link>
           </div>
           
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex lg:items-center lg:gap-4">
             <NavList />
+            <LanguageSwitcher />
           </div>
           
           <button
@@ -92,7 +97,10 @@ export function NavbarSimple() {
         
         {openNav && (
           <div className="border border-[#a4b8e9] border-opacity-45 my-4 p-4 bg-[#0f172a] rounded-sm bg-opacity-50">
-            <NavList />
+            <div className="flex flex-col items-start gap-4">
+              <NavList />
+              <LanguageSwitcher />
+            </div>
           </div>
         )}
       </div>
