@@ -71,7 +71,7 @@ export default function Skills() {
             target="_blank"
             className="text-center text-md text-[#b6c0ea] mb-6 hover:text-white transition-colors"
           >
-            Click to view YetGen Leadership Program Certificate
+            Soft skills are proven with YetGen certificate.
           </a>
           <div className="software-skills-box flex flex-wrap items-center justify-center w-[80%] mx-auto">
             {softSkills.map((skill, index) => (
