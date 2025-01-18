@@ -2,6 +2,7 @@
 import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProjectCard({
   title,
@@ -11,6 +12,8 @@ export default function ProjectCard({
   altText = "card-image",
   link = "#",
 }) {
+  const { t } = useLanguage();
+
   return (
     <Card className="mb-6 w-full max-w-[48rem] flex flex-col md:flex-row bg-[#0f172a] bg-opacity-50 border text-white hover:bg-opacity-90 transition-all">
       <CardHeader
@@ -43,7 +46,7 @@ export default function ProjectCard({
         </div>
         <Link href={link} target="_blank">
           <Button className="flex text-white bg-opacity-0 items-center gap-2 m-0 p-0">
-            Project Details
+            {t('projectDetails')}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

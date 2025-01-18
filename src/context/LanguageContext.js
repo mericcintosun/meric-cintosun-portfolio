@@ -26,7 +26,40 @@ const translations = {
     contactButton: "Contact Me!",
     downloadCV: "Download CV!",
     github: "GitHub",
-    linkedin: "LinkedIn"
+    linkedin: "LinkedIn",
+    copyright: "Copyright",
+    allRightsReserved: "All rights reserved",
+    openSource: "Open Source",
+    builtWith: "Built with",
+    and: "and",
+    fullStackDev: "Full Stack Developer",
+    aboutIntro: "Hi! I'm Meriç Cintosun, a software developer specializing in blockchain and web technologies. My journey, fueled by a deep curiosity about how technology shapes the world, has led me to delve into software development and the blockchain ecosystem. After graduating from Istanbul University's Faculty of Communication, I became an active member of ITU Blockchain, contributing to both research and development. I focus on Layer 2 solutions, decentralized applications (dApps), and blockchain protocols, developing projects using technologies like Solidity, CosmWasm, and Rust.",
+    aboutCareer: "Throughout my career, I have gained expertise in both frontend and mobile application development. I enjoy creating modern, user-centric interfaces and building projects that make technology more accessible. Using tools like React, Next.js, TailwindCSS, React Native, and Expo, I develop dynamic and user-friendly applications, while TypeScript and Framer Motion allow me to elevate my designs to a modern and professional level. Currently, I work as a Mid Frontend & Mobile Developer at Flalingo, a language learning application, where I focus on AI-powered mobile solutions.",
+    aboutPassion: "I am passionate about continuous learning and self-improvement. I am motivated by the opportunity to work with new technologies, create innovative projects, and use technology to make the world a better place. In my spare time, I participate in hackathons and share knowledge with communities through content creation. Beyond software, I am deeply committed to working on projects that combine design, creativity, and technology. If you're looking to collaborate on something inspiring, I'm always open to connecting!",
+    newsTrackerTitle: "News Tracker Real Time Application",
+    newsTrackerDesc: "News Tracker is a modern and responsive web and mobile application built with Next.js and NewsAPI, offering real-time news tracking across categorized sections. It features push notifications, a user-friendly interface, and a time graph for tracking news updates interactively.",
+    
+    nonoTitle: "Nono (zK Nonogram Game)",
+    nonoDesc: "zk Nonogram Game is an innovative puzzle game powered by zero-knowledge proof (zk-SNARK) technology, allowing players to solve logic-based puzzles while preserving their privacy. The game offers a secure and engaging experience with a modern, user-friendly interface.",
+    
+    mediaAgencyTitle: "Digital Media Agency Blog Website",
+    mediaAgencyDesc: "This digital media agency website enables users to create personalized training programs tailored to their needs and track progress in real-time. It offers interactive content, performance analytics, and a user-friendly interface to enhance the learning experience.",
+    
+    kittyTodoTitle: "Kitty Todo List",
+    kittyTodoDesc: "Kitty Todo List is a simple and fun task management app with an adorable cat theme, allowing users to organize their to-dos effortlessly. Its minimalist interface and pastel colors provide a functional yet visually delightful experience.",
+    
+    personaTitle: "Persona (Wallet App)",
+    personaDesc: "Persona is a platform that allows users to connect their Web3 wallets and view transaction data and scores on various Layer 2 networks. The project is built using modern frontend technologies like React, Tailwind CSS, and Wagmi.",
+    
+    eduflowTitle: "Eduflow (Blockchain Education App)",
+    eduflowDesc: "Eduflow is a blockchain education app that allows users to learn about blockchain technology and earn rewards for completing courses. The app is built using modern frontend technologies like React, Tailwind CSS, and Wagmi.",
+    
+    alvinTitle: "Alvin New Year Progress",
+    alvinDesc: "Alvin New Year Progress is a simple and fun task management app with an adorable cat theme, allowing users to organize their to-dos effortlessly. Its minimalist interface and pastel colors provide a functional yet visually delightful experience.",
+    
+    gencFlamingoTitle: "Genç Flamingolar",
+    gencFlamingoDesc: "I can't share the details of the project because it is a private project within the company, but the project is generally a chrome extension that facilitates the work of the company's support team. You can reach the technologies I use.",
+    projectDetails: "Project Details"
   },
   tr: {
     home: "Ana Sayfa",
@@ -49,7 +82,40 @@ const translations = {
     contactButton: "İletişime Geç!",
     downloadCV: "CV'mi İndir!",
     github: "GitHub",
-    linkedin: "LinkedIn"
+    linkedin: "LinkedIn",
+    copyright: "Telif Hakkı",
+    allRightsReserved: "Tüm hakları saklıdır",
+    openSource: "Açık Kaynak",
+    builtWith: "Kullanılan teknolojiler:",
+    and: "ve",
+    fullStackDev: "Full Stack Geliştirici",
+    aboutIntro: "Merhaba! Ben Meriç Cintosun, blockchain ve web teknolojileri konusunda uzmanlaşmış bir yazılım geliştiricisiyim. Teknolojinin dünyayı nasıl şekillendirdiğine dair derin merakımla başlayan yolculuğum, beni yazılım geliştirme ve blockchain ekosistemine yönlendirdi. İstanbul Üniversitesi İletişim Fakültesi'nden mezun olduktan sonra, ITU Blockchain'in aktif bir üyesi oldum ve hem araştırma hem de geliştirme alanlarında katkıda bulundum. Layer 2 çözümleri, merkeziyetsiz uygulamalar (dApps) ve blockchain protokolleri üzerine odaklanıyor, Solidity, CosmWasm ve Rust gibi teknolojileri kullanarak projeler geliştiriyorum.",
+    aboutCareer: "Kariyerim boyunca hem frontend hem de mobil uygulama geliştirme konusunda uzmanlık kazandım. Modern, kullanıcı odaklı arayüzler oluşturmaktan ve teknolojiyi daha erişilebilir kılan projeler geliştirmekten keyif alıyorum. React, Next.js, TailwindCSS, React Native ve Expo gibi araçları kullanarak dinamik ve kullanıcı dostu uygulamalar geliştirirken, TypeScript ve Framer Motion ile tasarımlarımı modern ve profesyonel bir seviyeye taşıyorum. Şu anda, bir dil öğrenme uygulaması olan Flalingo'da Mid Frontend & Mobile Developer olarak çalışıyor, yapay zeka destekli mobil çözümler üzerine odaklanıyorum.",
+    aboutPassion: "Sürekli öğrenme ve kendimi geliştirme konusunda tutkulu biriyim. Yeni teknolojilerle çalışma, yenilikçi projeler oluşturma ve teknolojiyi dünyayı daha iyi bir yer haline getirmek için kullanma fırsatı beni motive ediyor. Boş zamanlarımda hackathonlara katılıyor ve içerik oluşturarak topluluklarla bilgi paylaşıyorum. Yazılımın ötesinde, tasarım, yaratıcılık ve teknolojiyi birleştiren projeler üzerinde çalışmaya derinden bağlıyım. İlham verici bir şey üzerinde işbirliği yapmak istiyorsanız, her zaman iletişime açığım!",
+    newsTrackerTitle: "Gerçek Zamanlı Haber Takip Uygulaması",
+    newsTrackerDesc: "News Tracker, Next.js ve NewsAPI ile oluşturulmuş, kategorize edilmiş bölümlerde gerçek zamanlı haber takibi sunan modern ve duyarlı bir web ve mobil uygulamadır. Push bildirimleri, kullanıcı dostu arayüz ve haber güncellemelerini interaktif olarak takip etmek için zaman grafiği özellikleri bulunmaktadır.",
+    
+    nonoTitle: "Nono (zK Nonogram Oyunu)",
+    nonoDesc: "zk Nonogram Oyunu, sıfır bilgi ispatı (zk-SNARK) teknolojisi ile güçlendirilmiş, oyuncuların gizliliklerini koruyarak mantık tabanlı bulmacaları çözmelerine olanak tanıyan yenilikçi bir bulmaca oyunudur. Oyun, modern ve kullanıcı dostu bir arayüzle güvenli ve ilgi çekici bir deneyim sunmaktadır.",
+    
+    mediaAgencyTitle: "Dijital Medya Ajansı Blog Sitesi",
+    mediaAgencyDesc: "Bu dijital medya ajansı web sitesi, kullanıcıların ihtiyaçlarına göre özelleştirilmiş eğitim programları oluşturmalarına ve ilerlemeyi gerçek zamanlı olarak takip etmelerine olanak tanır. Öğrenme deneyimini geliştirmek için interaktif içerik, performans analitiği ve kullanıcı dostu bir arayüz sunar.",
+    
+    kittyTodoTitle: "Kedi Temalı Yapılacaklar Listesi",
+    kittyTodoDesc: "Kitty Todo List, sevimli bir kedi temasına sahip, kullanıcıların yapılacaklar listelerini zahmetsizce düzenlemelerine olanak tanıyan basit ve eğlenceli bir görev yönetimi uygulamasıdır. Minimalist arayüzü ve pastel renkleri ile fonksiyonel ve görsel açıdan keyifli bir deneyim sunar.",
+    
+    personaTitle: "Persona (Cüzdan Uygulaması)",
+    personaDesc: "Persona, kullanıcıların Web3 cüzdanlarını bağlamalarına ve çeşitli Layer 2 ağlarındaki işlem verilerini ve skorlarını görüntülemelerine olanak tanıyan bir platformdur. Proje, React, Tailwind CSS ve Wagmi gibi modern frontend teknolojileri kullanılarak oluşturulmuştur.",
+    
+    eduflowTitle: "Eduflow (Blockchain Eğitim Uygulaması)",
+    eduflowDesc: "Eduflow, kullanıcıların blockchain teknolojisi hakkında bilgi edinmelerine ve kursları tamamlayarak ödüller kazanmalarına olanak tanıyan bir blockchain eğitim uygulamasıdır. Uygulama, React, Tailwind CSS ve Wagmi gibi modern frontend teknolojileri kullanılarak oluşturulmuştur.",
+    
+    alvinTitle: "Alvin Yeni Yıl İlerleme Takibi",
+    alvinDesc: "Alvin Yeni Yıl İlerleme Takibi, sevimli bir kedi temasına sahip, kullanıcıların yapılacaklar listelerini zahmetsizce düzenlemelerine olanak tanıyan basit ve eğlenceli bir görev yönetimi uygulamasıdır. Minimalist arayüzü ve pastel renkleri ile fonksiyonel ve görsel açıdan keyifli bir deneyim sunar.",
+    
+    gencFlamingoTitle: "Genç Flamingolar",
+    gencFlamingoDesc: "Şirket içinde özel bir proje olduğu için projenin detaylarını paylaşamıyorum, ancak proje genel olarak şirketin destek ekibinin işini kolaylaştıran bir chrome uzantısıdır. Kullandığım teknolojilere ulaşabilirsiniz.",
+    projectDetails: "Proje Detayları"
   }
 };
 
