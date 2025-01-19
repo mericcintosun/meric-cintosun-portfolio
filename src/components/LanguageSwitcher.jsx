@@ -8,9 +8,9 @@ export function LanguageSwitcher() {
   return (
     <button
       onClick={toggleLanguage}
-      className="px-3 py-1 rounded-md bg-[#71607d] hover:bg-[#38117c] transition-colors text-white font-medium text-sm"
+      className="px-3 py-1 rounded-md bg-[#71607d] hover:bg-[#38117c] transition-colors text-white font-medium text-sm flex items-center gap-1"
     >
-      {language === 'en' ? 'TR' : 'EN'}
+      {language === 'en' ? '🇹🇷' : '🇺🇸'}
     </button>
   );
-} 
+}

@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import BlogCard from "@/components/BlogCard";
 import data from "../../../public/blog.json";
 import { Select, Option, Input } from "@material-tailwind/react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Blog() {
+  const { t } = useLanguage();
   const [blogs, setBlogs] = useState([]);
   const [sortOrder, setSortOrder] = useState("newest");
   const [searchTerm, setSearchTerm] = useState("");
@@ -43,12 +45,12 @@ export default function Blog() {
         <h1 className="text-[#6B46C1] text-4xl font-bold text-center mb-2">
           Blog
         </h1>
-        
+        <p>{t('blogNote')}</p>
         <div className="flex flex-col md:flex-row gap-4 items-stretch justify-center max-w-3xl mx-auto w-full bg-[#1a2234]/80 p-4 rounded-xl">
           <div className="w-full md:w-[60%] relative">
             <Input
               type="text"
-              label="Search in blogs..."
+              label={t('searchInBlogs')}
               value={searchTerm}
               onChange={handleSearch}
               className="!border-none focus:!border-none text-white"
@@ -81,7 +83,7 @@ export default function Blog() {
           <div className="w-full md:w-[40%] md:border-l border-purple-500/20">
             <div className="md:pl-4">
               <Select
-                label="Sort by Date"
+                label={t('sortByDate')}
                 value={sortOrder}
                 onChange={handleSortChange}
                 className="text-white !border-none"
@@ -109,10 +111,10 @@ export default function Blog() {
                 }
               >
                 <Option value="newest" className="hover:bg-purple-500/20 text-white bg-[#1a2234]">
-                  Newest First
+                  {t('newestFirst')}
                 </Option>
                 <Option value="oldest" className="hover:bg-purple-500/20 text-white bg-[#1a2234]">
-                  Oldest First
+                  {t('oldestFirst')}
                 </Option>
               </Select>
             </div>
@@ -122,7 +124,8 @@ export default function Blog() {
       
       {blogs.length === 0 && searchTerm && (
         <div className="text-center text-white py-8">
-          No blogs found matching "<span className="text-purple-300">{searchTerm}</span>"
+          {t('noBlogs')}
+          <span className="text-purple-300">{searchTerm}</span>
         </div>
       )}
       
