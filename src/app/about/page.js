@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function About() {
   const { t } = useLanguage();
@@ -12,11 +13,18 @@ export default function About() {
         id="container"
         className="flex flex-col gap-6 justify-center items-center  xl:grid xl:grid-cols-[30%_70%]"
       >
-        <div
+        <motion.div
           id="about-img"
-          className="flex flex-col gap-2 justify-center items-center "
+          className="flex flex-col gap-2 justify-center items-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div className="relative group  rounded-full overflow-hidden">
+          <motion.div 
+            className="relative group rounded-full overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
             <Image
               src="/about-img.webp"
               alt="hero-img"
@@ -25,18 +33,53 @@ export default function About() {
               className="rounded-full aspect-square object-cover transform transition duration-300 ease-in-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#bdb4ff] via-[#3e276c] to-[#0f172a] opacity-10 group-hover:opacity-20 transition duration-300"></div>
-          </div>
-          <h1 className="text-3xl font-semibold md:text-5xl">Meriç Cintosun</h1>
-          <h2 className="text-xl md:text-2xl">{t('fullStackDev')}</h2>
-        </div>
-        <div
+          </motion.div>
+          <motion.h1 
+            className="text-3xl font-semibold md:text-5xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            Meriç Cintosun
+          </motion.h1>
+          <motion.h2 
+            className="text-xl md:text-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {t('fullStackDev')}
+          </motion.h2>
+        </motion.div>
+        <motion.div
           id="about-desc"
-          className="bg-[#0f172a] bg-opacity-50 rounded-xl lg:w-[70%] lg:mx-auto p-6 flex flex-col gap-6 mb-6  xl:w-full"
+          className="bg-[#0f172a] bg-opacity-50 rounded-xl lg:w-[70%] lg:mx-auto p-6 flex flex-col gap-6 mb-6 xl:w-full"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <p>{t('aboutIntro')}</p>
-          <p>{t('aboutCareer')}</p>
-          <p>{t('aboutPassion')}</p>
-        </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            {t('aboutIntro')}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            {t('aboutCareer')}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            {t('aboutPassion')}
+          </motion.p>
+        </motion.div>
       </div>
     </>
   );

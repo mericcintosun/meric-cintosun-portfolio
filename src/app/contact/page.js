@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -64,88 +65,96 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="w-full max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:mt-[-8rem] z-[1]">
-        <div className="space-y-4 text-center max-w-2xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-4 text-center max-w-2xl mx-auto mb-16"
+        >
           <h1 className="text-3xl font-semibold md:text-5xl">
             {t('contact')}
           </h1>
-          <div className="w-24 h-1 bg-[#bdb4ff] mx-auto my-4 rounded-full"></div>
-          <p className="text-xl md:text-2xl">
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-24 h-1 bg-[#bdb4ff] mx-auto my-4 rounded-full"
+          ></motion.div>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-xl md:text-2xl"
+          >
             {t('getInTouch')}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {status === "success" && (
-          <div className="mb-6 p-4 rounded-lg text-center bg-green-100 text-green-800 border border-green-400">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="mb-6 p-4 rounded-lg text-center bg-green-100 text-green-800 border border-green-400"
+          >
             {t('successMessage')}
-          </div>
+          </motion.div>
         )}
 
         {status === "error" && (
-          <div className="mb-6 p-4 rounded-lg text-center bg-red-100 text-red-800 border border-red-400">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="mb-6 p-4 rounded-lg text-center bg-red-100 text-red-800 border border-red-400"
+          >
             {t('errorMessage')}
-          </div>
+          </motion.div>
         )}
 
-        <div className="bg-[#0f172a] bg-opacity-50 rounded-xl p-6 sm:p-10 shadow-xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-[#0f172a] bg-opacity-50 rounded-xl p-6 sm:p-10 shadow-xl"
+        >
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="space-y-6">
-              <div>
-                <label 
-                  htmlFor="fullName" 
-                  className="block text-sm font-semibold mb-2"
+              {[
+                { id: 'fullName', label: t('fullName'), type: 'text', required: true, placeholder: t('placeholderFullName') },
+                { id: 'email', label: t('emailAddress'), type: 'email', required: true, placeholder: t('placeholderEmail') },
+                { id: 'phone', label: t('phoneNumber'), type: 'tel', required: false, placeholder: t('placeholderPhone') }
+              ].map((field, index) => (
+                <motion.div
+                  key={field.id}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
-                  {t('fullName')} <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  id="fullName"
-                  required
-                  placeholder={t('placeholderFullName')}
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-3.5 bg-[#0f172a] bg-opacity-70 border border-[#bdb4ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bdb4ff] focus:border-transparent transition duration-300 placeholder-gray-400"
-                />
-              </div>
+                  <label 
+                    htmlFor={field.id} 
+                    className="block text-sm font-semibold mb-2"
+                  >
+                    {field.label} {field.required && <span className="text-red-500">*</span>}
+                  </label>
+                  <input
+                    type={field.type}
+                    name={field.id}
+                    id={field.id}
+                    required={field.required}
+                    placeholder={field.placeholder}
+                    value={formData[field.id]}
+                    onChange={handleChange}
+                    className="block w-full px-4 py-3.5 bg-[#0f172a] bg-opacity-70 border border-[#bdb4ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bdb4ff] focus:border-transparent transition duration-300 placeholder-gray-400"
+                  />
+                </motion.div>
+              ))}
 
-              <div>
-                <label 
-                  htmlFor="email" 
-                  className="block text-sm font-semibold mb-2"
-                >
-                  {t('emailAddress')} <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  placeholder={t('placeholderEmail')}
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-3.5 bg-[#0f172a] bg-opacity-70 border border-[#bdb4ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bdb4ff] focus:border-transparent transition duration-300 placeholder-gray-400"
-                />
-              </div>
-
-              <div>
-                <label 
-                  htmlFor="phone" 
-                  className="block text-sm font-semibold mb-2"
-                >
-                  {t('phoneNumber')}
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  placeholder={t('placeholderPhone')}
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-3.5 bg-[#0f172a] bg-opacity-70 border border-[#bdb4ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bdb4ff] focus:border-transparent transition duration-300 placeholder-gray-400"
-                />
-              </div>
-
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
                 <label 
                   htmlFor="message" 
                   className="block text-sm font-semibold mb-2"
@@ -162,18 +171,23 @@ export default function Contact() {
                   onChange={handleChange}
                   className="block w-full px-4 py-3.5 bg-[#0f172a] bg-opacity-70 border border-[#bdb4ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bdb4ff] focus:border-transparent transition duration-300 resize-none placeholder-gray-400"
                 />
-              </div>
+              </motion.div>
             </div>
 
-            <button
+            <motion.button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full px-6 py-4 rounded-lg font-semibold text-base transform transition-all duration-300 shadow-lg 
+              whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className={`w-full px-6 py-4 rounded-lg font-semibold text-base transform shadow-lg 
                 ${isSubmitting
                   ? "bg-gray-500 cursor-not-allowed opacity-50"
                   : showSuccess
                   ? "bg-green-600 text-white"
-                  : "bg-[#3e276c] text-white hover:bg-[#bdb4ff] hover:text-[#0f172a] hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl"
+                  : "bg-[#3e276c] text-white hover:bg-[#bdb4ff] hover:text-[#0f172a] hover:shadow-xl"
                 }`}
             >
               {isSubmitting ? (
@@ -194,9 +208,9 @@ export default function Contact() {
               ) : (
                 t('sendMessage')
               )}
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

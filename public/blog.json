@@ -11,10 +11,10 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-1.webp",
-      "tags": ["web2", "web3", "internet", "technology"]
+      "tags": ["web3", "technology"]
     },
     {
-      "title": "Imagine Blockchain: The First Step to Tomorrow’s Technology",
+      "title": "Imagine Blockchain: The First Step to Tomorrow's Technology",
       "first_paragraph": "Imagine a world where everything is built on a system that is fair, transparent, and reliable. Trust between people is not dependent on intermediaries but on the system itself. From money transfers to health records, you have full control over everything. This is precisely the kind of world blockchain aims to make a reality.",
       "read_more_url": "https://medium.com/@mericcintosun/imagine-blockchain-the-first-step-to-tomorrows-technology-en-744fbe0233e0",
       "date": "2024-12-04",
@@ -24,7 +24,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-2.webp",
-      "tags": ["blockchain", "web3", "technology", "future"]
+      "tags": ["blockchain", "technology"]
     },
     {
       "title": "Why Should You Learn Programming? Tips for Beginners",
@@ -37,7 +37,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-3.webp",
-      "tags": ["programming", "technology", "beginners", "tips", "learning"]
+      "tags": ["programming", "learning"]
     },
     {
       "title": "Bitcoin and Blockchain: A Greater Innovation than the Internet",
@@ -50,7 +50,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-4.webp",
-      "tags": ["bitcoin", "blockchain", "technology", "innovation"]
+      "tags": ["bitcoin", "blockchain"]
     },
     {
       "title": "Why Do I Blog as a Developer?",
@@ -63,7 +63,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-5.webp",
-      "tags": ["blogging", "development", "writing", "career"]
+      "tags": ["blogging", "development"]
     },
     {
       "title": "What Will ChatGPT Pro Change? Would You Give $200 to an Artificial Intelligence?",
@@ -76,7 +76,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-6.webp",
-      "tags": ["AI", "ChatGPT", "technology", "future"]
+      "tags": ["AI", "technology"]
     },
     {
       "title": "What Has Ethereum Changed? Smart Contracts and Solidity",
@@ -89,7 +89,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-7.webp",
-      "tags": ["ethereum", "blockchain", "smart-contracts", "solidity"]
+      "tags": ["ethereum", "blockchain"]
     },
     {
       "title": "AI Tools That Simplify Coding",
@@ -102,7 +102,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-8.webp",
-      "tags": ["AI", "coding", "development", "tools"]
+      "tags": ["AI", "development"]
     },
     {
       "title": "Redefining Creativity with Generative AI",
@@ -115,7 +115,7 @@
       },
       "language": "tr",
       "main_image": "/blogImages/blog-9.webp",
-      "tags": ["AI", "creativity", "generative-ai", "technology"]
+      "tags": ["AI", "technology"]
     },
     {
       "title": "Where Do Token Economies Stand in the Blockchain Universe?",
@@ -128,7 +128,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-10.webp",
-      "tags": ["blockchain", "token-economy", "cryptocurrency", "web3"]
+      "tags": ["blockchain", "cryptocurrency"]
     },
     {
       "title": "Professions You Can Pursue in Blockchain",
@@ -141,7 +141,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-11.webp",
-      "tags": ["blockchain", "careers", "technology", "professional-development"]
+      "tags": ["blockchain", "technology"]
     },
     {
       "title": "How I Became a Software Developer as a Journalism Graduate",
@@ -154,7 +154,7 @@
       },
       "language": "en",
       "main_image": "/blogImages/blog-12.webp",
-      "tags": ["career-change", "software-development", "personal-story", "learning"]
+      "tags": ["software-development", "career-change"]
     }
   ]
 }

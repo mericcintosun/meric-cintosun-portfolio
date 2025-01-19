@@ -4,6 +4,7 @@ import BlogCard from "@/components/BlogCard";
 import data from "../../../public/blog.json";
 import { Select, Option, Input } from "@material-tailwind/react";
 import { useLanguage } from "@/context/LanguageContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Blog() {
   const { t } = useLanguage();
@@ -39,14 +40,51 @@ export default function Blog() {
     setSearchTerm(event.target.value);
   };
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
   return (
-    <section className="container mx-auto px-4 bg-[#0f172a] rounded-xl bg-opacity-70 mb-6 pb-6">
-      <div className="flex flex-col py-8 space-y-8">
-        <h1 className="text-[#6B46C1] text-4xl font-bold text-center mb-2">
+    <motion.section 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="container mx-auto px-4 bg-[#0f172a] rounded-xl bg-opacity-70 mb-6 pb-6"
+    >
+      <motion.div 
+        className="flex flex-col py-8 space-y-8"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+      >
+        <motion.h1 
+          className="text-[#6B46C1] text-4xl font-bold text-center mb-2"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+        >
           Blog
-        </h1>
-        <p>{t('blogNote')}</p>
-        <div className="flex flex-col md:flex-row gap-4 items-stretch justify-center max-w-3xl mx-auto w-full bg-[#1a2234]/80 p-4 rounded-xl">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          {t('blogNote')}
+        </motion.p>
+        <motion.div 
+          className="flex flex-col md:flex-row gap-4 items-stretch justify-center max-w-3xl mx-auto w-full bg-[#1a2234]/80 p-4 rounded-xl"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+        >
           <div className="w-full md:w-[60%] relative">
             <Input
               type="text"
@@ -119,21 +157,34 @@ export default function Blog() {
               </Select>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       
-      {blogs.length === 0 && searchTerm && (
-        <div className="text-center text-white py-8">
-          {t('noBlogs')}
-          <span className="text-purple-300">{searchTerm}</span>
-        </div>
-      )}
+      <AnimatePresence mode="wait">
+        {blogs.length === 0 && searchTerm && (
+          <motion.div 
+            className="text-center text-white py-8"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            {t('noBlogs')}
+            <span className="text-purple-300">{searchTerm}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
         {blogs.map((blog, index) => (
           <BlogCard key={index} blog={blog} />
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

@@ -140,7 +140,7 @@ const translations = {
     aboutMe: "Hakkımda",
     projects: "Projeler",
     skills: "Yetenekler",
-    experience: "Deneyimim",
+    experience: "Deneyim",
     blog: "Blog",
     contactMe: "İletişim",
     greeting: "Merhaba, ben",

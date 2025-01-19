@@ -2,6 +2,7 @@
 
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   const { t } = useLanguage();
@@ -141,14 +142,29 @@ export default function Projects() {
     }
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
-    <div className="flex flex-col justify-center items-center w-[90%] mx-auto flex-wrap gap-3">
+    <motion.div 
+      className="flex flex-col justify-center items-center w-[90%] mx-auto flex-wrap gap-3"
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
       {projects.map((project, index) => (
         <ProjectCard
           key={index}
           {...project}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }
