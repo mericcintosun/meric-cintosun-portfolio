@@ -47,7 +47,7 @@ function NavList() {
   const { t } = useLanguage();
   
   const navItems = [
-    { text: t('homeasfasfas'), href: "/" },
+    { text: t('homeasasfasfafsfasfas'), href: "/" },
     { text: t('aboutMe'), href: "/about" },
     { text: t('projects'), href: "/projects" },
     { text: t('skills'), href: "/skills" },
