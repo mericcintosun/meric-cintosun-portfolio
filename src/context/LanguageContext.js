@@ -57,6 +57,18 @@ const translations = {
     alvinTitle: "Alvin New Year Progress",
     alvinDesc: "Alvin New Year Progress is a simple and fun task management app with an adorable cat theme, allowing users to organize their to-dos effortlessly. Its minimalist interface and pastel colors provide a functional yet visually delightful experience.",
     
+    axisTitle: "Axis AI – Blockchain Assistant",
+    axisDesc: "Axis AI is an AI-powered blockchain assistant built with React, Next.js, and TailwindCSS, designed for the MultiverseX ecosystem. It enables natural language transactions, automated smart triggers, and AI-driven wallet management, revolutionizing blockchain interaction with enterprise-grade security and developer-friendly SDKs.",
+    
+    riskonTitle: "Riskon – AI-Powered DeFi Risk Analytics",
+    riskonDesc: "Riskon is a blockchain risk analysis platform built with React, Next.js, and Stellar SDK, delivering personalized DeFi recommendations. Using AI and TensorFlow.js, it calculates real-time risk scores based on transaction behaviors and securely records them on the Stellar blockchain.",
+    
+    aurascendTitle: "Aurascend – AI-Powered Emotional Insight",
+    aurascendDesc: "Aurascend is an AI-driven emotional analysis platform built with React, Next.js, and MongoDB. It transforms your thoughts and feelings into personalized aura visualizations, helping users discover their inner potential and track emotional evolution over time.",
+    
+    makeCloneTitle: "Clone Project – No-Code AI Automation Platform",
+    makeCloneDesc: "Clone Project is a no-code AI automation platform built with Next.js, TailwindCSS, and Framer Motion. It empowers businesses to design, scale, and collaborate on intelligent workflows, combining visual development with AI agents for accelerated innovation and streamlined operations.",
+    
     gencFlamingoTitle: "Genç Flamingolar",
     gencFlamingoDesc: "I can't share the details of the project because it is a private project within the company, but the project is generally a chrome extension that facilitates the work of the company's support team. You can reach the technologies I use.",
     projectDetails: "Project Details",
@@ -133,7 +145,18 @@ const translations = {
     placeholderFullName: "Meric Cintosun",
     placeholderEmail: "mericcintosunn@email.com",
     placeholderPhone: "+90 530 954 7890",
-    placeholderMessage: "Write your message here..."
+    placeholderMessage: "Write your message here...",
+    // HeroShowcase translations
+    portfolioShowcase: "Portfolio Showcase",
+    showcaseDescription: "Discover my journey as a full-stack developer specializing in modern web technologies, blockchain development, and innovative digital solutions that make a difference.",
+    viewPortfolio: "View Portfolio",
+    githubProjects: "GitHub Projects",
+    developerBadge: "#1 Developer",
+    ratingLabel: "RATING",
+    projectsCompleted: "50+",
+    projectsLabel: "PROJECTS COMPLETED",
+    technologiesUsed: "15+",
+    technologiesLabel: "TECHNOLOGIES USED"
   },
   tr: {
     home: "Ana Sayfa",
@@ -186,6 +209,18 @@ const translations = {
     
     alvinTitle: "Alvin Yeni Yıl İlerleme Takibi",
     alvinDesc: "Alvin Yeni Yıl İlerleme Takibi, sevimli bir kedi temasına sahip, kullanıcıların yapılacaklar listelerini zahmetsizce düzenlemelerine olanak tanıyan basit ve eğlenceli bir görev yönetimi uygulamasıdır. Minimalist arayüzü ve pastel renkleri ile fonksiyonel ve görsel açıdan keyifli bir deneyim sunar.",
+    
+    axisTitle: "Axis AI – Blockchain Asistanı",
+    axisDesc: "Axis AI, MultiverseX ekosistemi için tasarlanmış React, Next.js ve TailwindCSS ile oluşturulmuş yapay zeka destekli bir blockchain asistanıdır. Doğal dil işlemleri, otomatik akıllı tetikleyiciler ve AI destekli cüzdan yönetimi sağlayarak, kurumsal düzeyde güvenlik ve geliştirici dostu SDK'lar ile blockchain etkileşiminde devrim yaratır.",
+    
+    riskonTitle: "Riskon – AI Destekli DeFi Risk Analitiği",
+    riskonDesc: "Riskon, React, Next.js ve Stellar SDK ile oluşturulmuş, kişiselleştirilmiş DeFi önerileri sunan bir blockchain risk analiz platformudur. AI ve TensorFlow.js kullanarak, işlem davranışlarına dayalı gerçek zamanlı risk skorları hesaplar ve bunları Stellar blockchain'de güvenli bir şekilde kaydeder.",
+    
+    aurascendTitle: "Aurascend – AI Destekli Duygusal İçgörü",
+    aurascendDesc: "Aurascend, React, Next.js ve MongoDB ile oluşturulmuş yapay zeka destekli bir duygusal analiz platformudur. Düşüncelerinizi ve duygularınızı kişiselleştirilmiş aura görselleştirmelerine dönüştürerek, kullanıcıların iç potansiyellerini keşfetmelerine ve zamanla duygusal evrimlerini takip etmelerine yardımcı olur.",
+    
+    makeCloneTitle: "Clone Project – Kod Yazmadan AI Otomasyon Platformu",
+    makeCloneDesc: "Clone Project, Next.js, TailwindCSS ve Framer Motion ile oluşturulmuş kod yazmadan AI otomasyon platformudur. İşletmelerin akıllı iş akışları tasarlamasına, ölçeklendirmesine ve işbirliği yapmasına olanak tanır, hızlandırılmış inovasyon ve düzenli operasyonlar için görsel geliştirme ile AI ajanlarını birleştirir.",
     
     gencFlamingoTitle: "Genç Flamingolar",
     gencFlamingoDesc: "Şirket içinde özel bir proje olduğu için projenin detaylarını paylaşamıyorum, ancak proje genel olarak şirketin destek ekibinin işini kolaylaştıran bir chrome uzantısıdır. Kullandığım teknolojilere ulaşabilirsiniz.",
@@ -263,7 +298,18 @@ const translations = {
     placeholderFullName: "Meriç Cintosun",
     placeholderEmail: "mericcintosunn@email.com",
     placeholderPhone: "+90 530 954 7890",
-    placeholderMessage: "Mesajınızı buraya yazın..."
+    placeholderMessage: "Mesajınızı buraya yazın...",
+    // HeroShowcase translations
+    portfolioShowcase: "Portfolio Vitrin",
+    showcaseDescription: "Modern web teknolojileri, blockchain geliştirme ve fark yaratan yenilikçi dijital çözümler konusunda uzmanlaşmış bir full-stack geliştirici olarak yolculuğumu keşfedin.",
+    viewPortfolio: "Portfolyoyu Görüntüle",
+    githubProjects: "GitHub Projeleri",
+    developerBadge: "#1 Geliştirici",
+    ratingLabel: "PUAN",
+    projectsCompleted: "50+",
+    projectsLabel: "TAMAMLANAN PROJE",
+    technologiesUsed: "15+",
+    technologiesLabel: "KULLANILAN TEKNOLOJİ"
   }
 };
 
