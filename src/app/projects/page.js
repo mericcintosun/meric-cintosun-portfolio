@@ -1,5 +1,6 @@
 "use client";
 
+import MacbookMockup from "@/components/MacbookMockup";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
@@ -9,8 +10,8 @@ export default function Projects() {
 
   const projects = [
     {
-      title: t('newsTrackerTitle'),
-      description: t('newsTrackerDesc'),
+      title: t("newsTrackerTitle"),
+      description: t("newsTrackerDesc"),
       tags: [
         "React",
         "Next.js",
@@ -22,11 +23,11 @@ export default function Projects() {
       ],
       imageSrc: "/projects/news-tracker.webp",
       altText: "project-img",
-      link: "https://github.com/mericcintosun/news-tracker-frontend-task/"
+      link: "https://github.com/mericcintosun/news-tracker-frontend-task/",
     },
     {
-      title: t('nonoTitle'),
-      description: t('nonoDesc'),
+      title: t("nonoTitle"),
+      description: t("nonoDesc"),
       tags: [
         "React",
         "Next.js",
@@ -42,11 +43,11 @@ export default function Projects() {
       ],
       imageSrc: "/projects/nono.webp",
       altText: "project-img",
-      link: "https://devfolio.co/projects/nono-68b9"
+      link: "https://devfolio.co/projects/nono-68b9",
     },
     {
-      title: t('mediaAgencyTitle'),
-      description: t('mediaAgencyDesc'),
+      title: t("mediaAgencyTitle"),
+      description: t("mediaAgencyDesc"),
       tags: [
         "React",
         "Next.js",
@@ -61,19 +62,19 @@ export default function Projects() {
       ],
       imageSrc: "/projects/media-agency.webp",
       altText: "project-img",
-      link: "https://github.com/mericcintosun/digital-agency-blog-website"
+      link: "https://github.com/mericcintosun/digital-agency-blog-website",
     },
     {
-      title: t('kittyTodoTitle'),
-      description: t('kittyTodoDesc'),
+      title: t("kittyTodoTitle"),
+      description: t("kittyTodoDesc"),
       tags: ["React", "Tailwind CSS", "Funtime :)"],
       imageSrc: "/projects/kitty-todo-app.webp",
       altText: "project-img",
-      link: "https://github.com/mericcintosun/react-todolist-app/tree/main"
+      link: "https://github.com/mericcintosun/react-todolist-app/tree/main",
     },
     {
-      title: t('personaTitle'),
-      description: t('personaDesc'),
+      title: t("personaTitle"),
+      description: t("personaDesc"),
       tags: [
         "React",
         "Next.js",
@@ -86,11 +87,11 @@ export default function Projects() {
       ],
       imageSrc: "/projects/persona.webp",
       altText: "project-img",
-      link: "https://github.com/itublockchain/ETHOnline24-Persona"
+      link: "https://github.com/itublockchain/ETHOnline24-Persona",
     },
     {
-      title: t('eduflowTitle'),
-      description: t('eduflowDesc'),
+      title: t("eduflowTitle"),
+      description: t("eduflowDesc"),
       tags: [
         "React",
         "Next.js",
@@ -101,11 +102,11 @@ export default function Projects() {
       ],
       imageSrc: "/projects/eduflow.webp",
       altText: "project-img",
-      link: "https://github.com/alperenbekci/eduflow"
+      link: "https://github.com/alperenbekci/eduflow",
     },
     {
-      title: t('alvinTitle'),
-      description: t('alvinDesc'),
+      title: t("alvinTitle"),
+      description: t("alvinDesc"),
       tags: [
         "React",
         "Next.js",
@@ -116,11 +117,11 @@ export default function Projects() {
       ],
       imageSrc: "/projects/alvin-new-year-progress.webp",
       altText: "project-img",
-      link: "https://github.com/mericcintosun/alvin-newyear-progress"
+      link: "https://github.com/mericcintosun/alvin-newyear-progress",
     },
     {
-      title: t('gencFlamingoTitle'),
-      description: t('gencFlamingoDesc'),
+      title: t("gencFlamingoTitle"),
+      description: t("gencFlamingoDesc"),
       tags: [
         "React",
         "Next.js",
@@ -138,8 +139,8 @@ export default function Projects() {
       ],
       imageSrc: "/projects/genc-flamingolar.webp",
       altText: "project-img",
-      link: "https://github.com/mericcintosun/"
-    }
+      link: "https://github.com/mericcintosun/",
+    },
   ];
 
   const container = {
@@ -147,24 +148,28 @@ export default function Projects() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   return (
-    <motion.div 
-      className="flex flex-col justify-center items-center w-[90%] mx-auto flex-wrap gap-3"
-      variants={container}
-      initial="hidden"
-      animate="show"
-    >
-      {projects.map((project, index) => (
-        <ProjectCard
-          key={index}
-          {...project}
-        />
-      ))}
-    </motion.div>
+    <>
+      <motion.div
+        className="flex flex-col justify-center items-center w-[90%] mx-auto flex-wrap gap-3"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </motion.div>
+      <MacbookMockup
+      projectSrc="/projectImages/alvin.png"
+      projectAlt="Alvin project preview"
+      // mockupSrc="/alt-macbook.png"   // İsterseniz farklı mock-up
+    />
+    </>
   );
 }
