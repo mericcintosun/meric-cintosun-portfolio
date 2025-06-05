@@ -23,6 +23,7 @@ export default function ProjectNavigation({
     "/projectImages/nono.png",
     "/projectImages/persona.png",
     "/projectImages/riskon.png",
+    "/projectImages/hp.png",
   ];
 
   // Aktif proje için renk paleti
