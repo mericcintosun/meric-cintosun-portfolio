@@ -8,187 +8,161 @@ export default function ProjectNavigation({
   activeIndex,
   onProjectChange,
 }) {
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
   const scrollContainerRef = useRef(null);
 
-  // Scroll durumunu kontrol et
-  const checkScrollButtons = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } =
-        scrollContainerRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    }
+  // Proje görsellerini ekliyoruz (carousel data ile aynı)
+  const projectImages = [
+    "/projectImages/alvin.png",
+    "/projectImages/aurascend.png",
+    "/projectImages/axis.png",
+    "/projectImages/digital-agency.png",
+    "/projectImages/eduflow.png",
+    "/projectImages/kitty-todo.png",
+    "/projectImages/make-clone.png",
+    "/projectImages/news-tracker.png",
+    "/projectImages/nono.png",
+    "/projectImages/persona.png",
+    "/projectImages/riskon.png",
+  ];
+
+  // Aktif proje için renk paleti
+  const getActiveColor = (index) => {
+    const colors = [
+      "border-emerald-400", // Alvin - Yeşil
+      "border-blue-400",    // Aurascend - Mavi  
+      "border-purple-400",  // Axis - Mor
+      "border-orange-400",  // Digital Agency - Turuncu
+      "border-cyan-400",    // Eduflow - Cyan
+      "border-pink-400",    // Kitty Todo - Pembe
+      "border-indigo-400",  // Make Clone - İndigo
+      "border-red-400",     // News Tracker - Kırmızı
+      "border-yellow-400",  // Nono - Sarı
+      "border-green-400",   // Persona - Yeşil
+      "border-teal-400",    // Riskon - Teal
+    ];
+    return colors[index % colors.length];
   };
 
+  // Proje navigasyon fonksiyonları
+  const goToPreviousProject = () => {
+    const newIndex = activeIndex === 0 ? projects.length - 1 : activeIndex - 1;
+    onProjectChange(newIndex);
+  };
+
+  const goToNextProject = () => {
+    const newIndex = activeIndex === projects.length - 1 ? 0 : activeIndex + 1;
+    onProjectChange(newIndex);
+  };
+
+  // Aktif projeyi merkeze kaydır
   useEffect(() => {
-    checkScrollButtons();
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener("scroll", checkScrollButtons);
-      return () => container.removeEventListener("scroll", checkScrollButtons);
-    }
-  }, [projects]);
-
-  // Scroll fonksiyonları
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -120, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 120, behavior: "smooth" });
-    }
-  };
-
-  // Aktif projeyi merkeze getir - iyileştirilmiş versiyon
-  const scrollToActiveProject = (index) => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const projectElements = container.children;
-      const projectElement = projectElements[index];
-
-      if (projectElement) {
-        const containerWidth = container.clientWidth;
-        const projectWidth = projectElement.offsetWidth;
-        const projectLeft = projectElement.offsetLeft;
-
-        // Projeyi tam ortaya getir
-        const scrollPosition =
-          projectLeft - containerWidth / 2 + projectWidth / 2;
-
+      const activeCard = container.children[activeIndex];
+      if (activeCard) {
+        const containerWidth = container.offsetWidth;
+        const cardWidth = activeCard.offsetWidth;
+        const cardLeft = activeCard.offsetLeft;
+        const scrollPosition = cardLeft - (containerWidth / 2) + (cardWidth / 2);
+        
         container.scrollTo({
-          left: Math.max(0, scrollPosition),
-          behavior: "smooth",
+          left: scrollPosition,
+          behavior: 'smooth'
         });
-
-        // Scroll tamamlandıktan sonra buton durumlarını güncelle
-        setTimeout(() => {
-          checkScrollButtons();
-        }, 300);
       }
     }
-  };
-
-  // Aktif proje değiştiğinde scroll et
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      scrollToActiveProject(activeIndex);
-    }, 100); // Kısa delay ile daha stabil çalışma
-
-    return () => clearTimeout(timer);
   }, [activeIndex]);
 
-  // İlk yükleme için
-  useEffect(() => {
-    if (scrollContainerRef.current) {
-      setTimeout(() => {
-        scrollToActiveProject(activeIndex);
-      }, 200);
-    }
-  }, []);
-
   return (
-    <div className="relative w-full bg-slate-800/40 backdrop-blur-sm rounded-xl p-3">
-      {/* Scroll Butonları */}
-      <div className="flex items-center gap-3">
-        {/* Sol Ok */}
+    <div className="relative w-full max-w-5xl mx-auto">
+      <div className="flex items-center justify-center gap-6">
+        
+        {/* Sol Navigation Button */}
         <button
-          onClick={scrollLeft}
-          disabled={!canScrollLeft}
-          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ${
-            canScrollLeft
-              ? "bg-purple-600/20 hover:bg-purple-600/40 text-purple-300 hover:text-white"
-              : "bg-slate-700/30 text-slate-500 cursor-not-allowed"
-          }`}
-          aria-label="Scroll left"
+          onClick={goToPreviousProject}
+          className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-slate-800/50 hover:bg-slate-700/80 text-slate-400 hover:text-white backdrop-blur-sm"
         >
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
-        {/* Proje Icon'ları */}
-        <div
+        {/* Projects Container */}
+        <div 
           ref={scrollContainerRef}
-          className="flex gap-2 overflow-x-auto scrollbar-hide flex-1 py-1"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="flex items-center gap-4 overflow-x-auto scrollbar-hide px-8 py-4"
+          style={{ 
+            scrollbarWidth: "none", 
+            msOverflowStyle: "none",
+            maxWidth: "600px"
+          }}
         >
-          {projects.map((project, index) => (
-            <button
-              key={index}
-              onClick={() => onProjectChange(index)}
-              className={`relative flex-shrink-0 w-12 h-12 rounded-xl overflow-hidden transition-all duration-300 ${
-                index === activeIndex
-                  ? "ring-2 ring-purple-400 scale-110 shadow-lg shadow-purple-500/25"
-                  : "hover:scale-105 opacity-70 hover:opacity-100"
-              }`}
-              aria-label={`Select ${project.title}`}
-            >
-              {/* Background gradient */}
+          {projects.map((project, index) => {
+            const isActive = index === activeIndex;
+            const distanceFromActive = Math.abs(index - activeIndex);
+            
+            // Opacity ve scale hesaplama
+            let opacity = 1;
+            let scale = 1;
+            
+            if (!isActive) {
+              if (distanceFromActive === 1) {
+                opacity = 0.6;
+                scale = 0.85;
+              } else if (distanceFromActive === 2) {
+                opacity = 0.4;
+                scale = 0.75;
+              } else {
+                opacity = 0.25;
+                scale = 0.7;
+              }
+            } else {
+              scale = 1.1;
+            }
+
+            return (
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${
-                  index === activeIndex
-                    ? "from-purple-500/30 to-blue-600/30"
-                    : "from-slate-600/30 to-slate-700/30 hover:from-purple-500/20 hover:to-blue-600/20"
-                }`}
-              />
-
-              {/* Icon */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                <Image
-                  src="/main-image.webp"
-                  alt={project.title}
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 object-contain filter brightness-110"
-                />
+                key={index}
+                className="relative flex-shrink-0 transition-all duration-500 ease-out cursor-pointer"
+                onClick={() => onProjectChange(index)}
+                style={{ 
+                  opacity: opacity,
+                  transform: `scale(${scale})`
+                }}
+              >
+                {/* Project Card */}
+                <div 
+                  className={`relative w-16 h-16 rounded-2xl overflow-hidden transition-all duration-500 ease-out border-2 ${
+                    isActive 
+                      ? `${getActiveColor(index)} bg-slate-800/80` 
+                      : "border-transparent bg-slate-800/60 hover:bg-slate-800/80"
+                  }`}
+                >
+                  {/* Project Image */}
+                  <Image
+                    src={projectImages[index] || "/main-image.webp"}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-center transition-all duration-500"
+                  />
+                  
+                  {/* Subtle overlay for inactive items */}
+                  {!isActive && (
+                    <div className="absolute inset-0 bg-slate-900/30" />
+                  )}
+                </div>
               </div>
-
-              {/* Active indicator */}
-              {index === activeIndex && (
-                <div className="absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-purple-400 rounded-full" />
-              )}
-            </button>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Sağ Ok */}
+        {/* Sağ Navigation Button */}
         <button
-          onClick={scrollRight}
-          disabled={!canScrollRight}
-          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ${
-            canScrollRight
-              ? "bg-purple-600/20 hover:bg-purple-600/40 text-purple-300 hover:text-white"
-              : "bg-slate-700/30 text-slate-500 cursor-not-allowed"
-          }`}
-          aria-label="Scroll right"
+          onClick={goToNextProject}
+          className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-slate-800/50 hover:bg-slate-700/80 text-slate-400 hover:text-white backdrop-blur-sm"
         >
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>

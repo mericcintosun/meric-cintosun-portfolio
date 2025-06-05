@@ -207,50 +207,57 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="bg-slate-900 min-h-screen">
-      {/* Ana İçerik */}
-      <div className="grid grid-cols-[60%_40%] min-h-screen">
+    <div className="bg-slate-900 min-h-screen w-full overflow-hidden mt-[-100px] relative">
+      {/* Ana Layout Container */}
+      <div className="h-screen w-full grid grid-cols-1 lg:grid-cols-[60%_40%]">
+        
         {/* MacBook Carousel Section */}
-        <div className="bg-slate-900">
-          <MacbookMockup
-            projects={carouselProjects}
-            autoRotate={false}
-            currentIndex={activeProjectIndex}
-          />
+        <div className="bg-slate-900 flex items-center justify-center p-4 sm:p-6 lg:p-8 order-2 lg:order-1">
+          <div className="w-full h-full max-w-full max-h-full flex items-center justify-center">
+            <MacbookMockup
+              projects={carouselProjects}
+              autoRotate={false}
+              currentIndex={activeProjectIndex}
+            />
+          </div>
         </div>
 
         {/* Proje Bilgileri Section */}
-        <div className="bg-slate-900 pt-20 pb-4 relative">
-          <div className="container mx-auto px-6 text-center h-[300px] flex flex-col">
-            <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-purple-400 to-white text-transparent bg-clip-text mb-3">
+        <div className="bg-slate-900 flex items-center justify-center p-4 sm:p-6 lg:p-8 order-1 lg:order-2">
+          <div className="w-full max-w-lg lg:max-w-full h-full flex flex-col justify-center text-center">
+            
+            {/* Proje Başlığı */}
+            <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-white via-purple-400 to-white text-transparent bg-clip-text mb-3 lg:mb-4 leading-tight">
               {activeProject.title}
             </h1>
-            <p className="text-sm text-slate-300 max-w-3xl mx-auto mb-4">
+            
+            {/* Proje Açıklaması */}
+            <p className="text-xs sm:text-sm lg:text-base text-slate-300 max-w-full mx-auto mb-4 lg:mb-6 leading-relaxed px-2 lg:px-0">
               {activeProject.description}
             </p>
 
             {/* Teknoloji Tag'leri */}
-            <div className="flex flex-wrap justify-center gap-2 mb-6">
+            <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-4 lg:mb-8 px-2 lg:px-0">
               {activeProject.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-xs font-medium border border-purple-500/30 hover:bg-purple-600/30 transition-colors"
+                  className="px-2 sm:px-3 py-1 sm:py-1.5 bg-purple-600/20 text-purple-300 rounded-full text-xs sm:text-sm font-medium border border-purple-500/30 hover:bg-purple-600/30 transition-colors whitespace-nowrap"
                 >
                   {tech}
                 </span>
               ))}
             </div>
-
-            {/* Proje Navigasyon Component'i - Açıklamaların hemen altında */}
-            <div className="mt-4">
-              <ProjectNavigation
-                projects={projectDetails}
-                activeIndex={activeProjectIndex}
-                onProjectChange={handleProjectChange}
-              />
-            </div>
           </div>
         </div>
+      </div>
+
+      {/* Proje Navigasyon Component'i - İki section'ın ortasında alt kısımda */}
+      <div className="absolute top-[630px] left-1/2 transform -translate-x-1/2 z-10">
+        <ProjectNavigation
+          projects={projectDetails}
+          activeIndex={activeProjectIndex}
+          onProjectChange={handleProjectChange}
+        />
       </div>
     </div>
   );
