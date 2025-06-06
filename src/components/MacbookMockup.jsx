@@ -60,10 +60,10 @@ export default function ResponsiveMockup({
           mockupSrc: "/ipad-mockup.png",
           mockupAlt: "iPad mock-up",
           frame: {
-            top: "9%",
-            left: "13%",
-            width: "74%",
-            height: "82%",
+            top: "1.0%",
+            left: "7.2%",
+            width: "85.9%",
+            height: "96.8%",
           },
           projectPrefix: "ipad-",
           folderPath: "/ipadProjectImages/",
@@ -146,11 +146,11 @@ export default function ResponsiveMockup({
           deviceType === "mobile"
             ? "max-w-sm mx-auto"
             : deviceType === "tablet"
-            ? "max-w-2xl mx-auto"
+            ? "max-w-md mx-auto"
             : "max-w-4xl"
         }`}
       >
-        {/* Screen overlay - Behind mockup */}
+        {/* Screen overlay - Behind mockup for mobile/desktop, in front for tablet */}
         <div
           className={`absolute overflow-hidden ${
             deviceType === "mobile"
@@ -162,7 +162,7 @@ export default function ResponsiveMockup({
           style={{
             ...mockupConfig.frame,
             position: "absolute",
-            zIndex: 1,
+            zIndex: deviceType === "tablet" ? 20 : 1,
           }}
         >
           {deviceType === "mobile" ? (
@@ -184,10 +184,10 @@ export default function ResponsiveMockup({
               alt={currentProject.alt}
               fill
               className={`${
-                deviceType === "desktop" ? "object-cover" : "object-contain"
+                deviceType === "desktop" ? "object-contain" : deviceType === "tablet" ? "object-contain" : "object-contain"
               } transition-opacity duration-500 ${
                 deviceType === "tablet"
-                  ? "scale-[0.98] rounded-[15px]"
+                  ? "scale-100 rounded-[8px]"
                   : "scale-100 rounded-[8px]"
               }`}
               priority
