@@ -4,7 +4,6 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 
-
 export default function MacbookMockup({
   projects = [],
   mockupSrc = "/macbook-mockup.png",
@@ -16,18 +15,26 @@ export default function MacbookMockup({
   const [internalCurrentIndex, setInternalCurrentIndex] = useState(0);
 
   // Use external index if provided, otherwise use internal
-  const currentIndex = externalCurrentIndex !== undefined ? externalCurrentIndex : internalCurrentIndex;
+  const currentIndex =
+    externalCurrentIndex !== undefined
+      ? externalCurrentIndex
+      : internalCurrentIndex;
 
   const frame = {
-    top: "25.2%",
-    left: "13.2%",
+    top: "5.6%",
+    left: "13.3%",
     width: "73.3%",
-    height: "47.3%",
+    height: "84.4%",
   };
 
   // Auto-rotation effect
   useEffect(() => {
-    if (!autoRotate || projects.length <= 1 || externalCurrentIndex !== undefined) return;
+    if (
+      !autoRotate ||
+      projects.length <= 1 ||
+      externalCurrentIndex !== undefined
+    )
+      return;
 
     const interval = setInterval(() => {
       setInternalCurrentIndex((prevIndex) =>
@@ -49,7 +56,7 @@ export default function MacbookMockup({
   const currentProject = projects[currentIndex];
 
   return (
-    <div className="w-full flex justify-center mt-[-100px]">
+    <div className=" justify-center">
       <div className="relative w-full max-w-4xl px-4 flex">
         {/* MacBook gövdesi */}
         <Image
@@ -73,20 +80,10 @@ export default function MacbookMockup({
             src={currentProject.src}
             alt={currentProject.alt}
             fill
-            sizes="(max-width:1200px) 100vw, 800px"
-            className="object-contain transition-opacity duration-500"
+            className="object-cover transition-opacity duration-500"
             priority
           />
         </div>
-
-        {/* İnce çerçeve efekti */}
-        <div
-          className="absolute pointer-events-none border border-gray-700/30"
-          style={{
-            ...frame,
-            position: "absolute",
-          }}
-        />
       </div>
     </div>
   );
