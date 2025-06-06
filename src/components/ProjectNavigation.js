@@ -9,6 +9,19 @@ export default function ProjectNavigation({
   onProjectChange,
 }) {
   const scrollContainerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Screen size tracking
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   // Proje görsellerini ekliyoruz (carousel data ile aynı)
   const projectImages = [
@@ -115,35 +128,37 @@ export default function ProjectNavigation({
 
   return (
     <div className="relative w-full max-w-5xl mx-auto">
-      {/* Mobile View - 3'lü Horizontal */}
-      <div className="block sm:hidden">
-        <div className="flex items-center justify-center gap-4">
-          {/* Sol Arrow */}
+      {/* Mobile & Tablet View - Combined Responsive */}
+      <div className="block md:hidden">
+        {/* Navigation Container */}
+        <div className="flex items-center justify-center gap-4 sm:gap-6">
+          {/* Sol Arrow - Mobile görünümde görünür */}
           <button
             onClick={goToPreviousProject}
-            className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-white/5 hover:bg-white/10 text-white/60 hover:text-white backdrop-blur-md border border-white/10 hover:border-white/20"
+            className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-white/5 hover:bg-white/10 text-white/60 hover:text-white backdrop-blur-md border border-white/10 hover:border-white/20 sm:hidden"
           >
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          {/* 3'lü Proje Container */}
+          {/* Projects Container - Responsive */}
           <div 
-            className="flex items-center gap-3 px-4"
+            className="flex items-center gap-3 px-4 sm:grid sm:grid-cols-5 sm:gap-3 sm:px-4 sm:py-3 sm:max-w-md sm:mx-auto"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {getMobileVisibleProjects().map((project, idx) => {
+            {/* Mobile: 3'lü görünüm, Tablet: 5'li görünüm */}
+            {(isMobile ? getMobileVisibleProjects() : getTabletVisibleProjects()).map((project, idx) => {
               const isActive = project.position === 'active';
-              const scale = isActive ? 1 : 0.75;
-              const opacity = isActive ? 1 : 0.5;
+              const scale = isActive ? (isMobile ? 1 : 1.1) : (isMobile ? 0.75 : 1);
+              const opacity = isActive ? 1 : (isMobile ? 0.5 : 1);
 
               return (
                 <div
                   key={project.index}
-                  className="relative flex-shrink-0 transition-all duration-300 ease-out cursor-pointer"
+                  className="relative flex-shrink-0 transition-all duration-300 ease-out cursor-pointer group sm:flex-shrink"
                   onClick={() => onProjectChange(project.index)}
                   style={{ 
                     transform: `scale(${scale})`,
@@ -151,10 +166,10 @@ export default function ProjectNavigation({
                   }}
                 >
                   <div 
-                    className={`relative w-14 h-14 rounded-lg overflow-hidden transition-all duration-300 ease-out ${
+                    className={`relative w-14 h-14 sm:w-full sm:aspect-square rounded-lg overflow-hidden transition-all duration-300 ease-out ${
                       isActive 
                         ? "ring-2 ring-white/60 ring-offset-2 ring-offset-slate-900" 
-                        : "ring-1 ring-white/20"
+                        : "ring-1 ring-white/20 sm:hover:ring-white/40 sm:hover:scale-105"
                     }`}
                   >
                     <Image
@@ -167,7 +182,7 @@ export default function ProjectNavigation({
                     <div className={`absolute inset-0 transition-all duration-300 ${
                       isActive 
                         ? "bg-gradient-to-br from-white/10 to-transparent" 
-                        : "bg-slate-900/40"
+                        : "bg-slate-900/40 group-hover:bg-slate-900/20"
                     }`} />
                     
                     {isActive && (
@@ -179,66 +194,19 @@ export default function ProjectNavigation({
             })}
           </div>
 
-          {/* Sağ Arrow */}
+          {/* Sağ Arrow - Mobile görünümde görünür */}
           <button
             onClick={goToNextProject}
-            className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-white/5 hover:bg-white/10 text-white/60 hover:text-white backdrop-blur-md border border-white/10 hover:border-white/20"
+            className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-white/5 hover:bg-white/10 text-white/60 hover:text-white backdrop-blur-md border border-white/10 hover:border-white/20 sm:hidden"
           >
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
-      </div>
 
-      {/* Tablet View - 5'li Grid */}
-      <div className="hidden sm:block md:hidden">
-        <div 
-          className="grid grid-cols-5 gap-3 px-4 py-3 max-w-md mx-auto"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          {getTabletVisibleProjects().map((project, idx) => {
-            const isActive = project.position === 'active';
-
-            return (
-              <div
-                key={project.index}
-                className="relative flex-shrink-0 transition-all duration-300 ease-out cursor-pointer group"
-                onClick={() => onProjectChange(project.index)}
-              >
-                <div 
-                  className={`relative w-full aspect-square rounded-lg overflow-hidden transition-all duration-300 ease-out ${
-                    isActive 
-                      ? "ring-2 ring-white/60 ring-offset-2 ring-offset-slate-900 scale-110" 
-                      : "ring-1 ring-white/20 hover:ring-white/40 hover:scale-105"
-                  }`}
-                >
-                  <Image
-                    src={projectImages[project.index] || "/main-image.webp"}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-center transition-all duration-300"
-                  />
-                  
-                  <div className={`absolute inset-0 transition-all duration-300 ${
-                    isActive 
-                      ? "bg-gradient-to-br from-white/10 to-transparent" 
-                      : "bg-slate-900/40 group-hover:bg-slate-900/20"
-                  }`} />
-                  
-                  {isActive && (
-                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full shadow-lg" />
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Tablet Navigation Arrows */}
-        <div className="flex items-center justify-center gap-6 mt-4">
+        {/* Tablet Navigation Arrows - Sadece tablet görünümde */}
+        <div className="hidden sm:flex items-center justify-center gap-6 mt-4">
           <button
             onClick={goToPreviousProject}
             className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-white/5 hover:bg-white/10 text-white/60 hover:text-white backdrop-blur-md border border-white/10 hover:border-white/20"
