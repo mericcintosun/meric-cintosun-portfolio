@@ -1,6 +1,6 @@
 "use client";
 
-import MacbookMockup from "@/components/MacbookMockup";
+import ResponsiveMockup from "@/components/MacbookMockup";
 import ProjectNavigation from "@/components/ProjectNavigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
@@ -291,7 +291,7 @@ export default function Projects() {
   return (
     <div className="bg-slate-900 w-full relative lg:pt-10">
       <div className="lg:grid lg:grid-cols-[55%_45%] xl:grid-cols-[60%_40%]">
-        <MacbookMockup
+        <ResponsiveMockup
           projects={carouselProjects}
           autoRotate={false}
           currentIndex={activeProjectIndex}
