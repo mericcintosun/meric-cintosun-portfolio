@@ -142,7 +142,7 @@ export default function ResponsiveMockup({
   return (
     <div className="justify-center">
       <div
-        className={`relative w-full px-4 flex ${
+        className={`relative w-full px-4 flex overflow-hidden ${
           deviceType === "mobile"
             ? "max-w-sm mx-auto"
             : deviceType === "tablet"
@@ -154,7 +154,7 @@ export default function ResponsiveMockup({
         <div
           className={`absolute overflow-hidden ${
             deviceType === "mobile"
-              ? "rounded-[39px]"
+              ? "rounded-[63px]"
               : deviceType === "tablet"
               ? "rounded-[10px]"
               : "rounded-sm"
@@ -165,21 +165,34 @@ export default function ResponsiveMockup({
             zIndex: 1,
           }}
         >
-          <Image
-            src={getProjectImageSrc()}
-            alt={currentProject.alt}
-            fill
-            className={`${
-              deviceType === "desktop" ? "object-cover" : "object-contain"
-            } transition-opacity duration-500 ${
-              deviceType === "mobile" 
-                ? "scale-[0.9] rounded-[25px]" 
-                : deviceType === "tablet" 
-                ? "scale-[0.98] rounded-[15px]" 
-                : "scale-100 rounded-[8px]"
-            }`}
-            priority
-          />
+          {deviceType === "mobile" ? (
+            <div className="w-[90%] h-[100%] mx-auto my-auto  bg-black flex flex-col">
+              <div className="h-[15%] bg-black"></div>
+              <div className="h-[70%] overflow-hidden">
+                <Image
+                  src={getProjectImageSrc()}
+                  alt={currentProject.alt}
+                  fill
+                  className="object-cover transition-opacity duration-500 scale-[0.9]"
+                  priority
+                />
+              </div>
+            </div>
+          ) : (
+            <Image
+              src={getProjectImageSrc()}
+              alt={currentProject.alt}
+              fill
+              className={`${
+                deviceType === "desktop" ? "object-cover" : "object-contain"
+              } transition-opacity duration-500 ${
+                deviceType === "tablet"
+                  ? "scale-[0.98] rounded-[15px]"
+                  : "scale-100 rounded-[8px]"
+              }`}
+              priority
+            />
+          )}
         </div>
 
         {/* Mockup device - In front */}
