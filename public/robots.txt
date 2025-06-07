@@ -1,0 +1,30 @@
+# Meriç Cintosun Portfolio - robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow private API routes
+Disallow: /api/
+Disallow: /_next/
+Disallow: /.next/
+
+# Allow specific important files
+Allow: /api/sitemap
+Allow: /sitemap.xml
+Allow: /manifest.json
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://mericcintosun.com/sitemap.xml
+
+# Block specific bots if needed
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: / 

@@ -16,10 +16,13 @@ export default function Blog() {
     let filteredBlogs = data.blogs;
     if (searchTerm) {
       const searchTermLower = searchTerm.toLowerCase();
-      filteredBlogs = data.blogs.filter(blog => 
-        blog.title.toLowerCase().includes(searchTermLower) || 
-        blog.tags.some(tag => tag.toLowerCase().includes(searchTermLower)) ||
-        blog.first_paragraph.toLowerCase().includes(searchTermLower)
+      filteredBlogs = data.blogs.filter(
+        (blog) =>
+          blog.title.toLowerCase().includes(searchTermLower) ||
+          blog.tags.some((tag) =>
+            tag.toLowerCase().includes(searchTermLower)
+          ) ||
+          blog.first_paragraph.toLowerCase().includes(searchTermLower)
       );
     }
 
@@ -28,7 +31,7 @@ export default function Blog() {
       const dateB = new Date(b.date);
       return sortOrder === "newest" ? dateB - dateA : dateA - dateB;
     });
-    
+
     setBlogs(sortedBlogs);
   }, [sortOrder, searchTerm]);
 
@@ -46,25 +49,25 @@ export default function Blog() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="container mx-auto px-4 bg-[#0f172a] rounded-xl bg-opacity-70 mb-6 pb-6"
     >
-      <motion.div 
+      <motion.div
         className="flex flex-col py-8 space-y-8"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
       >
-        <motion.h1 
+        <motion.h1
           className="text-[#6B46C1] text-4xl font-bold text-center mb-2"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -77,9 +80,9 @@ export default function Blog() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          {t('blogNote')}
+          {t("blogNote")}
         </motion.p>
-        <motion.div 
+        <motion.div
           className="flex flex-col md:flex-row gap-4 items-stretch justify-center max-w-3xl mx-auto w-full bg-[#1a2234]/80 p-4 rounded-xl"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -88,15 +91,16 @@ export default function Blog() {
           <div className="w-full md:w-[60%] relative">
             <Input
               type="text"
-              label={t('searchInBlogs')}
+              label={t("searchInBlogs")}
               value={searchTerm}
               onChange={handleSearch}
               className="!border-none focus:!border-none text-white"
               labelProps={{
-                className: "!text-purple-300  peer-focus:before:!border-purple-500/50 peer-focus:after:!border-purple-500/50"
+                className:
+                  "!text-purple-300  peer-focus:before:!border-purple-500/50 peer-focus:after:!border-purple-500/50",
               }}
               containerProps={{
-                className: "min-w-[100px]"
+                className: "min-w-[100px]",
               }}
               icon={
                 <svg
@@ -117,19 +121,21 @@ export default function Blog() {
               crossOrigin={undefined}
             />
           </div>
-          
+
           <div className="w-full md:w-[40%] md:border-l border-purple-500/20">
             <div className="md:pl-4">
               <Select
-                label={t('sortByDate')}
+                label={t("sortByDate")}
                 value={sortOrder}
                 onChange={handleSortChange}
                 className="text-white !border-none"
                 labelProps={{
-                  className: "!text-purple-300 before:!border-transparent after:!border-transparent peer-focus:before:!border-purple-500/50 peer-focus:after:!border-purple-500/50"
+                  className:
+                    "!text-purple-300 before:!border-transparent after:!border-transparent peer-focus:before:!border-purple-500/50 peer-focus:after:!border-purple-500/50",
                 }}
                 menuProps={{
-                  className: "border border-purple-500/20 bg-[#1a2234] rounded-lg"
+                  className:
+                    "border border-purple-500/20 bg-[#1a2234] rounded-lg",
                 }}
                 arrow={
                   <svg
@@ -148,34 +154,40 @@ export default function Blog() {
                   </svg>
                 }
               >
-                <Option value="newest" className="hover:bg-purple-500/20 text-white bg-[#1a2234]">
-                  {t('newestFirst')}
+                <Option
+                  value="newest"
+                  className="hover:bg-purple-500/20 text-white bg-[#1a2234]"
+                >
+                  {t("newestFirst")}
                 </Option>
-                <Option value="oldest" className="hover:bg-purple-500/20 text-white bg-[#1a2234]">
-                  {t('oldestFirst')}
+                <Option
+                  value="oldest"
+                  className="hover:bg-purple-500/20 text-white bg-[#1a2234]"
+                >
+                  {t("oldestFirst")}
                 </Option>
               </Select>
             </div>
           </div>
         </motion.div>
       </motion.div>
-      
+
       <AnimatePresence mode="wait">
         {blogs.length === 0 && searchTerm && (
-          <motion.div 
+          <motion.div
             className="text-center text-white py-8"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
           >
-            {t('noBlogs')}
+            {t("noBlogs")}
             <span className="text-purple-300">{searchTerm}</span>
           </motion.div>
         )}
       </AnimatePresence>
-      
-      <motion.div 
+
+      <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
         variants={container}
         initial="hidden"

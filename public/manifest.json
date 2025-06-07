@@ -1,0 +1,62 @@
+{
+  "name": "Meriç Cintosun Portfolio",
+  "short_name": "Meriç Portfolio",
+  "description": "Meriç Cintosun - Full Stack Developer and Blockchain specialist portfolio website",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["business", "productivity", "technology"],
+  "icons": [
+    {
+      "src": "/home-astronaut.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/main-image.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/main-image.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Meriç Cintosun Portfolio Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch with me",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/home-astronaut.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "View my portfolio projects",
+      "url": "/projects",
+      "icons": [
+        {
+          "src": "/home-astronaut.webp",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+} 

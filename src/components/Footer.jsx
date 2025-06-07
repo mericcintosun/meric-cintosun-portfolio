@@ -7,13 +7,13 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const footerLinks = [
-    { text: t('home'), href: "/" },
-    { text: t('aboutMe'), href: "/about" },
-    { text: t('projects'), href: "/projects" },
-    { text: t('skills'), href: "/skills" },
-    { text: t('experience'), href: "/experience" },
-    { text: t('blog'), href: "/blog" },
-    { text: t('contactMe'), href: "/contact" },
+    { text: t("home"), href: "/" },
+    { text: t("aboutMe"), href: "/about" },
+    { text: t("projects"), href: "/projects" },
+    { text: t("skills"), href: "/skills" },
+    { text: t("experience"), href: "/experience" },
+    { text: t("blog"), href: "/blog" },
+    { text: t("contactMe"), href: "/contact" },
   ];
 
   return (
@@ -22,26 +22,26 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-center w-[80%] mx-auto gap-6 py-8 border-b border-gray-700">
           <p className="text-xs tracking-wide text-center">
             Copyright © 2024{" "}
-            <span className="font-semibold text-gray-100">
-              Meriç Cintosun
-            </span>
-            . {t('allRightsReserved')}
+            <span className="font-semibold text-gray-100">Meriç Cintosun</span>.{" "}
+            {t("allRightsReserved")}
           </p>
-          <a href="https://github.com/mericcintosun/meric-cintosun-portfolio" target="_blank" className="text-2xl font-medium text-center">
+          <a
+            href="https://github.com/mericcintosun/meric-cintosun-portfolio"
+            target="_blank"
+            className="text-2xl font-medium text-center"
+          >
             <span className="font-bold bg-gradient-to-r from-[#bdb4ff] via-[#3e276c] to-[#ffffff] text-transparent bg-clip-text">
-              {t('openSource')} 💜
+              {t("openSource")} 💜
             </span>
           </a>
           <p className="text-sm text-center max-w-2xl">
-            {t('builtWith')}{" "}
+            {t("builtWith")}{" "}
             <span className="font-medium text-gray-100">React</span>,{" "}
             <span className="font-medium text-gray-100">Next.js</span> (App
             Router & Server Actions),{" "}
-            <span className="font-medium text-gray-100">
-              Tailwind CSS
-            </span>,{" "}
+            <span className="font-medium text-gray-100">Tailwind CSS</span>,{" "}
             <span className="font-medium text-gray-100">Framer Motion</span>,
-            {t('and')}{" "}
+            {t("and")}{" "}
             <span className="font-medium text-gray-100">ts-particles</span>.
           </p>
         </div>

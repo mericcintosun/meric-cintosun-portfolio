@@ -10,10 +10,10 @@ export default function BlogCard({ blog }) {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
+    return date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
     });
   };
 
@@ -45,10 +45,12 @@ export default function BlogCard({ blog }) {
               className="object-cover"
             />
           </CardHeader>
-          
+
           <CardBody className="p-6 flex-grow flex flex-col">
-            <h2 className="text-2xl font-semibold mb-4 line-clamp-2 flex-shrink-0">{blog.title}</h2>
-            
+            <h2 className="text-2xl font-semibold mb-4 line-clamp-2 flex-shrink-0">
+              {blog.title}
+            </h2>
+
             <div className="flex items-center space-x-4 mb-4 flex-shrink-0">
               {blog.author.photo && (
                 <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
@@ -64,10 +66,12 @@ export default function BlogCard({ blog }) {
               )}
               <div className="space-y-1">
                 <p className="text-sm">
-                  <span className="font-semibold">Author:</span> {blog.author.name}
+                  <span className="font-semibold">Author:</span>{" "}
+                  {blog.author.name}
                 </p>
                 <p className="text-sm">
-                  <span className="font-semibold">Date:</span> {formatDate(blog.date)}
+                  <span className="font-semibold">Date:</span>{" "}
+                  {formatDate(blog.date)}
                 </p>
               </div>
             </div>
@@ -83,8 +87,8 @@ export default function BlogCard({ blog }) {
               ))}
             </div>
 
-            <Button 
-              variant="text" 
+            <Button
+              variant="text"
               className="text-white hover:text-gray-300 p-0 flex items-center gap-2 mb-2 flex-shrink-0 relative group"
               onClick={() => setShowParagraph(!showParagraph)}
             >
@@ -123,9 +127,9 @@ export default function BlogCard({ blog }) {
               )}
             </AnimatePresence>
 
-            <Link 
-              href={blog.read_more_url} 
-              target="_blank" 
+            <Link
+              href={blog.read_more_url}
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-auto flex-shrink-0"
             >
@@ -134,8 +138,8 @@ export default function BlogCard({ blog }) {
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <Button 
-                  variant="text" 
+                <Button
+                  variant="text"
                   className="flex items-center gap-2 p-2 px-4 rounded-lg bg-gradient-to-r from-[#1E0A4D] via-[#2D0F6A] to-[#3A127F] text-white hover:opacity-90 transition-opacity duration-200 shadow-lg"
                 >
                   <span className="font-semibold">Read on Medium</span>

@@ -29,7 +29,7 @@ export default function ProjectCard({
           floated={false}
           className="m-0 w-full md:w-2/5 shrink-0 rounded-b md:rounded-r-none rounded-t md:rounded-t-none bg-[#0f172a] bg-opacity-50 overflow-hidden"
         >
-          <motion.div 
+          <motion.div
             className="relative w-full h-0 pb-[100%] md:pb-0 md:h-full border-r-2"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -47,7 +47,7 @@ export default function ProjectCard({
           </motion.div>
         </CardHeader>
         <CardBody className="w-full md:w-3/5 flex flex-col gap-6">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -55,7 +55,7 @@ export default function ProjectCard({
           >
             {title}
           </motion.p>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -63,7 +63,7 @@ export default function ProjectCard({
           >
             {description}
           </motion.p>
-          <motion.div 
+          <motion.div
             className="flex flex-wrap gap-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -86,7 +86,7 @@ export default function ProjectCard({
           >
             <Link href={link} target="_blank">
               <Button className="flex text-white bg-opacity-0 items-center gap-2 m-0 p-0 hover:gap-4 transition-all">
-                {t('projectDetails')}
+                {t("projectDetails")}
                 <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

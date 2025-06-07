@@ -233,121 +233,121 @@ export default function Projects() {
   // Animation variants
   const pageVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         duration: 0.2,
         ease: "easeOut",
         when: "beforeChildren",
-        staggerChildren: 0.05
-      }
-    }
+        staggerChildren: 0.05,
+      },
+    },
   };
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.2,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const titleVariants = {
     hidden: { opacity: 0, y: 20, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { 
+      transition: {
         duration: 0.2,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const descriptionVariants = {
     hidden: { opacity: 0, y: 15 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.2,
         ease: "easeOut",
-        delay: 0
-      }
-    }
+        delay: 0,
+      },
+    },
   };
 
   const buttonContainerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.2,
         ease: "easeOut",
         when: "beforeChildren",
-        staggerChildren: 0.05
-      }
-    }
+        staggerChildren: 0.05,
+      },
+    },
   };
 
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.3, ease: "easeOut" },
     },
-    hover: { 
+    hover: {
       scale: 1.05,
       y: -2,
-      transition: { duration: 0.2 }
+      transition: { duration: 0.2 },
     },
-    tap: { scale: 0.95 }
+    tap: { scale: 0.95 },
   };
 
   const techTagVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 10 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
+    visible: {
+      opacity: 1,
+      scale: 1,
       y: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.3, ease: "easeOut" },
     },
-    hover: { 
+    hover: {
       scale: 1.05,
       backgroundColor: "rgba(168, 85, 247, 0.4)",
-      transition: { duration: 0.2 }
-    }
+      transition: { duration: 0.2 },
+    },
   };
 
   const techContainerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         staggerChildren: 0.02,
-        delayChildren: 0
-      }
-    }
+        delayChildren: 0,
+      },
+    },
   };
 
   const navigationVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.3,
         ease: "easeOut",
-        delay: 0
-      }
-    }
+        delay: 0,
+      },
+    },
   };
 
   // Action buttons component
@@ -447,7 +447,7 @@ export default function Projects() {
   );
 
   return (
-    <motion.div 
+    <motion.div
       className="bg-slate-900 w-full relative lg:pt-10"
       variants={pageVariants}
       initial="hidden"
@@ -463,7 +463,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Project Details Section */}
-        <motion.div 
+        <motion.div
           className="lg:h-full relative flex flex-col justify-center"
           variants={sectionVariants}
         >
@@ -474,7 +474,7 @@ export default function Projects() {
             {/* Project Title and Description */}
             <div className="flex flex-col items-center justify-center">
               <AnimatePresence mode="wait">
-                <motion.h2 
+                <motion.h2
                   key={`title-${activeProjectIndex}`}
                   className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white font-bold text-center"
                   variants={titleVariants}
@@ -485,9 +485,9 @@ export default function Projects() {
                   {activeProject.title}
                 </motion.h2>
               </AnimatePresence>
-              
+
               <AnimatePresence mode="wait">
-                <motion.p 
+                <motion.p
                   key={`desc-${activeProjectIndex}`}
                   className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-300 leading-relaxed text-center"
                   variants={descriptionVariants}
@@ -511,7 +511,7 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="relative bottom-0 left-0 right-0 h-20 sm:h-24 lg:h-28 xl:h-32 2xl:h-36 flex flex-col items-center justify-center bg-gradient-to-t from-slate-900 via-slate-900/90 to-transparent mt-4"
         variants={navigationVariants}
       >

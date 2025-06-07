@@ -12,65 +12,65 @@ import { motion, AnimatePresence } from "framer-motion";
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 20 }
+  exit: { opacity: 0, y: 20 },
 };
 
 const fadeIn = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
-  exit: { opacity: 0 }
+  exit: { opacity: 0 },
 };
 
 const navVariants = {
   initial: { y: -100 },
-  animate: { y: 0 }
+  animate: { y: 0 },
 };
 
 const mobileMenuVariants = {
   initial: { opacity: 0, scale: 0.95 },
   animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 0.95 }
+  exit: { opacity: 0, scale: 0.95 },
 };
 
 const springTransition = {
   type: "spring",
   stiffness: 400,
-  damping: 30
+  damping: 30,
 };
 
 const easeTransition = {
   type: "easeInOut",
-  duration: 0.3
+  duration: 0.3,
 };
 
 function NavList() {
   const { t } = useLanguage();
-  
+
   const navItems = [
-    { text: t('home'), href: "/" },
-    { text: t('aboutMe'), href: "/about" },
-    { text: t('projects'), href: "/projects" },
-    { text: t('skills'), href: "/skills" },
-    { text: t('experience'), href: "/experience" },
-    { text: t('blog'), href: "/blog" },
-    { text: t('contactMe'), href: "/contact" },
+    { text: t("home"), href: "/" },
+    { text: t("aboutMe"), href: "/about" },
+    { text: t("projects"), href: "/projects" },
+    { text: t("skills"), href: "/skills" },
+    { text: t("experience"), href: "/experience" },
+    { text: t("blog"), href: "/blog" },
+    { text: t("contactMe"), href: "/contact" },
   ];
 
   const staggerContainer = {
     animate: {
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const navItemVariants = {
     initial: { opacity: 0, y: -10 },
-    animate: { 
-      opacity: 1, 
+    animate: {
+      opacity: 1,
       y: 0,
-      transition: { ...easeTransition }
-    }
+      transition: { ...easeTransition },
+    },
   };
 
   return (
@@ -81,10 +81,7 @@ function NavList() {
       className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6"
     >
       {navItems.map((item) => (
-        <motion.li
-          key={item.text}
-          variants={navItemVariants}
-        >
+        <motion.li key={item.text} variants={navItemVariants}>
           <Link
             href={item.href}
             className="flex items-center text-gray-100 hover:text-white transition-colors p-1 font-medium font-montserrat"
@@ -120,7 +117,7 @@ export function NavbarSimple() {
     >
       <div className="max-w-screen-2xl mx-auto">
         <div className="flex items-center justify-between text-gray-100">
-          <motion.div 
+          <motion.div
             variants={fadeIn}
             initial="initial"
             animate="animate"
@@ -157,8 +154,8 @@ export function NavbarSimple() {
               </motion.p>
             </Link>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             variants={fadeIn}
             initial="initial"
             animate="animate"
@@ -168,7 +165,7 @@ export function NavbarSimple() {
             <NavList />
             <LanguageSwitcher />
           </motion.div>
-          
+
           <motion.button
             variants={fadeIn}
             initial="initial"
@@ -185,18 +182,40 @@ export function NavbarSimple() {
               transition={springTransition}
             >
               {openNav ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-6 w-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="h-6 w-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-6 w-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="h-6 w-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
                 </svg>
               )}
             </motion.div>
           </motion.button>
         </div>
-        
+
         <AnimatePresence mode="wait">
           {openNav && (
             <motion.div
@@ -207,7 +226,7 @@ export function NavbarSimple() {
               transition={{ ...easeTransition, duration: 0.2 }}
               className="border border-[#a4b8e9] border-opacity-45 my-4 p-4 bg-[#0f172a] rounded-sm bg-opacity-50"
             >
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 className="flex flex-col items-start gap-4"
               >

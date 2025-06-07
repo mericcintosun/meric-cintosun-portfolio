@@ -13,65 +13,65 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: t('softitoTitle'),
-      subtitle: t('softitoSubtitle'),
-      date: t('softitoDate'),
-      description: t('softitoDesc'),
+      title: t("softitoTitle"),
+      subtitle: t("softitoSubtitle"),
+      date: t("softitoDate"),
+      description: t("softitoDesc"),
     },
     {
-      title: t('medyanesTitle'),
-      subtitle: t('medyanesSubtitle'),
-      date: t('medyanesDate'),
-      description: t('medyanesDesc'),
+      title: t("medyanesTitle"),
+      subtitle: t("medyanesSubtitle"),
+      date: t("medyanesDate"),
+      description: t("medyanesDesc"),
     },
     {
-      title: t('flalingoTitle'),
-      subtitle: t('flalingoSubtitle'),
-      date: t('flalingoDate'),
-      description: t('flalingoDesc'),
+      title: t("flalingoTitle"),
+      subtitle: t("flalingoSubtitle"),
+      date: t("flalingoDate"),
+      description: t("flalingoDesc"),
     },
     {
-      title: t('viviencyTitle'),
-      subtitle: t('viviencySubtitle'),
-      date: t('viviencyDate'),
-      description: t('viviencyDesc'),
+      title: t("viviencyTitle"),
+      subtitle: t("viviencySubtitle"),
+      date: t("viviencyDate"),
+      description: t("viviencyDesc"),
     },
     {
-      title: t('ituTitle'),
-      subtitle: t('ituSubtitle'),
-      date: t('ituDate'),
-      description: t('ituDesc'),
+      title: t("ituTitle"),
+      subtitle: t("ituSubtitle"),
+      date: t("ituDate"),
+      description: t("ituDesc"),
     },
     {
-      title: t('yetgenTitle'),
-      subtitle: t('yetgenSubtitle'),
-      date: t('yetgenDate'),
-      description: t('yetgenDesc'),
+      title: t("yetgenTitle"),
+      subtitle: t("yetgenSubtitle"),
+      date: t("yetgenDate"),
+      description: t("yetgenDesc"),
     },
     {
-      title: t('studioPMTitle'),
-      subtitle: t('studioPMSubtitle'),
-      date: t('studioPMDate'),
-      description: t('studioPMDesc'),
+      title: t("studioPMTitle"),
+      subtitle: t("studioPMSubtitle"),
+      date: t("studioPMDate"),
+      description: t("studioPMDesc"),
     },
     {
-      title: t('universityTitle'),
-      subtitle: t('universitySubtitle'),
-      date: t('universityDate'),
-      description: t('universityDesc'),
+      title: t("universityTitle"),
+      subtitle: t("universitySubtitle"),
+      date: t("universityDate"),
+      description: t("universityDesc"),
     },
     {
-      title: t('extraTitle'),
-      subtitle: t('extraSubtitle'),
-      date: t('extraDate'),
-      description: t('extraDesc'),
+      title: t("extraTitle"),
+      subtitle: t("extraSubtitle"),
+      date: t("extraDate"),
+      description: t("extraDesc"),
     },
   ];
 
   return (
     <section className="py-8 px-4 bg-[#0f172a] bg-opacity-70 rounded-xl mb-6">
       <h2 className="text-center mb-8 text-[#6B46C1] text-4xl font-bold">
-        {t('myExperiences')}
+        {t("myExperiences")}
       </h2>
       <VerticalTimeline>
         {experiences.map((exp, index) => (
@@ -86,10 +86,10 @@ export default function Experience() {
               {exp.title}
             </h3>
             <h4 className="vertical-timeline-element-subtitle font-normal text-[#6B46C1] text-base">
-              {exp.title === t('extraTitle') ? (
-                <a 
-                  href="https://www.linkedin.com/in/meric-cintosun/" 
-                  target="_blank" 
+              {exp.title === t("extraTitle") ? (
+                <a
+                  href="https://www.linkedin.com/in/meric-cintosun/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#9d74ff] transition-colors duration-300 cursor-pointer"
                 >

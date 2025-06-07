@@ -20,7 +20,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <motion.div 
+          <motion.div
             className="relative group rounded-full overflow-hidden"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -38,7 +38,7 @@ export default function About() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#bdb4ff] via-[#3e276c] to-[#0f172a] opacity-10 group-hover:opacity-20 transition duration-300"></div>
           </motion.div>
-          <motion.h1 
+          <motion.h1
             className="text-3xl font-semibold md:text-5xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -46,13 +46,13 @@ export default function About() {
           >
             Meriç Cintosun
           </motion.h1>
-          <motion.h2 
+          <motion.h2
             className="text-xl md:text-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            {t('fullStackDev')}
+            {t("fullStackDev")}
           </motion.h2>
         </motion.div>
         <motion.div
@@ -67,21 +67,21 @@ export default function About() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            {t('aboutIntro')}
+            {t("aboutIntro")}
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            {t('aboutCareer')}
+            {t("aboutCareer")}
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            {t('aboutPassion')}
+            {t("aboutPassion")}
           </motion.p>
         </motion.div>
       </div>

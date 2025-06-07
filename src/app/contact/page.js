@@ -23,10 +23,10 @@ export default function Contact() {
     setShowSuccess(false);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -50,69 +50,69 @@ export default function Contact() {
       setStatus("error");
     } finally {
       setIsSubmitting(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="w-full max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:mt-[-8rem] z-[1]">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="space-y-4 text-center max-w-2xl mx-auto mb-16"
         >
           <h1 className="text-3xl font-semibold md:text-5xl mt-6">
-            {t('contact')}
+            {t("contact")}
           </h1>
-          <motion.div 
+          <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="w-24 h-1 bg-[#bdb4ff] mx-auto my-4 rounded-full"
           ></motion.div>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-xl md:text-2xl"
           >
-            {t('getInTouch')}
+            {t("getInTouch")}
           </motion.p>
         </motion.div>
 
         {status === "success" && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="mb-6 p-4 rounded-lg text-center bg-green-100 text-green-800 border border-green-400"
           >
-            {t('successMessage')}
+            {t("successMessage")}
           </motion.div>
         )}
 
         {status === "error" && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="mb-6 p-4 rounded-lg text-center bg-red-100 text-red-800 border border-red-400"
           >
-            {t('errorMessage')}
+            {t("errorMessage")}
           </motion.div>
         )}
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -121,9 +121,27 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="space-y-6">
               {[
-                { id: 'fullName', label: t('fullName'), type: 'text', required: true, placeholder: t('placeholderFullName') },
-                { id: 'email', label: t('emailAddress'), type: 'email', required: true, placeholder: t('placeholderEmail') },
-                { id: 'phone', label: t('phoneNumber'), type: 'tel', required: false, placeholder: t('placeholderPhone') }
+                {
+                  id: "fullName",
+                  label: t("fullName"),
+                  type: "text",
+                  required: true,
+                  placeholder: t("placeholderFullName"),
+                },
+                {
+                  id: "email",
+                  label: t("emailAddress"),
+                  type: "email",
+                  required: true,
+                  placeholder: t("placeholderEmail"),
+                },
+                {
+                  id: "phone",
+                  label: t("phoneNumber"),
+                  type: "tel",
+                  required: false,
+                  placeholder: t("placeholderPhone"),
+                },
               ].map((field, index) => (
                 <motion.div
                   key={field.id}
@@ -131,11 +149,12 @@ export default function Contact() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
-                  <label 
-                    htmlFor={field.id} 
+                  <label
+                    htmlFor={field.id}
                     className="block text-sm font-semibold mb-2"
                   >
-                    {field.label} {field.required && <span className="text-red-500">*</span>}
+                    {field.label}{" "}
+                    {field.required && <span className="text-red-500">*</span>}
                   </label>
                   <input
                     type={field.type}
@@ -155,18 +174,18 @@ export default function Contact() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
-                <label 
-                  htmlFor="message" 
+                <label
+                  htmlFor="message"
                   className="block text-sm font-semibold mb-2"
                 >
-                  {t('yourMessage')} <span className="text-red-500">*</span>
+                  {t("yourMessage")} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="message"
                   id="message"
                   rows={6}
                   required
-                  placeholder={t('placeholderMessage')}
+                  placeholder={t("placeholderMessage")}
                   value={formData.message}
                   onChange={handleChange}
                   className="block w-full px-4 py-3.5 bg-[#0f172a] bg-opacity-70 border border-[#bdb4ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bdb4ff] focus:border-transparent transition duration-300 resize-none placeholder-gray-400"
@@ -183,30 +202,58 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
               className={`w-full px-6 py-4 rounded-lg font-semibold text-base transform shadow-lg 
-                ${isSubmitting
-                  ? "bg-gray-500 cursor-not-allowed opacity-50"
-                  : showSuccess
-                  ? "bg-green-600 text-white"
-                  : "bg-[#3e276c] text-white hover:bg-[#bdb4ff] hover:text-[#0f172a] hover:shadow-xl"
+                ${
+                  isSubmitting
+                    ? "bg-gray-500 cursor-not-allowed opacity-50"
+                    : showSuccess
+                    ? "bg-green-600 text-white"
+                    : "bg-[#3e276c] text-white hover:bg-[#bdb4ff] hover:text-[#0f172a] hover:shadow-xl"
                 }`}
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
-                  {t('sending')}
+                  {t("sending")}
                 </span>
               ) : showSuccess ? (
                 <span className="flex items-center justify-center">
-                  <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  <svg
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
                   </svg>
-                  {t('messageSent')}
+                  {t("messageSent")}
                 </span>
               ) : (
-                t('sendMessage')
+                t("sendMessage")
               )}
             </motion.button>
           </form>

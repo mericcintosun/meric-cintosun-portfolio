@@ -75,17 +75,20 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                {t('greeting')} <span className="font-bold">Meriç</span>. {t('specialization')}{" "}
+                {t("greeting")} <span className="font-bold">Meriç</span>.{" "}
+                {t("specialization")}{" "}
                 <span className="bg-gradient-to-r from-[#6B46C1] via-[#9F7AEA] to-[#B794F4] bg-clip-text text-transparent font-semibold">
-                  {t('web2web3')}
+                  {t("web2web3")}
                 </span>{" "}
-                {t('graduationText')}{" "}
-                <span className="font-bold">{t('university')}</span> {t('graduationYear')}{" "}
+                {t("graduationText")}{" "}
+                <span className="font-bold">{t("university")}</span>{" "}
+                {t("graduationYear")}{" "}
                 <span className="bg-gradient-to-r from-[#6B46C1] via-[#9F7AEA] to-[#B794F4] bg-clip-text text-transparent font-semibold">
-                  {t('technologies')}
+                  {t("technologies")}
                 </span>
-                , {t('blockchainText')}{" "}
-                <span className="font-bold">{t('dapps')}</span>. {t('finalText')}
+                , {t("blockchainText")}{" "}
+                <span className="font-bold">{t("dapps")}</span>.{" "}
+                {t("finalText")}
               </motion.div>
             </motion.div>
             <motion.div
@@ -104,9 +107,9 @@ export default function HomePage() {
                     opacity: 1,
                     y: 0,
                     transition: {
-                      staggerChildren: 0.2
-                    }
-                  }
+                      staggerChildren: 0.2,
+                    },
+                  },
                 }}
                 initial="hidden"
                 animate="show"
@@ -119,7 +122,7 @@ export default function HomePage() {
                     href="/contact"
                     className="w-[11rem] md:w-[15rem] md:text-2xl sm:w-auto bg-gradient-to-r from-[#1E0A4D] via-[#2D0F6A] to-[#3A127F] text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-700 transition-opacity duration-200"
                   >
-                    {t('contactButton')}
+                    {t("contactButton")}
                   </Link>
                 </motion.div>
 
@@ -132,7 +135,7 @@ export default function HomePage() {
                     download
                     className="w-[11rem] md:w-[15rem] md:text-2xl sm:w-auto bg-gradient-to-r from-[#1E0A4D] via-[#2D0F6A] to-[#3A127F] text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-700 transition-opacity duration-200"
                   >
-                    {t('downloadCV')}
+                    {t("downloadCV")}
                   </a>
                 </motion.div>
               </motion.div>
@@ -147,9 +150,9 @@ export default function HomePage() {
                     y: 0,
                     transition: {
                       staggerChildren: 0.2,
-                      delay: 0.4
-                    }
-                  }
+                      delay: 0.4,
+                    },
+                  },
                 }}
                 initial="hidden"
                 animate="show"
@@ -173,7 +176,7 @@ export default function HomePage() {
                       sizes="30px"
                       className="filter invert hover:invert-0 transition-transform duration-200"
                     />
-                    <span className="ml-2">{t('github')}</span>
+                    <span className="ml-2">{t("github")}</span>
                   </Link>
                 </motion.div>
 
@@ -196,7 +199,7 @@ export default function HomePage() {
                       sizes="30px"
                       className="filter invert hover:invert-0 transition-transform duration-200"
                     />
-                    <span className="ml-2">{t('linkedin')}</span>
+                    <span className="ml-2">{t("linkedin")}</span>
                   </Link>
                 </motion.div>
               </motion.div>
