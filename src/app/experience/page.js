@@ -13,22 +13,34 @@ export default function Experience() {
 
   const experiences = [
     {
+      title: t('softitoTitle'),
+      subtitle: t('softitoSubtitle'),
+      date: t('softitoDate'),
+      description: t('softitoDesc'),
+    },
+    {
+      title: t('medyanesTitle'),
+      subtitle: t('medyanesSubtitle'),
+      date: t('medyanesDate'),
+      description: t('medyanesDesc'),
+    },
+    {
       title: t('flalingoTitle'),
       subtitle: t('flalingoSubtitle'),
       date: t('flalingoDate'),
       description: t('flalingoDesc'),
     },
     {
-      title: t('ituTitle'),
-      subtitle: t('ituSubtitle'),
-      date: t('ituDate'),
-      description: t('ituDesc'),
-    },
-    {
       title: t('viviencyTitle'),
       subtitle: t('viviencySubtitle'),
       date: t('viviencyDate'),
       description: t('viviencyDesc'),
+    },
+    {
+      title: t('ituTitle'),
+      subtitle: t('ituSubtitle'),
+      date: t('ituDate'),
+      description: t('ituDesc'),
     },
     {
       title: t('yetgenTitle'),
@@ -74,7 +86,18 @@ export default function Experience() {
               {exp.title}
             </h3>
             <h4 className="vertical-timeline-element-subtitle font-normal text-[#6B46C1] text-base">
-              {exp.subtitle}
+              {exp.title === t('extraTitle') ? (
+                <a 
+                  href="https://www.linkedin.com/in/meric-cintosun/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-[#9d74ff] transition-colors duration-300 cursor-pointer"
+                >
+                  {exp.subtitle}
+                </a>
+              ) : (
+                exp.subtitle
+              )}
             </h4>
             <p className="whitespace-pre-line leading-6 text-[#6B46C1]">
               {exp.description}

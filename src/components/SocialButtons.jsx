@@ -40,9 +40,11 @@ const SocialButtons = () => {
         >
           <Image
             src="/github.svg"
-            alt="git"
+            alt="GitHub Profile Link"
             width={30}
             height={30}
+            loading="lazy"
+            sizes="30px"
             className="filter invert hover:invert-0 transition-transform duration-200"
           />
           <span className="ml-2">GitHub</span>
@@ -56,9 +58,11 @@ const SocialButtons = () => {
         >
           <Image
             src="/linkedin.svg"
-            alt="Linked"
+            alt="LinkedIn Profile Link"
             width={30}
             height={30}
+            loading="lazy"
+            sizes="30px"
             className="filter invert hover:invert-0 transition-transform duration-200"
           />
           <span className="ml-2">LinkedIn</span>

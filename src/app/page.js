@@ -52,9 +52,13 @@ export default function HomePage() {
             >
               <Image
                 src="/home-astronaut.webp"
-                alt="hero-img"
+                alt="Meriç Cintosun Portfolio Hero Image"
                 width={300}
                 height={300}
+                priority={true}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                sizes="(max-width: 768px) 250px, 300px"
                 className="rounded-full transform transition duration-300 ease-in-out hover:rotate-3 animate-float"
               />
             </motion.div>
@@ -162,9 +166,11 @@ export default function HomePage() {
                   >
                     <Image
                       src="/github.svg"
-                      alt="github"
+                      alt="GitHub Profile Link"
                       width={30}
                       height={30}
+                      loading="lazy"
+                      sizes="30px"
                       className="filter invert hover:invert-0 transition-transform duration-200"
                     />
                     <span className="ml-2">{t('github')}</span>
@@ -183,9 +189,11 @@ export default function HomePage() {
                   >
                     <Image
                       src="/linkedin.svg"
-                      alt="linkedin"
+                      alt="LinkedIn Profile Link"
                       width={30}
                       height={30}
+                      loading="lazy"
+                      sizes="30px"
                       className="filter invert hover:invert-0 transition-transform duration-200"
                     />
                     <span className="ml-2">{t('linkedin')}</span>

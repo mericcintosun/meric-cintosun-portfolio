@@ -40,6 +40,8 @@ export default function HeroShowcase({
                   alt={appTitle}
                   width={40}
                   height={40}
+                  loading="lazy"
+                  sizes="40px"
                   className="rounded-xl"
                 />
               </motion.div>

@@ -71,7 +71,7 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="space-y-4 text-center max-w-2xl mx-auto mb-16"
         >
-          <h1 className="text-3xl font-semibold md:text-5xl">
+          <h1 className="text-3xl font-semibold md:text-5xl mt-6">
             {t('contact')}
           </h1>
           <motion.div 
