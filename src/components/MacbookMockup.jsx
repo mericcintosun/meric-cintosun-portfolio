@@ -46,9 +46,9 @@ export default function ResponsiveMockup({
           mockupAlt: "iPhone mock-up",
           frame: {
             top: "1%",
-            left: "2%",
-            width: "95.4%",
-            height: "98.5%",
+            left: "6.1%",
+            width: "87.8%",
+            height: "97.8%",
           },
           projectPrefix: "iphone-",
           folderPath: "/iphoneProjectImages/",
@@ -128,13 +128,13 @@ export default function ResponsiveMockup({
     <div className="justify-center">
       <div
         className={`relative w-full px-4 flex overflow-hidden ${
-          deviceType === "mobile" ? "max-w-sm mx-auto" : "max-w-4xl"
+          deviceType === "mobile" ? "max-w-[200px] mx-auto" : "max-w-4xl"
         }`}
       >
         {/* Screen overlay - Behind mockup for mobile/desktop, in front for tablet */}
         <div
           className={`absolute overflow-hidden ${
-            deviceType === "mobile" ? "rounded-[75px]" : "rounded-sm"
+            deviceType === "mobile" ? "rounded-[37px]" : "rounded-sm"
           }`}
           style={{
             ...mockupConfig.frame,
@@ -150,7 +150,7 @@ export default function ResponsiveMockup({
                   src={getProjectImageSrc()}
                   alt={currentProject.alt}
                   fill
-                  className="object-cover transition-opacity duration-500 scale-[0.9]"
+                  className="object-cover transition-opacity duration-500 scale-[0.85]"
                   priority
                 />
               </div>
