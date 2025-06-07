@@ -25,8 +25,6 @@ export default function ResponsiveMockup({
       const width = window.innerWidth;
       if (width < 768) {
         setDeviceType("mobile");
-      } else if (width < 1024) {
-        setDeviceType("tablet");
       } else {
         setDeviceType("desktop");
       }
@@ -49,24 +47,11 @@ export default function ResponsiveMockup({
           frame: {
             top: "1%",
             left: "2%",
-            width: "94.8%",
+            width: "95.4%",
             height: "98.5%",
           },
           projectPrefix: "iphone-",
           folderPath: "/iphoneProjectImages/",
-        };
-      case "tablet":
-        return {
-          mockupSrc: "/ipad-mockup.png",
-          mockupAlt: "iPad mock-up",
-          frame: {
-            top: "1.0%",
-            left: "7.2%",
-            width: "85.9%",
-            height: "96.8%",
-          },
-          projectPrefix: "ipad-",
-          folderPath: "/ipadProjectImages/",
         };
       default: // desktop
         return {
@@ -143,26 +128,18 @@ export default function ResponsiveMockup({
     <div className="justify-center">
       <div
         className={`relative w-full px-4 flex overflow-hidden ${
-          deviceType === "mobile"
-            ? "max-w-sm mx-auto"
-            : deviceType === "tablet"
-            ? "max-w-md mx-auto"
-            : "max-w-4xl"
+          deviceType === "mobile" ? "max-w-sm mx-auto" : "max-w-4xl"
         }`}
       >
         {/* Screen overlay - Behind mockup for mobile/desktop, in front for tablet */}
         <div
           className={`absolute overflow-hidden ${
-            deviceType === "mobile"
-              ? "rounded-[63px]"
-              : deviceType === "tablet"
-              ? "rounded-[10px]"
-              : "rounded-sm"
+            deviceType === "mobile" ? "rounded-[75px]" : "rounded-sm"
           }`}
           style={{
             ...mockupConfig.frame,
             position: "absolute",
-            zIndex: deviceType === "tablet" ? 20 : 1,
+            zIndex: 1,
           }}
         >
           {deviceType === "mobile" ? (
@@ -183,13 +160,7 @@ export default function ResponsiveMockup({
               src={getProjectImageSrc()}
               alt={currentProject.alt}
               fill
-              className={`${
-                deviceType === "desktop" ? "object-contain" : deviceType === "tablet" ? "object-contain" : "object-contain"
-              } transition-opacity duration-500 ${
-                deviceType === "tablet"
-                  ? "scale-100 rounded-[8px]"
-                  : "scale-100 rounded-[8px]"
-              }`}
+              className="object-cover transition-opacity duration-500 scale-100 rounded-[8px]"
               priority
             />
           )}
