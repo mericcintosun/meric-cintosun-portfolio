@@ -13,8 +13,7 @@ export default function Projects() {
 
   // Loading effect
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 200);
-    return () => clearTimeout(timer);
+    setIsLoaded(true);
   }, []);
 
   // Proje detayları
@@ -237,10 +236,10 @@ export default function Projects() {
     visible: { 
       opacity: 1,
       transition: { 
-        duration: 0.8,
+        duration: 0.2,
         ease: "easeOut",
         when: "beforeChildren",
-        staggerChildren: 0.2
+        staggerChildren: 0.05
       }
     }
   };
@@ -251,7 +250,7 @@ export default function Projects() {
       opacity: 1, 
       y: 0,
       transition: { 
-        duration: 0.6,
+        duration: 0.2,
         ease: "easeOut"
       }
     }
@@ -264,7 +263,7 @@ export default function Projects() {
       y: 0, 
       scale: 1,
       transition: { 
-        duration: 0.6,
+        duration: 0.2,
         ease: "easeOut"
       }
     }
@@ -276,9 +275,9 @@ export default function Projects() {
       opacity: 1, 
       y: 0,
       transition: { 
-        duration: 0.5,
+        duration: 0.2,
         ease: "easeOut",
-        delay: 0.1
+        delay: 0
       }
     }
   };
@@ -289,10 +288,10 @@ export default function Projects() {
       opacity: 1, 
       y: 0,
       transition: { 
-        duration: 0.5,
+        duration: 0.2,
         ease: "easeOut",
         when: "beforeChildren",
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       }
     }
   };
@@ -332,8 +331,8 @@ export default function Projects() {
     visible: { 
       opacity: 1,
       transition: { 
-        staggerChildren: 0.05,
-        delayChildren: 0.2
+        staggerChildren: 0.02,
+        delayChildren: 0
       }
     }
   };
@@ -344,9 +343,9 @@ export default function Projects() {
       opacity: 1, 
       y: 0,
       transition: { 
-        duration: 0.8,
+        duration: 0.3,
         ease: "easeOut",
-        delay: 0.4
+        delay: 0
       }
     }
   };
