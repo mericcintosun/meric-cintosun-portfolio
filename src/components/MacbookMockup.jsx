@@ -3,6 +3,7 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ResponsiveMockup({
   projects = [],
@@ -12,6 +13,7 @@ export default function ResponsiveMockup({
 }) {
   const [internalCurrentIndex, setInternalCurrentIndex] = useState(0);
   const [deviceType, setDeviceType] = useState("desktop");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Use external index if provided, otherwise use internal
   const currentIndex =
@@ -35,6 +37,12 @@ export default function ResponsiveMockup({
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Loading effect
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 300);
+    return () => clearTimeout(timer);
   }, []);
 
   // Get mockup configuration based on device type
@@ -89,9 +97,14 @@ export default function ResponsiveMockup({
 
   if (projects.length === 0) {
     return (
-      <div className="flex w-full items-center justify-center">
+      <motion.div
+        className="flex w-full items-center justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="text-gray-500">No projects to display</div>
-      </div>
+      </motion.div>
     );
   }
 
@@ -124,59 +137,178 @@ export default function ResponsiveMockup({
     return `${mockupConfig.folderPath}${mockupConfig.projectPrefix}${mappedName}.png`;
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const mockupVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotateY: 15 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotateY: 0,
+      transition: {
+        duration: 1.2,
+        ease: "easeOut",
+        delay: 0.2,
+      },
+    },
+  };
+
+  const screenVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        delay: 0.8,
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 1.1,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 1.1 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const deviceTransitionVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="justify-center">
-      <div
-        className={`relative w-full px-4 flex overflow-hidden ${
-          deviceType === "mobile" ? "max-w-[200px] mx-auto" : "max-w-4xl"
-        }`}
-      >
-        {/* Screen overlay - Behind mockup for mobile/desktop, in front for tablet */}
-        <div
-          className={`absolute overflow-hidden ${
-            deviceType === "mobile" ? "rounded-[37px]" : "rounded-sm"
+    <motion.div
+      className="justify-center"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isLoaded ? "visible" : "hidden"}
+    >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={deviceType}
+          className={`relative w-full px-4 flex overflow-hidden ${
+            deviceType === "mobile" ? "max-w-[200px] mx-auto" : "max-w-4xl"
           }`}
-          style={{
-            ...mockupConfig.frame,
-            position: "absolute",
-            zIndex: 1,
-          }}
+          variants={deviceTransitionVariants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
         >
-          {deviceType === "mobile" ? (
-            <div className="w-[90%] h-[100%] mx-auto my-auto  bg-black flex flex-col">
-              <div className="h-[15%] bg-black"></div>
-              <div className="h-[70%] overflow-hidden">
-                <Image
-                  src={getProjectImageSrc()}
-                  alt={currentProject.alt}
-                  fill
-                  className="object-cover transition-opacity duration-500 scale-[0.85]"
-                  priority
-                />
-              </div>
-            </div>
-          ) : (
+          {/* Screen overlay - Behind mockup for mobile/desktop, in front for tablet */}
+          <motion.div
+            className={`absolute overflow-hidden ${
+              deviceType === "mobile" ? "rounded-[37px]" : "rounded-sm"
+            }`}
+            style={{
+              ...mockupConfig.frame,
+              position: "absolute",
+              zIndex: 1,
+            }}
+            variants={screenVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <AnimatePresence mode="wait">
+              {deviceType === "mobile" ? (
+                <motion.div
+                  key={`mobile-${currentIndex}`}
+                  className="w-[90%] h-[100%] mx-auto my-auto bg-black flex flex-col"
+                  variants={imageVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                >
+                  <div className="h-[15%] bg-black"></div>
+                  <motion.div
+                    className="h-[70%] overflow-hidden"
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src={getProjectImageSrc()}
+                      alt={currentProject.alt}
+                      fill
+                      className="object-cover transition-opacity duration-500 scale-[0.85]"
+                      priority
+                    />
+                  </motion.div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={`desktop-${currentIndex}`}
+                  className="w-full h-full relative"
+                  variants={imageVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src={getProjectImageSrc()}
+                    alt={currentProject.alt}
+                    fill
+                    className="object-cover transition-opacity duration-500 scale-100 rounded-[8px]"
+                    priority
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Mockup device - In front */}
+          <motion.div
+            variants={mockupVariants}
+            initial="hidden"
+            animate="visible"
+            className="w-full relative z-10"
+          >
             <Image
-              src={getProjectImageSrc()}
-              alt={currentProject.alt}
-              fill
-              className="object-cover transition-opacity duration-500 scale-100 rounded-[8px]"
+              src={mockupConfig.mockupSrc}
+              alt={mockupConfig.mockupAlt}
+              width={1600}
+              height={1000}
+              className="pointer-events-none select-none w-full"
               priority
             />
-          )}
-        </div>
-
-        {/* Mockup device - In front */}
-        <Image
-          src={mockupConfig.mockupSrc}
-          alt={mockupConfig.mockupAlt}
-          width={1600}
-          height={1000}
-          className="pointer-events-none select-none w-full relative z-10"
-          priority
-        />
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
+    </motion.div>
   );
 }
 

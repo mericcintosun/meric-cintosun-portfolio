@@ -4,10 +4,18 @@ import ResponsiveMockup from "@/components/MacbookMockup";
 import ProjectNavigation from "@/components/ProjectNavigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 export default function Projects() {
   const { t } = useLanguage();
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Loading effect
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Proje detayları
   const projectDetails = [
@@ -223,108 +231,291 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Animation variants
+  const pageVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut",
+        when: "beforeChildren",
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const descriptionVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.5,
+        ease: "easeOut",
+        delay: 0.1
+      }
+    }
+  };
+
+  const buttonContainerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.5,
+        ease: "easeOut",
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.3, ease: "easeOut" }
+    },
+    hover: { 
+      scale: 1.05,
+      y: -2,
+      transition: { duration: 0.2 }
+    },
+    tap: { scale: 0.95 }
+  };
+
+  const techTagVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 10 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" }
+    },
+    hover: { 
+      scale: 1.05,
+      backgroundColor: "rgba(168, 85, 247, 0.4)",
+      transition: { duration: 0.2 }
+    }
+  };
+
+  const techContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.05,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const navigationVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut",
+        delay: 0.4
+      }
+    }
+  };
+
   // Action buttons component
   const ActionButtons = ({ className = "" }) => (
-    <div
+    <motion.div
       className={`flex gap-2 sm:gap-3 items-center justify-center ${className}`}
+      variants={buttonContainerVariants}
+      initial="hidden"
+      animate="visible"
     >
-      {activeProject.github && (
-        <a
-          href={activeProject.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 sm:gap-2 bg-gray-800 hover:bg-gray-700 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border border-gray-600 text-xs sm:text-sm"
-        >
-          <svg
-            className="w-3 h-3 sm:w-4 sm:h-4 text-white"
-            fill="currentColor"
-            viewBox="0 0 24 24"
+      <AnimatePresence mode="wait">
+        {activeProject.github && (
+          <motion.a
+            key={`github-${activeProjectIndex}`}
+            href={activeProject.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 sm:gap-2 bg-gray-800 hover:bg-gray-700 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border border-gray-600 text-xs sm:text-sm"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
           >
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-          </svg>
-          <span className="font-medium text-white">GitHub</span>
-        </a>
-      )}
+            <motion.svg
+              className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.5 }}
+            >
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </motion.svg>
+            <span className="font-medium text-white">GitHub</span>
+          </motion.a>
+        )}
 
-      {activeProject.website && (
-        <a
-          href={activeProject.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 sm:gap-2 bg-purple-700 hover:bg-purple-600 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border border-purple-500 text-xs sm:text-sm"
-        >
-          <svg
-            className="w-3 h-3 sm:w-4 sm:h-4 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        {activeProject.website && (
+          <motion.a
+            key={`website-${activeProjectIndex}`}
+            href={activeProject.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 sm:gap-2 bg-purple-700 hover:bg-purple-600 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border border-purple-500 text-xs sm:text-sm"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            />
-          </svg>
-          <span className="font-medium text-white">Live App</span>
-        </a>
-      )}
-    </div>
+            <motion.svg
+              className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              whileHover={{ scale: 1.2 }}
+              transition={{ duration: 0.2 }}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </motion.svg>
+            <span className="font-medium text-white">Live App</span>
+          </motion.a>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 
   // Technology tags component
   const TechnologyTags = ({ className = "" }) => (
-    <div
+    <motion.div
       className={`flex flex-wrap justify-center gap-1.5 sm:gap-2 ${className}`}
+      variants={techContainerVariants}
+      initial="hidden"
+      animate="visible"
     >
-      {activeProject.technologies.map((tech, index) => (
-        <span
-          key={index}
-          className="px-2 sm:px-3 py-1 sm:py-1.5 bg-purple-600/20 text-purple-300 rounded-full text-xs font-medium border border-purple-500/30 hover:bg-purple-600/30 transition-colors whitespace-nowrap"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
+      <AnimatePresence mode="wait">
+        {activeProject.technologies.map((tech, index) => (
+          <motion.span
+            key={`${tech}-${activeProjectIndex}`}
+            className="px-2 sm:px-3 py-1 sm:py-1.5 bg-purple-600/20 text-purple-300 rounded-full text-xs font-medium border border-purple-500/30 hover:bg-purple-600/30 transition-colors whitespace-nowrap"
+            variants={techTagVariants}
+            whileHover="hover"
+            layout
+          >
+            {tech}
+          </motion.span>
+        ))}
+      </AnimatePresence>
+    </motion.div>
   );
 
   return (
-    <div className="bg-slate-900 w-full relative lg:pt-10">
+    <motion.div 
+      className="bg-slate-900 w-full relative lg:pt-10"
+      variants={pageVariants}
+      initial="hidden"
+      animate={isLoaded ? "visible" : "hidden"}
+    >
       <div className="lg:grid lg:grid-cols-[55%_45%] xl:grid-cols-[60%_40%]">
-        <ResponsiveMockup
-          projects={carouselProjects}
-          autoRotate={false}
-          currentIndex={activeProjectIndex}
-        />
+        <motion.div variants={sectionVariants}>
+          <ResponsiveMockup
+            projects={carouselProjects}
+            autoRotate={false}
+            currentIndex={activeProjectIndex}
+          />
+        </motion.div>
 
         {/* Project Details Section */}
-        <div className=" lg:h-full relative flex flex-col justify-center">
+        <motion.div 
+          className="lg:h-full relative flex flex-col justify-center"
+          variants={sectionVariants}
+        >
           <div className="w-full max-w-xl mx-auto space-y-4 sm:space-y-6 lg:space-y-6 xl:space-y-8">
             {/* Action Buttons */}
             <ActionButtons className="flex-row gap-2 sm:flex-row sm:gap-3 pt-6 pb-4 lg:pt-0" />
 
             {/* Project Title and Description */}
-            <div className=" flex flex-col items-center justify-center">
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white font-bold text-center">
-                {activeProject.title}
-              </h2>
-              <p className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-300 leading-relaxed text-center">
-                <span className="block lg:hidden">
-                  {activeProject.description}
-                </span>
-                <span className="hidden lg:block">
-                  {activeProject.detailedDescription}
-                </span>
-              </p>
+            <div className="flex flex-col items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.h2 
+                  key={`title-${activeProjectIndex}`}
+                  className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white font-bold text-center"
+                  variants={titleVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  {activeProject.title}
+                </motion.h2>
+              </AnimatePresence>
+              
+              <AnimatePresence mode="wait">
+                <motion.p 
+                  key={`desc-${activeProjectIndex}`}
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-300 leading-relaxed text-center"
+                  variants={descriptionVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  <span className="block lg:hidden">
+                    {activeProject.description}
+                  </span>
+                  <span className="hidden lg:block">
+                    {activeProject.detailedDescription}
+                  </span>
+                </motion.p>
+              </AnimatePresence>
             </div>
 
             {/* Technology Tags */}
             <TechnologyTags />
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="relative bottom-0 left-0 right-0 h-20 sm:h-24 lg:h-28 xl:h-32 2xl:h-36 flex flex-col items-center justify-center bg-gradient-to-t from-slate-900 via-slate-900/90 to-transparent mt-4">
+      <motion.div 
+        className="relative bottom-0 left-0 right-0 h-20 sm:h-24 lg:h-28 xl:h-32 2xl:h-36 flex flex-col items-center justify-center bg-gradient-to-t from-slate-900 via-slate-900/90 to-transparent mt-4"
+        variants={navigationVariants}
+      >
         <div className="text-center space-y-2 sm:space-y-3 lg:space-y-3 xl:space-y-4">
           <ProjectNavigation
             projects={projectDetails}
@@ -332,7 +523,7 @@ export default function Projects() {
             onProjectChange={handleProjectChange}
           />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
