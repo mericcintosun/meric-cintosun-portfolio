@@ -19,120 +19,108 @@ export default function Projects() {
   // Proje detayları
   const projectDetails = [
     {
-      title: "Alvin Yearly Progress",
-      description: "productivity app for tracking yearly progress.",
-      detailedDescription:
-        "A comprehensive productivity application that helps users track and visualize their progress throughout the year. Features email notifications, progress analytics, and motivational insights to keep users engaged with their goals.",
+      title: t("alvinTitle"),
+      description: t("alvinDesc"),
+      detailedDescription: t("alvinDetailedDesc"),
       category: "Productivity App",
       github: "https://github.com/mericcintosun/alvin-newyear-progress",
       website: "https://alvin-newyear-progress.vercel.app/",
       technologies: ["React", "Next.js", "Node.js"],
     },
     {
-      title: "Aurascend",
-      description: "emotion AI analysis platform.",
-      detailedDescription:
-        "An advanced emotion AI platform that analyzes user emotions through various inputs and provides detailed emotional intelligence insights. Built with modern web technologies and machine learning capabilities.",
+      title: t("aurascendTitle"),
+      description: t("aurascendDesc"),
+      detailedDescription: t("aurascendDetailedDesc"),
       category: "Emotion AI",
       github: "https://github.com/mericcintosun/aurascend",
       website: "https://aurascend.vercel.app/",
       technologies: ["React", "Next.js", "MongoDB", "AI"],
     },
     {
-      title: "Axis",
-      description: "AI-powered assistant application.",
-      detailedDescription:
-        "A sophisticated AI assistant built on blockchain technology, leveraging MultiverseX integration. Provides intelligent responses and automated assistance while maintaining decentralized principles and user privacy.",
+      title: t("axisTitle"),
+      description: t("axisDesc"),
+      detailedDescription: t("axisDetailedDesc"),
       category: "AI Assistant",
       github: "https://github.com/mericcintosun/Xperience-hackathon-axis",
       website: "https://axis-ai.vercel.app/",
       technologies: ["React", "Next.js", "AI", "Blockchain"],
     },
     {
-      title: "Digital Agency",
-      description: "digital media agency website.",
-      detailedDescription:
-        "A professional digital media agency website featuring blog functionality, content management system integration, and modern responsive design. Showcases agency services and portfolio with dynamic content delivery.",
+      title: t("digitalAgencyTitle"),
+      description: t("digitalAgencyDesc"),
+      detailedDescription: t("digitalAgencyDetailedDesc"),
       category: "Website",
       github: "https://github.com/mericcintosun/digital-agency-blog-website",
       website: null,
       technologies: ["React", "Next.js", "WordPress", "MongoDB"],
     },
     {
-      title: "Eduflow",
-      description: "educational learning platform.",
-      detailedDescription:
-        "A blockchain-based educational platform that revolutionizes learning through decentralized technology. Features smart contracts for course validation, secure credential storage, and transparent educational transactions.",
+      title: t("eduflowTitle"),
+      description: t("eduflowDesc"),
+      detailedDescription: t("eduflowDetailedDesc"),
       category: "Education App",
       github: "https://github.com/alperenbekci/eduflow",
       website: "https://eduflow-tan.vercel.app/",
       technologies: ["React", "Next.js", "Solidity"],
     },
     {
-      title: "Kitty Todo",
-      description: "cute todo list application.",
-      detailedDescription:
-        "A delightful and user-friendly todo list application with a charming cat theme. Features local storage persistence, intuitive task management, and engaging animations to make productivity fun and enjoyable.",
+      title: t("kittyTodoTitle"),
+      description: t("kittyTodoDesc"),
+      detailedDescription: t("kittyTodoDetailedDesc"),
       category: "Productivity App",
       github: "https://github.com/mericcintosun/react-todolist-app/tree/main",
       website: "https://react-todolist-app-psi.vercel.app/",
       technologies: ["React"],
     },
     {
-      title: "Make Clone",
-      description: "workflow automation tool.",
-      detailedDescription:
-        "A powerful no-code automation platform inspired by Make.com, featuring AI-powered workflow creation, visual flow builder, and seamless integrations. Enables users to automate complex processes without coding knowledge.",
+      title: t("makeCloneTitle"),
+      description: t("makeCloneDesc"),
+      detailedDescription: t("makeCloneDetailedDesc"),
       category: "Automation Tool",
       github: "https://vercel.com/mericcintosun/make-clone",
       website: "https://make-clone.vercel.app/",
       technologies: ["Next.js", "AI", "No-Code"],
     },
     {
-      title: "News Tracker",
-      description: "real-time news tracking app.",
-      detailedDescription:
-        "A comprehensive news tracking application that provides real-time news updates with interactive charts and data visualization. Features notification system for breaking news and trending topics analysis.",
+      title: t("newsTrackerTitle"),
+      description: t("newsTrackerDesc"),
+      detailedDescription: t("newsTrackerDetailedDesc"),
       category: "News App",
       github: "https://github.com/mericcintosun/news-tracker-frontend-task/",
       website: "https://news-tracker-frontend-task.vercel.app/",
       technologies: ["React", "Next.js", "Chart.js"],
     },
     {
-      title: "Nono",
-      description: "zero-knowledge puzzle game.",
-      detailedDescription:
-        "An innovative puzzle game built with zero-knowledge proofs using RISC0 technology. Combines gaming with advanced cryptography, allowing players to solve puzzles while maintaining privacy and verifiable solutions on-chain.",
+      title: t("nonoTitle"),
+      description: t("nonoDesc"),
+      detailedDescription: t("nonoDetailedDesc"),
       category: "Puzzle Game",
       github: null,
       website: "https://devfolio.co/projects/nono-68b9",
       technologies: ["RISC0", "Rust", "Solidity"],
     },
     {
-      title: "Persona",
-      description: "web3 wallet interface.",
-      detailedDescription:
-        "A modern Web3 wallet interface that provides seamless blockchain interactions with enhanced user experience. Features multi-chain support, secure transaction handling, and intuitive design for both beginners and advanced users.",
+      title: t("personaTitle"),
+      description: t("personaDesc"),
+      detailedDescription: t("personaDetailedDesc"),
       category: "Web3 Wallet",
       github: "https://github.com/itublockchain/ETHOnline24-Persona",
       website: "https://persona-khaki.vercel.app/",
       technologies: ["React", "Next.js", "Wagmi", "Solidity"],
     },
     {
-      title: "Riskon",
-      description: "DeFi risk management platform.",
-      detailedDescription:
-        "An advanced DeFi risk management platform built on Stellar blockchain, utilizing AI and machine learning for risk assessment. Provides intelligent investment insights and automated risk monitoring for cryptocurrency portfolios.",
+      title: t("riskonTitle"),
+      description: t("riskonDesc"),
+      detailedDescription: t("riskonDetailedDesc"),
       category: "DeFi Platform",
       github: "https://github.com/mericcintosun/riskon",
       website: "https://riskon.vercel.app/",
       technologies: ["Stellar SDK", "AI", "TensorFlow.js"],
     },
     {
-      title: "Harry Potter dApp",
-      description: "Harry Potter NFT marketplace.",
-      detailedDescription:
-        "A magical NFT marketplace dedicated to Harry Potter collectibles, built on blockchain technology. Users can mint, trade, and collect unique digital artifacts from the Wizarding World with smart contract functionality and Web3 integration.",
+      title: t("harryPotterTitle"),
+      description: t("harryPotterDesc"),
+      detailedDescription: t("harryPotterDetailedDesc"),
       category: "NFT Marketplace",
       github: "https://github.com/mericcintosun/harry-potter-dapp",
       website: "https://harry-potter-dapp.vercel.app/",
@@ -476,7 +464,7 @@ export default function Projects() {
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={`title-${activeProjectIndex}`}
-                  className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white font-bold text-center"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white font-bold text-center pb-6"
                   variants={titleVariants}
                   initial="hidden"
                   animate="visible"

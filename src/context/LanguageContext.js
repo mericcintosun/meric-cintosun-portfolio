@@ -40,49 +40,70 @@ const translations = {
       "After graduating from Istanbul University's Faculty of Communication, I became passionate about decentralized applications and actively contribute to blockchain projects as a developer at ITU Blockchain Club. I frequently participate in hackathons and enjoy bridging traditional and decentralized software ecosystems. Throughout my career, I have gained expertise in both frontend and mobile application development, creating modern, user-centric interfaces and building projects that make technology more accessible.",
     aboutPassion:
       "Currently, I work as a Mid Frontend & Mobile Developer at Flalingo, a language learning application, where I focus on AI-powered mobile solutions. Using tools like React, Next.js, TailwindCSS, React Native, Flutter, and Expo, I develop dynamic and user-friendly applications, while TypeScript and Framer Motion allow me to elevate my designs to a modern and professional level. I am passionate about continuous learning and self-improvement, always motivated by the opportunity to work with new technologies and create innovative projects that make the world a better place.",
-    newsTrackerTitle: "News Tracker Real Time Application",
-    newsTrackerDesc:
-      "News Tracker is a modern and responsive web and mobile application built with Next.js and NewsAPI, offering real-time news tracking across categorized sections. It features push notifications, a user-friendly interface, and a time graph for tracking news updates interactively.",
+    newsTrackerTitle: "News Tracker",
+    newsTrackerDesc: "real-time news tracking app.",
+    newsTrackerDetailedDesc:
+      "A comprehensive news tracking application that provides real-time news updates with interactive charts and data visualization. Features notification system for breaking news and trending topics analysis.",
 
-    nonoTitle: "Nono (zK Nonogram Game)",
-    nonoDesc:
-      "zk Nonogram Game is an innovative puzzle game powered by zero-knowledge proof (zk-SNARK) technology, allowing players to solve logic-based puzzles while preserving their privacy. The game offers a secure and engaging experience with a modern, user-friendly interface.",
+    nonoTitle: "Nono",
+    nonoDesc: "zero-knowledge puzzle game.",
+    nonoDetailedDesc:
+      "An innovative puzzle game built with zero-knowledge proofs using RISC0 technology. Combines gaming with advanced cryptography, allowing players to solve puzzles while maintaining privacy and verifiable solutions on-chain.",
 
-    mediaAgencyTitle: "Digital Media Agency Blog Website",
-    mediaAgencyDesc:
-      "This digital media agency website enables users to create personalized training programs tailored to their needs and track progress in real-time. It offers interactive content, performance analytics, and a user-friendly interface to enhance the learning experience.",
+    mediaAgencyTitle: "Digital Agency",
+    mediaAgencyDesc: "digital media agency website.",
+    mediaAgencyDetailedDesc:
+      "A professional digital media agency website featuring blog functionality, content management system integration, and modern responsive design. Showcases agency services and portfolio with dynamic content delivery.",
 
-    kittyTodoTitle: "Kitty Todo List",
-    kittyTodoDesc:
-      "Kitty Todo List is a simple and fun task management app with an adorable cat theme, allowing users to organize their to-dos effortlessly. Its minimalist interface and pastel colors provide a functional yet visually delightful experience.",
+    kittyTodoTitle: "Kitty Todo",
+    kittyTodoDesc: "cute todo list application.",
+    kittyTodoDetailedDesc:
+      "A delightful and user-friendly todo list application with a charming cat theme. Features local storage persistence, intuitive task management, and engaging animations to make productivity fun and enjoyable.",
 
-    personaTitle: "Persona (Wallet App)",
-    personaDesc:
-      "Persona is a platform that allows users to connect their Web3 wallets and view transaction data and scores on various Layer 2 networks. The project is built using modern frontend technologies like React, Tailwind CSS, and Wagmi.",
+    personaTitle: "Persona",
+    personaDesc: "web3 wallet interface.",
+    personaDetailedDesc:
+      "A modern Web3 wallet interface that provides seamless blockchain interactions with enhanced user experience. Features multi-chain support, secure transaction handling, and intuitive design for both beginners and advanced users.",
 
-    eduflowTitle: "Eduflow (Blockchain Education App)",
-    eduflowDesc:
-      "Eduflow is a blockchain education app that allows users to learn about blockchain technology and earn rewards for completing courses. The app is built using modern frontend technologies like React, Tailwind CSS, and Wagmi.",
+    eduflowTitle: "Eduflow",
+    eduflowDesc: "educational learning platform.",
+    eduflowDetailedDesc:
+      "A blockchain-based educational platform that revolutionizes learning through decentralized technology. Features smart contracts for course validation, secure credential storage, and transparent educational transactions.",
 
     alvinTitle: "Alvin New Year Progress",
-    alvinDesc:
-      "Alvin New Year Progress is a simple and fun task management app with an adorable cat theme, allowing users to organize their to-dos effortlessly. Its minimalist interface and pastel colors provide a functional yet visually delightful experience.",
+    alvinDesc: "productivity app for tracking yearly progress.",
+    alvinDetailedDesc:
+      "A comprehensive productivity application that helps users track and visualize their progress throughout the year. Features email notifications, progress analytics, and motivational insights to keep users engaged with their goals.",
 
-    axisTitle: "Axis AI – Blockchain Assistant",
-    axisDesc:
-      "Axis AI is an AI-powered blockchain assistant built with React, Next.js, and TailwindCSS, designed for the MultiverseX ecosystem. It enables natural language transactions, automated smart triggers, and AI-driven wallet management, revolutionizing blockchain interaction with enterprise-grade security and developer-friendly SDKs.",
+    axisTitle: "Axis",
+    axisDesc: "AI-powered assistant application.",
+    axisDetailedDesc:
+      "A sophisticated AI assistant built on blockchain technology, leveraging MultiverseX integration. Provides intelligent responses and automated assistance while maintaining decentralized principles and user privacy.",
 
-    riskonTitle: "Riskon – AI-Powered DeFi Risk Analytics",
-    riskonDesc:
-      "Riskon is a blockchain risk analysis platform built with React, Next.js, and Stellar SDK, delivering personalized DeFi recommendations. Using AI and TensorFlow.js, it calculates real-time risk scores based on transaction behaviors and securely records them on the Stellar blockchain.",
+    riskonTitle: "Riskon",
+    riskonDesc: "DeFi risk management platform.",
+    riskonDetailedDesc:
+      "An advanced DeFi risk management platform built on Stellar blockchain, utilizing AI and machine learning for risk assessment. Provides intelligent investment insights and automated risk monitoring for cryptocurrency portfolios.",
 
-    aurascendTitle: "Aurascend – AI-Powered Emotional Insight",
-    aurascendDesc:
-      "Aurascend is an AI-driven emotional analysis platform built with React, Next.js, and MongoDB. It transforms your thoughts and feelings into personalized aura visualizations, helping users discover their inner potential and track emotional evolution over time.",
+    aurascendTitle: "Aurascend",
+    aurascendDesc: "emotion AI analysis platform.",
+    aurascendDetailedDesc:
+      "An advanced emotion AI platform that analyzes user emotions through various inputs and provides detailed emotional intelligence insights. Built with modern web technologies and machine learning capabilities.",
 
-    makeCloneTitle: "Clone Project – No-Code AI Automation Platform",
-    makeCloneDesc:
-      "Clone Project is a no-code AI automation platform built with Next.js, TailwindCSS, and Framer Motion. It empowers businesses to design, scale, and collaborate on intelligent workflows, combining visual development with AI agents for accelerated innovation and streamlined operations.",
+    makeCloneTitle: "Make Clone",
+    makeCloneDesc: "workflow automation tool.",
+    makeCloneDetailedDesc:
+      "A powerful no-code automation platform inspired by Make.com, featuring AI-powered workflow creation, visual flow builder, and seamless integrations. Enables users to automate complex processes without coding knowledge.",
+
+    digitalAgencyTitle: "Digital Agency",
+    digitalAgencyDesc: "digital media agency website.",
+    digitalAgencyDetailedDesc:
+      "A professional digital media agency website featuring blog functionality, content management system integration, and modern responsive design. Showcases agency services and portfolio with dynamic content delivery.",
+
+    harryPotterTitle: "Harry Potter dApp",
+    harryPotterDesc: "Harry Potter NFT marketplace.",
+    harryPotterDetailedDesc:
+      "A magical NFT marketplace dedicated to Harry Potter collectibles, built on blockchain technology. Users can mint, trade, and collect unique digital artifacts from the Wizarding World with smart contract functionality and Web3 integration.",
 
     gencFlamingoTitle: "Genç Flamingolar",
     gencFlamingoDesc:
@@ -230,49 +251,73 @@ const translations = {
       "İstanbul Üniversitesi İletişim Fakültesi'nden mezun olduktan sonra, merkeziyetsiz uygulamalar konusunda tutkulu hale geldim ve ITU Blockchain Kulübü'nde geliştirici olarak blockchain projelerine aktif katkıda bulunuyorum. Sık sık hackathonlara katılıyor ve geleneksel ile merkeziyetsiz yazılım ekosistemlerini köprülemeyi seviyorum. Kariyerim boyunca hem frontend hem de mobil uygulama geliştirme konusunda uzmanlık kazandım, modern, kullanıcı odaklı arayüzler oluşturuyor ve teknolojiyi daha erişilebilir kılan projeler geliştiriyorum.",
     aboutPassion:
       "Şu anda, bir dil öğrenme uygulaması olan Flalingo'da Mid Frontend & Mobile Developer olarak çalışıyor, yapay zeka destekli mobil çözümler üzerine odaklanıyorum. React, Next.js, TailwindCSS, React Native, Flutter ve Expo gibi araçları kullanarak dinamik ve kullanıcı dostu uygulamalar geliştirirken, TypeScript ve Framer Motion ile tasarımlarımı modern ve profesyonel bir seviyeye taşıyorum. Sürekli öğrenme ve kendimi geliştirme konusunda tutkulu biriyim, her zaman yeni teknolojilerle çalışma ve dünyayı daha iyi bir yer haline getiren yenilikçi projeler oluşturma fırsatı beni motive ediyor.",
-    newsTrackerTitle: "Gerçek Zamanlı Haber Takip Uygulaması",
-    newsTrackerDesc:
-      "News Tracker, Next.js ve NewsAPI ile oluşturulmuş, kategorize edilmiş bölümlerde gerçek zamanlı haber takibi sunan modern ve duyarlı bir web ve mobil uygulamadır. Push bildirimleri, kullanıcı dostu arayüz ve haber güncellemelerini interaktif olarak takip etmek için zaman grafiği özellikleri bulunmaktadır.",
 
-    nonoTitle: "Nono (zK Nonogram Oyunu)",
-    nonoDesc:
-      "zk Nonogram Oyunu, sıfır bilgi ispatı (zk-SNARK) teknolojisi ile güçlendirilmiş, oyuncuların gizliliklerini koruyarak mantık tabanlı bulmacaları çözmelerine olanak tanıyan yenilikçi bir bulmaca oyunudur. Oyun, modern ve kullanıcı dostu bir arayüzle güvenli ve ilgi çekici bir deneyim sunmaktadır.",
 
-    mediaAgencyTitle: "Dijital Medya Ajansı Blog Sitesi",
-    mediaAgencyDesc:
-      "Bu dijital medya ajansı web sitesi, kullanıcıların ihtiyaçlarına göre özelleştirilmiş eğitim programları oluşturmalarına ve ilerlemeyi gerçek zamanlı olarak takip etmelerine olanak tanır. Öğrenme deneyimini geliştirmek için interaktif içerik, performans analitiği ve kullanıcı dostu bir arayüz sunar.",
+    // Proje başlıkları ve açıklamaları
+    alvinTitle: "Alvin Yıllık İlerleme Takibi",
+    alvinDesc: "yıllık ilerleme takibi için üretkenlik uygulaması.",
+    alvinDetailedDesc:
+      "Kullanıcıların yıl boyunca ilerlemelerini takip etmelerine ve görselleştirmelerine yardımcı olan kapsamlı bir üretkenlik uygulaması. E-posta bildirimleri, ilerleme analitiği ve kullanıcıları hedefleriyle meşgul tutmak için motivasyon içgörüleri içerir.",
 
-    kittyTodoTitle: "Kedi Temalı Yapılacaklar Listesi",
-    kittyTodoDesc:
-      "Kitty Todo List, sevimli bir kedi temasına sahip, kullanıcıların yapılacaklar listelerini zahmetsizce düzenlemelerine olanak tanıyan basit ve eğlenceli bir görev yönetimi uygulamasıdır. Minimalist arayüzü ve pastel renkleri ile fonksiyonel ve görsel açıdan keyifli bir deneyim sunar.",
+    aurascendTitle: "Aurascend",
+    aurascendDesc: "duygu AI analiz platformu.",
+    aurascendDetailedDesc:
+      "Çeşitli girdiler aracılığıyla kullanıcı duygularını analiz eden ve ayrıntılı duygusal zeka içgörüleri sunan gelişmiş bir duygu AI platformu. Modern web teknolojileri ve makine öğrenmesi yetenekleri ile oluşturulmuştur.",
 
-    personaTitle: "Persona (Cüzdan Uygulaması)",
-    personaDesc:
-      "Persona, kullanıcıların Web3 cüzdanlarını bağlamalarına ve çeşitli Layer 2 ağlarındaki işlem verilerini ve skorlarını görüntülemelerine olanak tanıyan bir platformdur. Proje, React, Tailwind CSS ve Wagmi gibi modern frontend teknolojileri kullanılarak oluşturulmuştur.",
+    axisTitle: "Axis",
+    axisDesc: "AI destekli asistan uygulaması.",
+    axisDetailedDesc:
+      "MultiverseX entegrasyonunu kullanan blockchain teknolojisi üzerine kurulmuş sofistike bir AI asistanı. Merkezi olmayan ilkeleri ve kullanıcı gizliliğini koruyarak akıllı yanıtlar ve otomatik yardım sağlar.",
 
-    eduflowTitle: "Eduflow (Blockchain Eğitim Uygulaması)",
-    eduflowDesc:
-      "Eduflow, kullanıcıların blockchain teknolojisi hakkında bilgi edinmelerine ve kursları tamamlayarak ödüller kazanmalarına olanak tanıyan bir blockchain eğitim uygulamasıdır. Uygulama, React, Tailwind CSS ve Wagmi gibi modern frontend teknolojileri kullanılarak oluşturulmuştur.",
+    digitalAgencyTitle: "Digital Agency",
+    digitalAgencyDesc: "dijital medya ajansı web sitesi.",
+    digitalAgencyDetailedDesc:
+      "Blog işlevselliği, içerik yönetim sistemi entegrasyonu ve modern duyarlı tasarım özelliklerine sahip profesyonel bir dijital medya ajansı web sitesi. Ajans hizmetlerini ve portföyünü dinamik içerik dağıtımı ile sergiler.",
 
-    alvinTitle: "Alvin Yeni Yıl İlerleme Takibi",
-    alvinDesc:
-      "Alvin Yeni Yıl İlerleme Takibi, sevimli bir kedi temasına sahip, kullanıcıların yapılacaklar listelerini zahmetsizce düzenlemelerine olanak tanıyan basit ve eğlenceli bir görev yönetimi uygulamasıdır. Minimalist arayüzü ve pastel renkleri ile fonksiyonel ve görsel açıdan keyifli bir deneyim sunar.",
+    eduflowTitle: "Eduflow",
+    eduflowDesc: "eğitim öğrenme platformu.",
+    eduflowDetailedDesc:
+      "Merkezi olmayan teknoloji aracılığıyla öğrenmeyi devrimleştiren blockchain tabanlı bir eğitim platformu. Kurs doğrulama için akıllı sözleşmeler, güvenli kimlik bilgisi depolama ve şeffaf eğitim işlemleri içerir.",
 
-    axisTitle: "Axis AI – Blockchain Asistanı",
-    axisDesc:
-      "Axis AI, MultiverseX ekosistemi için tasarlanmış React, Next.js ve TailwindCSS ile oluşturulmuş yapay zeka destekli bir blockchain asistanıdır. Doğal dil işlemleri, otomatik akıllı tetikleyiciler ve AI destekli cüzdan yönetimi sağlayarak, kurumsal düzeyde güvenlik ve geliştirici dostu SDK'lar ile blockchain etkileşiminde devrim yaratır.",
+    kittyTodoTitle: "Kitty Todo",
+    kittyTodoDesc: "sevimli yapılacaklar listesi uygulaması.",
+    kittyTodoDetailedDesc:
+      "Büyüleyici bir kedi temasına sahip keyifli ve kullanıcı dostu bir yapılacaklar listesi uygulaması. Yerel depolama kalıcılığı, sezgisel görev yönetimi ve üretkenliği eğlenceli ve keyifli hale getiren ilgi çekici animasyonlar içerir.",
 
-    riskonTitle: "Riskon – AI Destekli DeFi Risk Analitiği",
-    riskonDesc:
-      "Riskon, React, Next.js ve Stellar SDK ile oluşturulmuş, kişiselleştirilmiş DeFi önerileri sunan bir blockchain risk analiz platformudur. AI ve TensorFlow.js kullanarak, işlem davranışlarına dayalı gerçek zamanlı risk skorları hesaplar ve bunları Stellar blockchain'de güvenli bir şekilde kaydeder.",
+    makeCloneTitle: "Make Clone",
+    makeCloneDesc: "iş akışı otomasyon aracı.",
+    makeCloneDetailedDesc:
+      "Make.com'dan ilham alan, AI destekli iş akışı oluşturma, görsel akış oluşturucu ve sorunsuz entegrasyonlar içeren güçlü bir kod yazmadan otomasyon platformu. Kullanıcıların kodlama bilgisi olmadan karmaşık süreçleri otomatikleştirmelerini sağlar.",
 
-    aurascendTitle: "Aurascend – AI Destekli Duygusal İçgörü",
-    aurascendDesc:
-      "Aurascend, React, Next.js ve MongoDB ile oluşturulmuş yapay zeka destekli bir duygusal analiz platformudur. Düşüncelerinizi ve duygularınızı kişiselleştirilmiş aura görselleştirmelerine dönüştürerek, kullanıcıların iç potansiyellerini keşfetmelerine ve zamanla duygusal evrimlerini takip etmelerine yardımcı olur.",
+    newsTrackerTitle: "News Tracker",
+    newsTrackerDesc: "gerçek zamanlı haber takip uygulaması.",
+    newsTrackerDetailedDesc:
+      "İnteraktif grafikler ve veri görselleştirme ile gerçek zamanlı haber güncellemeleri sağlayan kapsamlı bir haber takip uygulaması. Son dakika haberleri için bildirim sistemi ve trend konular analizi içerir.",
 
-    makeCloneTitle: "Clone Project – Kod Yazmadan AI Otomasyon Platformu",
-    makeCloneDesc:
-      "Clone Project, Next.js, TailwindCSS ve Framer Motion ile oluşturulmuş kod yazmadan AI otomasyon platformudur. İşletmelerin akıllı iş akışları tasarlamasına, ölçeklendirmesine ve işbirliği yapmasına olanak tanır, hızlandırılmış inovasyon ve düzenli operasyonlar için görsel geliştirme ile AI ajanlarını birleştirir.",
+    nonoTitle: "Nono",
+    nonoDesc: "sıfır bilgi ispat bulmaca oyunu.",
+    nonoDetailedDesc:
+      "RISC0 teknolojisi kullanarak sıfır bilgi ispatları ile oluşturulmuş yenilikçi bir bulmaca oyunu. Oyunculaların gizliliği koruyarak bulmacalar çözmelerini ve zincir üzerinde doğrulanabilir çözümler elde etmelerini sağlayarak oyunu gelişmiş kriptografi ile birleştirir.",
+
+    personaTitle: "Persona",
+    personaDesc: "web3 cüzdan arayüzü.",
+    personaDetailedDesc:
+      "Gelişmiş kullanıcı deneyimi ile sorunsuz blockchain etkileşimleri sağlayan modern bir Web3 cüzdan arayüzü. Çoklu zincir desteği, güvenli işlem işleme ve hem başlangıç seviyesi hem de ileri düzey kullanıcılar için sezgisel tasarım içerir.",
+
+    riskonTitle: "Riskon",
+    riskonDesc: "DeFi risk yönetim platformu.",
+    riskonDetailedDesc:
+      "Risk değerlendirmesi için AI ve makine öğrenmesi kullanan Stellar blockchain üzerine kurulmuş gelişmiş bir DeFi risk yönetim platformu. Kripto para portföyleri için akıllı yatırım içgörüleri ve otomatik risk izleme sağlar.",
+
+    harryPotterTitle: "Harry Potter dApp",
+    harryPotterDesc: "Harry Potter NFT pazaryeri.",
+    harryPotterDetailedDesc:
+      "Blockchain teknolojisi üzerine kurulmuş Harry Potter koleksiyonlarına adanmış büyülü bir NFT pazaryeri. Kullanıcılar akıllı sözleşme işlevselliği ve Web3 entegrasyonu ile Büyücülük Dünyası'ndan benzersiz dijital eserler basabilir, takas edebilir ve toplayabilir.",
+
+    makeCloneTitle: "Make Clone",
+    makeCloneDesc: "iş akışı otomasyon aracı.",
+    makeCloneDetailedDesc:
+      "Make.com'dan ilham alan, AI destekli iş akışı oluşturma, görsel akış oluşturucu ve sorunsuz entegrasyonlar içeren güçlü bir kod yazmadan otomasyon platformu. Kullanıcıların kodlama bilgisi olmadan karmaşık süreçleri otomatikleştirmelerini sağlar.",
 
     gencFlamingoTitle: "Genç Flamingolar",
     gencFlamingoDesc:
