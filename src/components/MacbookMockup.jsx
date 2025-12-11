@@ -128,6 +128,8 @@ export default function ResponsiveMockup({
       "news-tracker": "newstracker",
       "kitty-todo": "kitty",
       "make-clone": "make",
+      "linea-launchpad": "linea-launchpad",
+      "studio312": "studio312",
     };
 
     const mappedName =
@@ -222,9 +224,8 @@ export default function ResponsiveMockup({
       <AnimatePresence mode="wait">
         <motion.div
           key={deviceType}
-          className={`relative w-full px-4 flex overflow-hidden ${
-            deviceType === "mobile" ? "max-w-[200px] mx-auto" : "max-w-4xl"
-          }`}
+          className={`relative w-full px-4 flex overflow-hidden ${deviceType === "mobile" ? "max-w-[200px] mx-auto" : "max-w-4xl"
+            }`}
           variants={deviceTransitionVariants}
           initial="hidden"
           animate="visible"
@@ -232,9 +233,8 @@ export default function ResponsiveMockup({
         >
           {/* Screen overlay - Behind mockup for mobile/desktop, in front for tablet */}
           <motion.div
-            className={`absolute overflow-hidden ${
-              deviceType === "mobile" ? "rounded-[37px]" : "rounded-sm"
-            }`}
+            className={`absolute overflow-hidden ${deviceType === "mobile" ? "rounded-[37px]" : "rounded-sm"
+              }`}
             style={{
               ...mockupConfig.frame,
               position: "absolute",

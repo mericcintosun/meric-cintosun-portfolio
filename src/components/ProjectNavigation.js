@@ -26,8 +26,15 @@ export default function ProjectNavigation({
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-  // Proje görsellerini ekliyoruz (carousel data ile aynı)
+  // Proje görsellerini ekliyoruz (carousel data ile aynı sırada)
   const projectImages = [
+    "/projectLogos/alvion-logo.png",
+    "/projectLogos/letmeclick-logo.png",
+    "/projectLogos/linea-launchpad-logo.svg",
+    "/projectLogos/movetree-logo.png",
+    "/projectLogos/suivox-logo.png",
+    "/projectLogos/zukas-logo.png",
+    "/projectLogos/studio312-logo.png",
     "/projectLogos/alvin-logo.png",
     "/projectLogos/aurascend-logo.png",
     "/projectLogos/axis-logo.png",

@@ -2,6 +2,7 @@
 
 import ResponsiveMockup from "@/components/MacbookMockup";
 import ProjectNavigation from "@/components/ProjectNavigation";
+import Toast from "@/components/Toast";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
@@ -10,14 +11,91 @@ export default function Projects() {
   const { t } = useLanguage();
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("info");
+  const [showToast, setShowToast] = useState(false);
 
   // Loading effect
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
+  // Toast functions
+  const showToastMessage = (message, type = "info") => {
+    setToastMessage(message);
+    setToastType(type);
+    setShowToast(true);
+  };
+
+  const closeToast = () => {
+    setShowToast(false);
+  };
+
   // Proje detayları
   const projectDetails = [
+    {
+      title: t("alvionTitle"),
+      description: t("alvionDesc"),
+      detailedDescription: t("alvionDetailedDesc"),
+      category: "DeFi Platform",
+      github: "https://github.com/mericcintosun/alvion",
+      website: null, // Live demo in progress
+      technologies: ["Next.js", "AI", "Algorand", "DeFi"],
+    },
+    {
+      title: t("letmeClickTitle"),
+      description: t("letmeClickDesc"),
+      detailedDescription: t("letmeClickDetailedDesc"),
+      category: "Gaming Ecosystem",
+      github: null, // Private repo
+      website: null, // Live demo in progress
+      technologies: ["Sui", "zkLogin", "React", "Web3"],
+    },
+    {
+      title: t("lineaLaunchpadTitle"),
+      description: t("lineaLaunchpadDesc"),
+      detailedDescription: t("lineaLaunchpadDetailedDesc"),
+      category: "Token Launchpad",
+      github: "https://github.com/mericcintosun/splice",
+      website: null, // Live demo in progress
+      technologies: ["Linea", "Solidity", "Tailwind", "AI Chatbot"],
+    },
+    {
+      title: t("movetreeTitle"),
+      description: t("movetreeDesc"),
+      detailedDescription: t("movetreeDetailedDesc"),
+      category: "Social Platform",
+      github: "https://github.com/mericcintosun/movetree",
+      website: null, // Live demo in progress
+      technologies: ["Sui", "Move", "zkLogin", "SuiNS"],
+    },
+    {
+      title: t("suivoxTitle"),
+      description: t("suivoxDesc"),
+      detailedDescription: t("suivoxDetailedDesc"),
+      category: "Voting Platform",
+      github: "https://github.com/mericcintosun/sui-voting-app",
+      website: null, // Live demo in progress
+      technologies: ["Sui", "Move", "DAO", "Governance"],
+    },
+    {
+      title: t("zukasTitle"),
+      description: t("zukasDesc"),
+      detailedDescription: t("zukasDetailedDesc"),
+      category: "Innovation Program",
+      github: "https://github.com/mericcintosun/zukas",
+      website: "https://zukas.city/",
+      technologies: ["Blockchain", "Community", "Governance"],
+    },
+    {
+      title: t("studio312Title"),
+      description: t("studio312Desc"),
+      detailedDescription: t("studio312DetailedDesc"),
+      category: "Mobile Studio",
+      github: "https://github.com/mericcintosun/studio312-website",
+      website: "https://studio312-website.vercel.app/",
+      technologies: ["Flutter", "React Native", "Mobile"],
+    },
     {
       title: t("alvinTitle"),
       description: t("alvinDesc"),
@@ -51,7 +129,7 @@ export default function Projects() {
       detailedDescription: t("digitalAgencyDetailedDesc"),
       category: "Website",
       github: "https://github.com/mericcintosun/digital-agency-blog-website",
-      website: null,
+      website: null, // Live demo in progress
       technologies: ["React", "Next.js", "WordPress", "MongoDB"],
     },
     {
@@ -95,7 +173,7 @@ export default function Projects() {
       description: t("nonoDesc"),
       detailedDescription: t("nonoDetailedDesc"),
       category: "Puzzle Game",
-      github: null,
+      github: "https://github.com/mericcintosun/nono",
       website: "https://devfolio.co/projects/nono-68b9",
       technologies: ["RISC0", "Rust", "Solidity"],
     },
@@ -130,6 +208,41 @@ export default function Projects() {
 
   // Proje resimleri için carousel data
   const carouselProjects = [
+    {
+      src: "/projectImages/alvion.png",
+      alt: "Alvion project",
+      title: "Alvion",
+    },
+    {
+      src: "/projectImages/letmeclick.png",
+      alt: "letme.click project",
+      title: "letme.click",
+    },
+    {
+      src: "/projectImages/linea-launchpad.png",
+      alt: "Linea Launchpad project",
+      title: "Linea Launchpad",
+    },
+    {
+      src: "/projectImages/movetree.png",
+      alt: "MoveTree project",
+      title: "MoveTree",
+    },
+    {
+      src: "/projectImages/suivox.png",
+      alt: "SuiVox project",
+      title: "SuiVox",
+    },
+    {
+      src: "/projectImages/zukas.png",
+      alt: "ZUKAS City project",
+      title: "ZUKAS City",
+    },
+    {
+      src: "/projectImages/studio312.png",
+      alt: "Studio 312 project",
+      title: "Studio 312",
+    },
     {
       src: "/projectImages/alvin.png",
       alt: "Alvin New Year Progress project",
@@ -339,76 +452,186 @@ export default function Projects() {
   };
 
   // Action buttons component
-  const ActionButtons = ({ className = "" }) => (
-    <motion.div
-      className={`flex gap-2 sm:gap-3 items-center justify-center ${className}`}
-      variants={buttonContainerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <AnimatePresence mode="wait">
-        {activeProject.github && (
-          <motion.a
-            key={`github-${activeProjectIndex}`}
-            href={activeProject.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 sm:gap-2 bg-gray-800 hover:bg-gray-700 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border border-gray-600 text-xs sm:text-sm"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
-            <motion.svg
-              className="w-3 h-3 sm:w-4 sm:h-4 text-white"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-            >
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-            </motion.svg>
-            <span className="font-medium text-white">GitHub</span>
-          </motion.a>
-        )}
+  const ActionButtons = ({ className = "" }) => {
+    const handleGithubClick = (e) => {
+      if (!activeProject.github) {
+        e.preventDefault();
+        showToastMessage("🔒 Private Repository", "warning");
+      }
+    };
 
-        {activeProject.website && (
-          <motion.a
-            key={`website-${activeProjectIndex}`}
-            href={activeProject.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 sm:gap-2 bg-purple-700 hover:bg-purple-600 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border border-purple-500 text-xs sm:text-sm"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
-            <motion.svg
-              className="w-3 h-3 sm:w-4 sm:h-4 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              whileHover={{ scale: 1.2 }}
-              transition={{ duration: 0.2 }}
+    const handleWebsiteClick = (e) => {
+      if (!activeProject.website) {
+        e.preventDefault();
+        showToastMessage("🚧 Live Demo In Progress!", "info");
+      }
+    };
+
+    return (
+      <motion.div
+        className={`flex gap-2 sm:gap-3 items-center justify-center ${className}`}
+        variants={buttonContainerVariants}
+        initial="hidden"
+        animate="visible"
+        style={{
+          isolation: "isolate",
+          willChange: "auto",
+        }}
+      >
+        <AnimatePresence mode="wait">
+          {/* GitHub Button */}
+          {activeProject.github ? (
+            <motion.a
+              key={`github-${activeProjectIndex}`}
+              href={activeProject.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 sm:gap-2 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border text-xs sm:text-sm bg-gray-800 hover:bg-gray-700 border-gray-600 cursor-pointer"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              style={{
+                isolation: "isolate",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+              }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </motion.svg>
-            <span className="font-medium text-white">Live App</span>
-          </motion.a>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
+              <motion.svg
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </motion.svg>
+              <span className="font-medium text-white">GitHub</span>
+            </motion.a>
+          ) : (
+            <motion.button
+              key={`github-${activeProjectIndex}`}
+              onClick={handleGithubClick}
+              className="flex items-center gap-1.5 sm:gap-2 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border text-xs sm:text-sm bg-gray-800/50 border-gray-700 cursor-not-allowed opacity-70"
+              variants={buttonVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              style={{
+                isolation: "isolate",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+              }}
+            >
+              <svg
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              <span className="font-medium text-white">GitHub</span>
+              <svg
+                className="w-3 h-3 text-white/50"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </motion.button>
+          )}
+
+          {/* Live App Button */}
+          {activeProject.website ? (
+            <motion.a
+              key={`website-${activeProjectIndex}`}
+              href={activeProject.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 sm:gap-2 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border text-xs sm:text-sm bg-purple-700 hover:bg-purple-600 border-purple-500 cursor-pointer"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              style={{
+                isolation: "isolate",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+              }}
+            >
+              <motion.svg
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </motion.svg>
+              <span className="font-medium text-white">Live App</span>
+            </motion.a>
+          ) : (
+            <motion.button
+              key={`website-${activeProjectIndex}`}
+              onClick={handleWebsiteClick}
+              className="flex items-center gap-1.5 sm:gap-2 transition-colors duration-200 rounded-lg px-3 sm:px-4 py-2 border text-xs sm:text-sm bg-purple-700/50 border-purple-600 cursor-not-allowed opacity-70"
+              variants={buttonVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              style={{
+                isolation: "isolate",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+              }}
+            >
+              <svg
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+              <span className="font-medium text-white">Live App</span>
+              <svg
+                className="w-3 h-3 text-white/50"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    );
+  };
 
   // Technology tags component
   const TechnologyTags = ({ className = "" }) => (
@@ -417,6 +640,10 @@ export default function Projects() {
       variants={techContainerVariants}
       initial="hidden"
       animate="visible"
+      style={{
+        isolation: "isolate",
+        willChange: "auto",
+      }}
     >
       <AnimatePresence mode="wait">
         {activeProject.technologies.map((tech, index) => (
@@ -426,6 +653,11 @@ export default function Projects() {
             variants={techTagVariants}
             whileHover="hover"
             layout
+            style={{
+              isolation: "isolate",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+            }}
           >
             {tech}
           </motion.span>
@@ -435,73 +667,85 @@ export default function Projects() {
   );
 
   return (
-    <motion.div
-      className="bg-slate-900 w-full relative lg:pt-10"
-      variants={pageVariants}
-      initial="hidden"
-      animate={isLoaded ? "visible" : "hidden"}
-    >
-      <div className="lg:grid lg:grid-cols-[55%_45%] xl:grid-cols-[60%_40%]">
-        <motion.div variants={sectionVariants}>
-          <ResponsiveMockup
-            projects={carouselProjects}
-            autoRotate={false}
-            currentIndex={activeProjectIndex}
-          />
-        </motion.div>
+    <>
+      <Toast
+        message={toastMessage}
+        isVisible={showToast}
+        onClose={closeToast}
+        type={toastType}
+      />
+      <motion.div
+        className="bg-slate-900 w-full relative lg:pt-10"
+        variants={pageVariants}
+        initial="hidden"
+        animate={isLoaded ? "visible" : "hidden"}
+      >
+        <div className="lg:grid lg:grid-cols-[55%_45%] xl:grid-cols-[60%_40%]">
+          <motion.div variants={sectionVariants}>
+            <ResponsiveMockup
+              projects={carouselProjects}
+              autoRotate={false}
+              currentIndex={activeProjectIndex}
+            />
+          </motion.div>
 
-        {/* Project Details Section */}
-        <motion.div
-          className="lg:h-full relative flex flex-col justify-center"
-          variants={sectionVariants}
-        >
-          <div className="w-full max-w-xl mx-auto space-y-4 sm:space-y-6 lg:space-y-6 xl:space-y-8">
-            {/* Action Buttons */}
-            <ActionButtons className="flex-row gap-2 sm:flex-row sm:gap-3 pt-6 pb-4 lg:pt-0" />
+          {/* Project Details Section */}
+          <motion.div
+            className="lg:h-full relative flex flex-col justify-center"
+            variants={sectionVariants}
+          >
+            <div className="w-full max-w-xl mx-auto space-y-4 sm:space-y-6 lg:space-y-6 xl:space-y-8">
+              {/* Action Buttons */}
+              <ActionButtons className="flex-row gap-2 sm:flex-row sm:gap-3 pt-6 pb-4 lg:pt-0" />
 
-            {/* Project Title and Description */}
-            <div className="flex flex-col items-center justify-center">
-              <AnimatePresence mode="wait">
-                <motion.h2
-                  key={`title-${activeProjectIndex}`}
-                  className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white font-bold text-center pb-6"
-                  variants={titleVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                >
-                  {activeProject.title}
-                </motion.h2>
-              </AnimatePresence>
+              {/* Project Title and Description */}
+              <div className="flex flex-col items-center justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.h2
+                    key={`title-${activeProjectIndex}`}
+                    className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white font-bold text-center pb-6"
+                    variants={titleVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                  >
+                    {activeProject.title}
+                  </motion.h2>
+                </AnimatePresence>
 
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={`desc-${activeProjectIndex}`}
-                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-300 leading-relaxed text-center"
-                  variants={descriptionVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                >
-                  <span className="block lg:hidden">
-                    {activeProject.description}
-                  </span>
-                  <span className="hidden lg:block">
-                    {activeProject.detailedDescription}
-                  </span>
-                </motion.p>
-              </AnimatePresence>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={`desc-${activeProjectIndex}`}
+                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-300 leading-relaxed text-center"
+                    variants={descriptionVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                  >
+                    <span className="block lg:hidden">
+                      {activeProject.description}
+                    </span>
+                    <span className="hidden lg:block">
+                      {activeProject.detailedDescription}
+                    </span>
+                  </motion.p>
+                </AnimatePresence>
+              </div>
+
+              {/* Technology Tags */}
+              <TechnologyTags />
             </div>
-
-            {/* Technology Tags */}
-            <TechnologyTags />
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
+        </div>
+      </motion.div>
 
       <motion.div
         className="relative bottom-0 left-0 right-0 h-20 sm:h-24 lg:h-28 xl:h-32 2xl:h-36 flex flex-col items-center justify-center bg-gradient-to-t from-slate-900 via-slate-900/90 to-transparent mt-4"
         variants={navigationVariants}
+        style={{
+          isolation: "isolate",
+          willChange: "auto",
+        }}
       >
         <div className="text-center space-y-2 sm:space-y-3 lg:space-y-3 xl:space-y-4">
           <ProjectNavigation
@@ -511,6 +755,6 @@ export default function Projects() {
           />
         </div>
       </motion.div>
-    </motion.div>
+    </>
   );
 }

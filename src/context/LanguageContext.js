@@ -105,6 +105,41 @@ const translations = {
     harryPotterDetailedDesc:
       "A magical NFT marketplace dedicated to Harry Potter collectibles, built on blockchain technology. Users can mint, trade, and collect unique digital artifacts from the Wizarding World with smart contract functionality and Web3 integration.",
 
+    alvionTitle: "Alvion",
+    alvionDesc: "AI-Powered DeFi Copilot",
+    alvionDetailedDesc:
+      "Built an AI-powered DeFi copilot and agentic rebalancer on Algorand. Converted natural-language intents into secure automated actions with portfolio monitoring, policy-guarded execution, and integrations including Folks Finance liquid staking and Tinyman swaps.",
+
+    letmeClickTitle: "letme.click",
+    letmeClickDesc: "Sui-Based Gaming Ecosystem",
+    letmeClickDetailedDesc:
+      "Developed a Sui-based gaming ecosystem with one-click zkLogin onboarding, seasonal rewards, and a library of clicker mini-games. Designed a dual-side structure where players compete and creators upload their own games, forming a scalable Web2-like blockchain onboarding flow.",
+
+    lineaLaunchpadTitle: "Linea Launchpad",
+    lineaLaunchpadDesc: "Token Deployment Platform",
+    lineaLaunchpadDetailedDesc:
+      "Built a full token-deployment flow for Linea with trusted templates, instant deployment, automatic Lineascan verification, and seamless funding via All Bridges. Delivered a modern Tailwind UI and an integrated Gemini AI chatbot with markdown support.",
+
+    movetreeTitle: "MoveTree",
+    movetreeDesc: "On-Chain LinkTree on Sui",
+    movetreeDetailedDesc:
+      "Developed a decentralized on-chain LinkTree built on Sui, storing all profile data as Move objects. Implemented zkLogin onboarding, verified link hashing, customizable themes, on-chain analytics, and SuiNS integration inside a fully responsive dApp.",
+
+    suivoxTitle: "SuiVox",
+    suivoxDesc: "On-Chain Voting System",
+    suivoxDetailedDesc:
+      "Created an on-chain voting platform for communities and DAOs on Sui. Implemented multiple voting mechanisms, NFT-based access control, direct on-chain result retrieval, quadratic voting cost logic, and a modern responsive UI built with Radix UI and Framer Motion.",
+
+    zukasTitle: "ZUKAS City",
+    zukasDesc: "Blockchain Innovation Program",
+    zukasDetailedDesc:
+      "Contributed to the design of the ZUKAS innovation program, bringing together up to 200 builders across blockchain, governance, and frontier tech. Helped shape application flows for individuals and teams, mentorship structures, and community-driven participation frameworks.",
+
+    studio312Title: "Studio 312",
+    studio312Desc: "Mobile App Studio",
+    studio312DetailedDesc:
+      "Co-founded a mobile app studio creating fast, playful, and memorable applications using Flutter and React Native. Building the brand, product strategy, and a monthly shipping pipeline focused on clean, delightful user experiences.",
+
     gencFlamingoTitle: "Genç Flamingolar",
     gencFlamingoDesc:
       "I can't share the details of the project because it is a private project within the company, but the project is generally a chrome extension that facilitates the work of the company's support team. You can reach the technologies I use.",
@@ -252,7 +287,6 @@ const translations = {
     aboutPassion:
       "Şu anda, bir dil öğrenme uygulaması olan Flalingo'da Mid Frontend & Mobile Developer olarak çalışıyor, yapay zeka destekli mobil çözümler üzerine odaklanıyorum. React, Next.js, TailwindCSS, React Native, Flutter ve Expo gibi araçları kullanarak dinamik ve kullanıcı dostu uygulamalar geliştirirken, TypeScript ve Framer Motion ile tasarımlarımı modern ve profesyonel bir seviyeye taşıyorum. Sürekli öğrenme ve kendimi geliştirme konusunda tutkulu biriyim, her zaman yeni teknolojilerle çalışma ve dünyayı daha iyi bir yer haline getiren yenilikçi projeler oluşturma fırsatı beni motive ediyor.",
 
-
     // Proje başlıkları ve açıklamaları
     alvinTitle: "Alvin Yıllık İlerleme Takibi",
     alvinDesc: "yıllık ilerleme takibi için üretkenlik uygulaması.",
@@ -314,10 +348,40 @@ const translations = {
     harryPotterDetailedDesc:
       "Blockchain teknolojisi üzerine kurulmuş Harry Potter koleksiyonlarına adanmış büyülü bir NFT pazaryeri. Kullanıcılar akıllı sözleşme işlevselliği ve Web3 entegrasyonu ile Büyücülük Dünyası'ndan benzersiz dijital eserler basabilir, takas edebilir ve toplayabilir.",
 
-    makeCloneTitle: "Make Clone",
-    makeCloneDesc: "iş akışı otomasyon aracı.",
-    makeCloneDetailedDesc:
-      "Make.com'dan ilham alan, AI destekli iş akışı oluşturma, görsel akış oluşturucu ve sorunsuz entegrasyonlar içeren güçlü bir kod yazmadan otomasyon platformu. Kullanıcıların kodlama bilgisi olmadan karmaşık süreçleri otomatikleştirmelerini sağlar.",
+    alvionTitle: "Alvion",
+    alvionDesc: "AI Destekli DeFi Yardımcısı",
+    alvionDetailedDesc:
+      "Doğal dil komutlarını güvenli DeFi işlemlerine dönüştüren, Algorand üzerinde çalışan yapay zekâ destekli bir DeFi yardımcı ve portföy rebalancer'ı geliştirdim. Folks Finance ve Tinyman entegrasyonlarıyla otomatik izleme, güvenlik politikaları ve sürekli optimizasyon sağladım.",
+
+    letmeClickTitle: "letme.click",
+    letmeClickDesc: "Sui Tabanlı Oyun Ekosistemi",
+    letmeClickDetailedDesc:
+      "Sui üzerinde cüzdan bağlamadan tek tıkla giriş yapılabilen, clicker mini oyunlardan oluşan ve sezonluk ödüller içeren bir oyun ekosistemi geliştirdim. Kullanıcıların hem oyun oynayarak hem de kendi oyunlarını ekleyerek platformu büyüttüğü, Web2 akışına yakın bir onboarding deneyimi tasarladım.",
+
+    lineaLaunchpadTitle: "Linea Launchpad",
+    lineaLaunchpadDesc: "Token Deployment Platformu",
+    lineaLaunchpadDetailedDesc:
+      "Kullanıcıların güvenli template'lerden token oluşturup Linea'ya deploy edebildiği, Lineascan üzerinde otomatik doğrulama ve All Bridges ile fonlama akışı sunan bir token launchpad geliştirdim. Modern UI, Tailwind CSS ve Gemini AI chatbot entegrasyonu sağladım.",
+
+    movetreeTitle: "MoveTree",
+    movetreeDesc: "Sui Üzerinde Zincir-İçi LinkTree",
+    movetreeDetailedDesc:
+      "Profil verilerini tamamen zincir üzerinde Move objeleri olarak saklayan, zkLogin onboarding, doğrulanmış linkler, temalar, analitik ve SuiNS entegrasyonu sunan merkeziyetsiz bir LinkTree alternatifi geliştirdim.",
+
+    suivoxTitle: "SuiVox",
+    suivoxDesc: "Zincir-İçi Oylama Sistemi",
+    suivoxDetailedDesc:
+      "Topluluklar ve DAO'lar için Sui üzerinde güvenli ve genişletilebilir oylama mekanizmaları sundum. NFT tabanlı erişim kontrolü, farklı oylama algoritmaları, zincir üstü sonuç okuma ve modern bir UI ile tam işlevli bir oylama platformu geliştirdim.",
+
+    zukasTitle: "ZUKAS City",
+    zukasDesc: "Blockchain İnovasyon Programı",
+    zukasDetailedDesc:
+      "Blockchain, yönetişim, topluluk oluşturma ve frontier tech alanlarında 200'e kadar katılımcıyı bir araya getiren ZUKAS programının içerik ve başvuru akışı tasarımlarına katkı sağladım. Bireyler ve takımlar için başvuru modülleri, mentorluk yapıları ve katılımcı deneyimi odaklı içerikler hazırladım.",
+
+    studio312Title: "Studio 312",
+    studio312Desc: "Mobil Uygulama Stüdyosu",
+    studio312DetailedDesc:
+      "Flutter ve React Native kullanarak hızlı, eğlenceli ve kullanıcı dostu mobil uygulamalar geliştiren bir stüdyonun kurucu ortağıyım. Aylık düzenli uygulama üretim süreci, marka kimliği ve ürün stratejisini birlikte inşa ediyorum.",
 
     gencFlamingoTitle: "Genç Flamingolar",
     gencFlamingoDesc:
