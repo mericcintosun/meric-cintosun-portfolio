@@ -50,8 +50,8 @@ export default function ResponsiveMockup({
     switch (deviceType) {
       case "mobile":
         return {
-          mockupSrc: "/iphone-mockup.png",
-          mockupAlt: "iPhone mock-up",
+          mockupSrc: "/iphone-mockup.webp",
+          mockupAlt: "iPhone mock-up",  
           frame: {
             top: "1%",
             left: "6.1%",
@@ -63,7 +63,7 @@ export default function ResponsiveMockup({
         };
       default: // desktop
         return {
-          mockupSrc: "/macbook-mockup.png",
+          mockupSrc: "/macbook-mockup.webp",
           mockupAlt: "MacBook Air mock-up",
           frame: {
             top: "5.6%",
@@ -136,7 +136,7 @@ export default function ResponsiveMockup({
       imageNameMapping[nameWithoutExt.toLowerCase()] ||
       nameWithoutExt.toLowerCase();
 
-    return `${mockupConfig.folderPath}${mockupConfig.projectPrefix}${mappedName}.png`;
+    return `${mockupConfig.folderPath}${mockupConfig.projectPrefix}${mappedName}.webp`;
   };
 
   // Animation variants

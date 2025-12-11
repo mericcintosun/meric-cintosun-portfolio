@@ -24,7 +24,7 @@ export const metadata = {
     url: "https://mericcintosun.com/projects",
     images: [
       {
-        url: "/projectImages/alvin.png",
+        url: "/projectImages/alvin.webm",
         width: 1200,
         height: 630,
         alt: "Meriç Cintosun - Projects",
@@ -35,7 +35,7 @@ export const metadata = {
     title: "Projects | Meriç Cintosun",
     description:
       "React, Next.js, Blockchain and AI projects. NFT marketplace, DeFi platforms and productivity applications.",
-    images: ["/projectImages/alvin.png"],
+    images: ["/projectImages/alvin.webp"],
   },
 };
 

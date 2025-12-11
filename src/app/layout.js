@@ -18,6 +18,19 @@ export const metadata = {
   },
   description:
     "Meriç Cintosun - Full Stack Developer and Blockchain specialist. Building modern web applications and DeFi projects with React, Next.js, Node.js, Flutter and Rust. Istanbul University graduate.",
+  icons: {
+    icon: [
+      { url: "/main-image.webp", type: "image/webp" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/main-image.webp", sizes: "180x180", type: "image/webp" }],
+    other: [
+      {
+        rel: "apple-touch-icon-precomposed",
+        url: "/main-image.webp",
+      },
+    ],
+  },
   keywords: [
     "Meriç Cintosun",
     "Full Stack Developer",

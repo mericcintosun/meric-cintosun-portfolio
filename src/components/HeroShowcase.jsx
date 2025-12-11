@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import MacbookMockup from "./MacbookMockup";
 
 export default function HeroShowcase({
-  appIcon = "/icons/portfolio-icon.png",
+  appIcon = "/icons/portfolio-icon.webp",
   appTitle = "Portfolio",
   appSubtitle = "Projects Showcase",
   description,
