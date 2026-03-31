@@ -48,7 +48,7 @@ async function importArticles() {
     const { data, content } = matter(rawContent);
 
     const publishDate = new Date(baseDate);
-    publishDate.setDate(baseDate.getDate() + index * 3);
+    publishDate.setDate(baseDate.getDate() + index * 2);
 
     articlesToInsert.push({
       title:
