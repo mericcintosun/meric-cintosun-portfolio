@@ -9,17 +9,6 @@ type Article = {
   content: string;
 };
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-if (!supabaseUrl || !supabaseServiceKey) {
-  throw new Error(
-    "Missing Supabase credentials. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.",
-  );
-}
-
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
 async function publishToDevto(article: Article, canonicalUrl: string) {
   if (!process.env.DEVTO_API_KEY) {
     return null;
@@ -120,6 +109,19 @@ export async function GET(request: Request) {
       { status: 500 },
     );
   }
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseUrl || !supabaseServiceKey) {
+    return NextResponse.json(
+      {
+        error:
+          "Missing Supabase credentials. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.",
+      },
+      { status: 500 },
+    );
+  }
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
   try {
     const { data: articles, error } = await supabase

@@ -43,7 +43,8 @@ async function importArticles() {
   const articlesToInsert: ArticleInsert[] = [];
   const baseDate = new Date();
 
-  for (const [index, file] of files.entries()) {
+  for (let index = 0; index < files.length; index += 1) {
+    const file = files[index];
     const rawContent = fs.readFileSync(path.join(articlesDir, file), "utf-8");
     const { data, content } = matter(rawContent);
 
