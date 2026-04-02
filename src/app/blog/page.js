@@ -5,6 +5,7 @@ import data from "../../../public/blog.json";
 import { Select, Option, Input } from "@material-tailwind/react";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export default function Blog() {
   const { t } = useLanguage();
@@ -12,11 +13,24 @@ export default function Blog() {
   const [sortOrder, setSortOrder] = useState("newest");
   const [searchTerm, setSearchTerm] = useState("");
 
+  const [allBlogs, setAllBlogs] = useState(data.blogs);
+
   useEffect(() => {
-    let filteredBlogs = data.blogs;
+    fetch("/api/articles/published")
+      .then((res) => res.json())
+      .then((published) => {
+        if (Array.isArray(published) && published.length > 0) {
+          setAllBlogs([...data.blogs, ...published]);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    let filteredBlogs = allBlogs;
     if (searchTerm) {
       const searchTermLower = searchTerm.toLowerCase();
-      filteredBlogs = data.blogs.filter(
+      filteredBlogs = allBlogs.filter(
         (blog) =>
           blog.title.toLowerCase().includes(searchTermLower) ||
           blog.tags.some((tag) =>
@@ -33,7 +47,7 @@ export default function Blog() {
     });
 
     setBlogs(sortedBlogs);
-  }, [sortOrder, searchTerm]);
+  }, [sortOrder, searchTerm, allBlogs]);
 
   const handleSortChange = (value) => {
     setSortOrder(value);
@@ -82,6 +96,29 @@ export default function Blog() {
         >
           {t("blogNote")}
         </motion.p>
+        <motion.div
+          className="flex flex-wrap gap-3 justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+        >
+          <Link
+            href="https://dev.to/mericcintosun"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1a2234] border border-purple-500/20 text-purple-300 hover:border-purple-500/60 hover:text-white transition-all text-sm font-medium"
+          >
+            All articles on Dev.to
+          </Link>
+          <Link
+            href="https://digital-diaries.hashnode.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1a2234] border border-purple-500/20 text-purple-300 hover:border-purple-500/60 hover:text-white transition-all text-sm font-medium"
+          >
+            All articles on Hashnode
+          </Link>
+        </motion.div>
         <motion.div
           className="flex flex-col md:flex-row gap-4 items-stretch justify-center max-w-3xl mx-auto w-full bg-[#1a2234]/80 p-4 rounded-xl"
           initial={{ y: 20, opacity: 0 }}
